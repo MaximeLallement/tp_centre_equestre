@@ -13,4 +13,5 @@ abstract class DefaultClass{
     /*Getter */
 
     /*Fonction */
+    
 }
