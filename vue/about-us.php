@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <!--[if lt IE 10]>
-    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="../assets/img/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
   </head>
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="page">
-      <!-- Top Banner--><a class="section section-banner text-center d-none d-xl-block" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(images/banner/background-04-1920x60.jpg); background-image: -webkit-image-set( url(images/banner/background-04-1920x60.jpg) 1x, url(images/banner/background-04-3840x120.jpg) 2x )"><img src="images/banner/foreground-04-1600x60.png" srcset="images/banner/foreground-04-1600x60.png 1x, images/banner/foreground-04-3200x120.png 2x" alt="" width="1600" height="310"></a>
+      <!-- Top Banner--><a class="section section-banner text-center d-none d-xl-block" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(../assets/img/banner/background-04-1920x60.jpg); background-image: -webkit-image-set( url(../assets/img/banner/background-04-1920x60.jpg) 1x, url(../assets/img/banner/background-04-3840x120.jpg) 2x )"><img src="../assets/img/banner/foreground-04-1600x60.png" srcset="../assets/img/banner/foreground-04-1600x60.png 1x, ../assets/img/banner/foreground-04-3200x120.png 2x" alt="" width="1600" height="310"></a>
       <!-- Page Header-->
       <header class="section page-header">
         <!-- RD Navbar-->
@@ -65,7 +65,7 @@
                   <!-- RD Navbar Toggle-->
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
-                  <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-198x66.png" alt="" width="198" height="66"/></a></div>
+                  <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="../assets/img/logo-198x66.png" alt="" width="198" height="66"/></a></div>
                 </div>
                 <div class="rd-navbar-right rd-navbar-nav-wrap">
                   <div class="rd-navbar-aside">
@@ -120,43 +120,43 @@
                       <div class="row gutters-20" data-lightgallery="group">
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-1-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-1-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-1-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-1-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-2-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-2-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-2-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-2-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-3-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-3-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-3-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-3-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-4-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-4-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-4-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-4-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-5-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-5-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-5-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-5-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-6-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-6-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-6-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-6-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
@@ -177,7 +177,7 @@
             <h3 class="breadcrumbs-custom-title">About us</h3>
             <div class="breadcrumbs-custom-decor"></div>
           </div>
-          <div class="box-transform" style="background-image: url(images/bg-1.jpg);"></div>
+          <div class="box-transform" style="background-image: url(../assets/img/bg-1.jpg);"></div>
         </div>
         <div class="container">
           <ul class="breadcrumbs-custom-path">
@@ -204,22 +204,22 @@
                 <div class="tab-pane fade show active" id="tabs-4-1">
                   <h4>a few words about us</h4>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p><img src="images/about-1-835x418.jpg" alt="" width="835" height="418"/>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p><img src="../assets/img/about-1-835x418.jpg" alt="" width="835" height="418"/>
                 </div>
                 <div class="tab-pane fade" id="tabs-4-2">
                   <h4>Offering the Best Pizza in Los Angeles</h4>
                   <p>Lotus advenas ducunt ad gemna. Ubi est domesticus domina? Heu, barbatus mens! Cum elogium favere, omnes lubaes tractare talis, barbatus adiuratores. Mirabilis hydras ducunt ad danista. Dominas sunt accentors de germanus cacula. Amicitias prarere in alta muta! Ecce, bubo! Nunquam promissio verpa. Talis, primus fugas recte consumere de audax, festus indictio. Nunquam quaestio scutum. Valebats</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><img src="images/about-1-835x418.jpg" alt="" width="835" height="418"/>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><img src="../assets/img/about-1-835x418.jpg" alt="" width="835" height="418"/>
                 </div>
                 <div class="tab-pane fade" id="tabs-4-3">
                   <h4>Providing Top-notch Customer Service</h4>
                   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
-                  <p>Lotus advenas ducunt ad gemna. Ubi est domesticus domina? Heu, barbatus mens! Cum elogium favere, omnes lubaes tractare talis, barbatus adiuratores. Mirabilis hydras ducunt ad danista. Dominas sunt accentors de germanus cacula. Amicitias prarere in alta muta! Ecce, bubo! Nunquam promissio verpa. Talis, primus fugas recte consumere de audax, festus indictio. Nunquam quaestio scutum. Valebats</p><img src="images/about-1-835x418.jpg" alt="" width="835" height="418"/>
+                  <p>Lotus advenas ducunt ad gemna. Ubi est domesticus domina? Heu, barbatus mens! Cum elogium favere, omnes lubaes tractare talis, barbatus adiuratores. Mirabilis hydras ducunt ad danista. Dominas sunt accentors de germanus cacula. Amicitias prarere in alta muta! Ecce, bubo! Nunquam promissio verpa. Talis, primus fugas recte consumere de audax, festus indictio. Nunquam quaestio scutum. Valebats</p><img src="../assets/img/about-1-835x418.jpg" alt="" width="835" height="418"/>
                 </div>
                 <div class="tab-pane fade" id="tabs-4-4">
                   <h4>Integrity & Dedication</h4>
                   <p>Albus, dexter particulas grauiter consumere de ferox, bi-color abactus. Impositios studere, tanquam mirabilis hippotoxota. Cur torus manducare? Pol, vox! Cum barcas nocere, omnes specieses contactus</p>
-                  <p>Lotus advenas ducunt ad gemna. Ubi est domesticus domina? Heu, barbatus mens! Cum elogium favere, omnes lubaes tractare talis, barbatus adiuratores. Mirabilis hydras ducunt ad danista. Dominas sunt accentors de germanus cacula. Amicitias prarere in alta muta! Ecce, bubo! Nunquam promissio verpa. Talis, primus fugas recte consumere de audax, festus indictio. Nunquam quaestio scutum. Valebats</p><img src="images/about-1-835x418.jpg" alt="" width="835" height="418"/>
+                  <p>Lotus advenas ducunt ad gemna. Ubi est domesticus domina? Heu, barbatus mens! Cum elogium favere, omnes lubaes tractare talis, barbatus adiuratores. Mirabilis hydras ducunt ad danista. Dominas sunt accentors de germanus cacula. Amicitias prarere in alta muta! Ecce, bubo! Nunquam promissio verpa. Talis, primus fugas recte consumere de audax, festus indictio. Nunquam quaestio scutum. Valebats</p><img src="../assets/img/about-1-835x418.jpg" alt="" width="835" height="418"/>
                 </div>
               </div>
             </div>
@@ -281,7 +281,7 @@
           <div class="row row-lg row-40 justify-content-center">
             <div class="col-sm-6 col-lg-3 wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">
               <!-- Team Modern-->
-              <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/team-01-270x236.jpg" alt="" width="270" height="236"/></a>
+              <article class="team-modern"><a class="team-modern-figure" href="#"><img src="../assets/img/team-01-270x236.jpg" alt="" width="270" height="236"/></a>
                 <div class="team-modern-caption">
                   <h6 class="team-modern-name"><a href="#">Richard Peterson</a></h6>
                   <div class="team-modern-status">Head Chef</div>
@@ -296,7 +296,7 @@
             </div>
             <div class="col-sm-6 col-lg-3 wow fadeInLeft" data-wow-delay="0s" data-wow-duration="1s">
               <!-- Team Modern-->
-              <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/team-02-270x236.jpg" alt="" width="270" height="236"/></a>
+              <article class="team-modern"><a class="team-modern-figure" href="#"><img src="../assets/img/team-02-270x236.jpg" alt="" width="270" height="236"/></a>
                 <div class="team-modern-caption">
                   <h6 class="team-modern-name"><a href="#">Amelia Lee</a></h6>
                   <div class="team-modern-status">Manager</div>
@@ -311,7 +311,7 @@
             </div>
             <div class="col-sm-6 col-lg-3 wow fadeInRight" data-wow-delay=".1s" data-wow-duration="1s">
               <!-- Team Modern-->
-              <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/team-03-270x236.jpg" alt="" width="270" height="236"/></a>
+              <article class="team-modern"><a class="team-modern-figure" href="#"><img src="../assets/img/team-03-270x236.jpg" alt="" width="270" height="236"/></a>
                 <div class="team-modern-caption">
                   <h6 class="team-modern-name"><a href="#">Sam Peterson</a></h6>
                   <div class="team-modern-status">Head Baker</div>
@@ -326,7 +326,7 @@
             </div>
             <div class="col-sm-6 col-lg-3 wow fadeInRight" data-wow-delay=".3s" data-wow-duration="1s">
               <!-- Team Modern-->
-              <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/team-04-270x236.jpg" alt="" width="270" height="236"/></a>
+              <article class="team-modern"><a class="team-modern-figure" href="#"><img src="../assets/img/team-04-270x236.jpg" alt="" width="270" height="236"/></a>
                 <div class="team-modern-caption">
                   <h6 class="team-modern-name"><a href="#">Jane Smith</a></h6>
                   <div class="team-modern-status">Pizza Chef</div>
@@ -381,12 +381,12 @@
               </div>
             </div>
             <div class="col-md-9 col-lg-6 position-static index-1">
-              <div class="bg-image-right-1 bg-image-right-lg"><img src="images/our_history-1110x710.jpg" alt="" width="1110" height="710"/>
+              <div class="bg-image-right-1 bg-image-right-lg"><img src="../assets/img/our_history-1110x710.jpg" alt="" width="1110" height="710"/>
                 <div class="link-play-modern"><a class="icon mdi mdi-play" data-lightgallery="item" href="https://www.youtube.com/watch?v=1UWpbtUupQQ"></a>
                   <div class="link-play-modern-title">How we<span>Work</span></div>
                   <div class="link-play-modern-decor"></div>
                 </div>
-                <div class="box-transform" style="background-image: url(images/our_history-1110x710.jpg);"></div>
+                <div class="box-transform" style="background-image: url(../assets/img/our_history-1110x710.jpg);"></div>
               </div>
             </div>
           </div>
@@ -437,25 +437,25 @@
                     </div>
                   </div>
                   <div class="slick-slider child-carousel" id="child-carousel-5" data-arrows="true" data-for=".carousel-parent" data-items="4" data-sm-items="4" data-md-items="4" data-lg-items="4" data-xl-items="4" data-slide-to-scroll="1">
-                    <div class="item"><img class="img-circle" src="images/team-5-83x83.jpg" alt="" width="83" height="83"/>
+                    <div class="item"><img class="img-circle" src="../assets/img/team-5-83x83.jpg" alt="" width="83" height="83"/>
                     </div>
-                    <div class="item"><img class="img-circle" src="images/team-6-83x83.jpg" alt="" width="83" height="83"/>
+                    <div class="item"><img class="img-circle" src="../assets/img/team-6-83x83.jpg" alt="" width="83" height="83"/>
                     </div>
-                    <div class="item"><img class="img-circle" src="images/team-7-83x83.jpg" alt="" width="83" height="83"/>
+                    <div class="item"><img class="img-circle" src="../assets/img/team-7-83x83.jpg" alt="" width="83" height="83"/>
                     </div>
-                    <div class="item"><img class="img-circle" src="images/team-8-83x83.jpg" alt="" width="83" height="83"/>
+                    <div class="item"><img class="img-circle" src="../assets/img/team-8-83x83.jpg" alt="" width="83" height="83"/>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-xl-7"><img src="images/wp-say-669x447.jpg" alt="" width="669" height="447"/>
+            <div class="col-lg-6 col-xl-7"><img src="../assets/img/wp-say-669x447.jpg" alt="" width="669" height="447"/>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Bottom Banner--><a class="section section-banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(images/banner/background-03-1920x310.jpg); background-image: -webkit-image-set( url(images/banner/background-03-1920x310.jpg) 1x, url(images/banner/background-03-3840x620.jpg) 2x )"><img src="images/banner/foreground-03-1600x310.png" srcset="images/banner/foreground-03-1600x310.png 1x, images/banner/foreground-03-3200x620.png 2x" alt="" width="1600" height="310"></a>
+      <!-- Bottom Banner--><a class="section section-banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(../assets/img/banner/background-03-1920x310.jpg); background-image: -webkit-image-set( url(../assets/img/banner/background-03-1920x310.jpg) 1x, url(../assets/img/banner/background-03-3840x620.jpg) 2x )"><img src="../assets/img/banner/foreground-03-1600x310.png" srcset="../assets/img/banner/foreground-03-1600x310.png 1x, ../assets/img/banner/foreground-03-3200x620.png 2x" alt="" width="1600" height="310"></a>
       <!-- Page Footer-->
       <footer class="section footer-modern context-dark footer-modern-2">
         <div class="footer-modern-line">
@@ -505,9 +505,9 @@
             <div class="row row-30 align-items-center">
               <div class="col-sm-6 col-md-7 col-lg-4 col-xl-4">
                 <div class="row row-30 align-items-center text-lg-center">
-                  <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img src="images/logo-inverse-198x66.png" alt="" width="198" height="66"/></a></div>
+                  <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img src="../assets/img/logo-inverse-198x66.png" alt="" width="198" height="66"/></a></div>
                   <div class="col-md-5 col-xl-6">
-                    <div class="iso-1"><span><img src="images/like-icon-58x25.png" alt="" width="58" height="25"/></span><span class="iso-1-big">9.4k</span></div>
+                    <div class="iso-1"><span><img src="../assets/img/like-icon-58x25.png" alt="" width="58" height="25"/></span><span class="iso-1-big">9.4k</span></div>
                   </div>
                 </div>
               </div>

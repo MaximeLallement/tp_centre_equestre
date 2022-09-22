@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <!--[if lt IE 10]>
-    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="../assets/img/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
   </head>
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="page">
-      <!-- Top Banner--><a class="section section-banner text-center d-none d-xl-block" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(images/banner/background-04-1920x60.jpg); background-image: -webkit-image-set( url(images/banner/background-04-1920x60.jpg) 1x, url(images/banner/background-04-3840x120.jpg) 2x )"><img src="images/banner/foreground-04-1600x60.png" srcset="images/banner/foreground-04-1600x60.png 1x, images/banner/foreground-04-3200x120.png 2x" alt="" width="1600" height="310"></a>
+      <!-- Top Banner--><a class="section section-banner text-center d-none d-xl-block" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(../assets/img/banner/background-04-1920x60.jpg); background-image: -webkit-image-set( url(../assets/img/banner/background-04-1920x60.jpg) 1x, url(../assets/img/banner/background-04-3840x120.jpg) 2x )"><img src="../assets/img/banner/foreground-04-1600x60.png" srcset="../assets/img/banner/foreground-04-1600x60.png 1x, ../assets/img/banner/foreground-04-3200x120.png 2x" alt="" width="1600" height="310"></a>
       <!-- Page Header-->
       <header class="section page-header">
         <!-- RD Navbar-->
@@ -65,7 +65,7 @@
                   <!-- RD Navbar Toggle-->
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
-                  <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-198x66.png" alt="" width="198" height="66"/></a></div>
+                  <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="../assets/img/logo-198x66.png" alt="" width="198" height="66"/></a></div>
                 </div>
                 <div class="rd-navbar-right rd-navbar-nav-wrap">
                   <div class="rd-navbar-aside">
@@ -120,43 +120,43 @@
                       <div class="row gutters-20" data-lightgallery="group">
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-1-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-1-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-1-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-1-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-2-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-2-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-2-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-2-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-3-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-3-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-3-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-3-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-4-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-4-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-4-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-4-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-5-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-5-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-5-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-5-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-6-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-6-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-6-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-6-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
@@ -176,7 +176,7 @@
             <h3 class="breadcrumbs-custom-title">Typography</h3>
             <div class="breadcrumbs-custom-decor"></div>
           </div>
-          <div class="box-transform" style="background-image: url(images/bg-1.jpg);"></div>
+          <div class="box-transform" style="background-image: url(../assets/img/bg-1.jpg);"></div>
         </div>
         <div class="container">
           <ul class="breadcrumbs-custom-path">
@@ -305,7 +305,7 @@
           </div>
         </div>
       </section>
-      <!-- Bottom Banner--><a class="section section-banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(images/banner/background-03-1920x310.jpg); background-image: -webkit-image-set( url(images/banner/background-03-1920x310.jpg) 1x, url(images/banner/background-03-3840x620.jpg) 2x )"><img src="images/banner/foreground-03-1600x310.png" srcset="images/banner/foreground-03-1600x310.png 1x, images/banner/foreground-03-3200x620.png 2x" alt="" width="1600" height="310"></a>
+      <!-- Bottom Banner--><a class="section section-banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(../assets/img/banner/background-03-1920x310.jpg); background-image: -webkit-image-set( url(../assets/img/banner/background-03-1920x310.jpg) 1x, url(../assets/img/banner/background-03-3840x620.jpg) 2x )"><img src="../assets/img/banner/foreground-03-1600x310.png" srcset="../assets/img/banner/foreground-03-1600x310.png 1x, ../assets/img/banner/foreground-03-3200x620.png 2x" alt="" width="1600" height="310"></a>
       <!-- Page Footer-->
       <footer class="section footer-modern context-dark footer-modern-2">
         <div class="footer-modern-line">
@@ -355,9 +355,9 @@
             <div class="row row-30 align-items-center">
               <div class="col-sm-6 col-md-7 col-lg-4 col-xl-4">
                 <div class="row row-30 align-items-center text-lg-center">
-                  <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img src="images/logo-inverse-198x66.png" alt="" width="198" height="66"/></a></div>
+                  <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img src="../assets/img/logo-inverse-198x66.png" alt="" width="198" height="66"/></a></div>
                   <div class="col-md-5 col-xl-6">
-                    <div class="iso-1"><span><img src="images/like-icon-58x25.png" alt="" width="58" height="25"/></span><span class="iso-1-big">9.4k</span></div>
+                    <div class="iso-1"><span><img src="../assets/img/like-icon-58x25.png" alt="" width="58" height="25"/></span><span class="iso-1-big">9.4k</span></div>
                   </div>
                 </div>
               </div>
