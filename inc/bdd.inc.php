@@ -1,19 +1,25 @@
 <?php
 
-/*  Connexion     */
-$hostname = "localhost";
-$username = "root";
-$password = "Hashka852456";
-//DATABASE_URL="mysql://root:Hashka852456@127.0.0.1:3306/eu2p-frontoffice?serverVersion=8.0&charset=utf8"
-
-
 try {
-    $db = new PDO("mysql:host=$hostname;dbname=tp_centre_equestre", $username, $password);
+    /*  Connexion  */
+    $hostname = "localhost";
+    $username = "root";
+    $password = "Hashka852456";
+    $dbname = "tp_centre_equestre";
+
+    $db = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
     //echo "Connected to database";
 }catch(PDOException $e) {
     echo $e->getMessage();
 }
 
+// DEFINE
+define('DB_TABLE_PERSONNE','personne');
 
+/* Include des class  */
+require "class/Personne.class.php";
+require "class/Cavalier.class.php";
+require "class/Representant.class.php";
+require "class/CavalierRepresentant.class.php";
 
-/* INCLUDE  */
+/* Récupération des objets */
