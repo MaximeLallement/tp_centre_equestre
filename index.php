@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
     <!--[if lt IE 10]>
-    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="../assets/img/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="assets/img/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
   </head>
@@ -64,7 +64,7 @@
                   <!-- RD Navbar Toggle-->
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
-                  <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="../assets/img/logo-198x66.png" alt="" width="198" height="66"/></a></div>
+                  <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="assets/img/logo-198x66.png" alt="" width="198" height="66"/></a></div>
                 </div>
                 <div class="rd-navbar-right rd-navbar-nav-wrap">
                   <div class="rd-navbar-aside">
@@ -119,43 +119,43 @@
                       <div class="row gutters-20" data-lightgallery="group">
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-1-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-1-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="assets/img/project-1-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="assets/img/project-1-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-2-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-2-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="assets/img/project-2-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="assets/img/project-2-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-3-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-3-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="assets/img/project-3-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="assets/img/project-3-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-4-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-4-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="assets/img/project-4-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="assets/img/project-4-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-5-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-5-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="assets/img/project-5-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="assets/img/project-5-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
                         <div class="col-6">
                           <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="../assets/img/project-6-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="../assets/img/project-6-195x164.jpg" alt="" width="195" height="164"/>
+                          <article class="thumbnail thumbnail-creative"><a href="assets/img/project-6-1200x800-original.jpg" data-lightgallery="item">
+                              <div class="thumbnail-creative-figure"><img src="assets/img/project-6-195x164.jpg" alt="" width="195" height="164"/>
                               </div>
                               <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
                         </div>
@@ -171,7 +171,7 @@
       <!-- Swiper-->
       <section class="section swiper-container swiper-slider swiper-slider-2 swiper-slider-3" data-loop="true" data-autoplay="5000" data-simulate-touch="false" data-slide-effect="fade">
         <div class="swiper-wrapper text-sm-left">
-          <div class="swiper-slide context-dark" data-slide-bg="../assets/img/slide-1-1920x753.jpg">
+          <div class="swiper-slide context-dark" data-slide-bg="assets/img/slide-1-1920x753.jpg">
             <div class="swiper-slide-caption section-md">
               <div class="container">
                 <div class="row">
@@ -183,7 +183,7 @@
               </div>
             </div>
           </div>
-          <div class="swiper-slide context-dark" data-slide-bg="../assets/img/slide-2-1920x753.jpg">
+          <div class="swiper-slide context-dark" data-slide-bg="assets/img/slide-2-1920x753.jpg">
             <div class="swiper-slide-caption section-md">
               <div class="container">
                 <div class="row">
@@ -222,7 +222,7 @@
               <div class="oh-desktop">
                 <!-- Services Terri-->
                 <article class="services-terri wow slideInUp">
-                  <div class="services-terri-figure"><img src="../assets/img/menu-1-370x278.jpg" alt="" width="370" height="278"/>
+                  <div class="services-terri-figure"><img src="assets/img/menu-1-370x278.jpg" alt="" width="370" height="278"/>
                   </div>
                   <div class="services-terri-caption"><span class="services-terri-icon linearicons-leaf"></span>
                     <h5 class="services-terri-title"><a href="#">Salads</a></h5>
@@ -234,7 +234,7 @@
               <div class="oh-desktop">
                 <!-- Services Terri-->
                 <article class="services-terri wow slideInDown">
-                  <div class="services-terri-figure"><img src="../assets/img/menu-2-370x278.jpg" alt="" width="370" height="278"/>
+                  <div class="services-terri-figure"><img src="assets/img/menu-2-370x278.jpg" alt="" width="370" height="278"/>
                   </div>
                   <div class="services-terri-caption"><span class="services-terri-icon linearicons-pizza"></span>
                     <h5 class="services-terri-title"><a href="#">Pizzas</a></h5>
@@ -246,7 +246,7 @@
               <div class="oh-desktop">
                 <!-- Services Terri-->
                 <article class="services-terri wow slideInUp">
-                  <div class="services-terri-figure"><img src="../assets/img/menu-3-370x278.jpg" alt="" width="370" height="278"/>
+                  <div class="services-terri-figure"><img src="assets/img/menu-3-370x278.jpg" alt="" width="370" height="278"/>
                   </div>
                   <div class="services-terri-caption"><span class="services-terri-icon linearicons-hamburger"></span>
                     <h5 class="services-terri-title"><a href="#">Burgers</a></h5>
@@ -258,7 +258,7 @@
               <div class="oh-desktop">
                 <!-- Services Terri-->
                 <article class="services-terri wow slideInDown">
-                  <div class="services-terri-figure"><img src="../assets/img/menu-4-370x278.jpg" alt="" width="370" height="278"/>
+                  <div class="services-terri-figure"><img src="assets/img/menu-4-370x278.jpg" alt="" width="370" height="278"/>
                   </div>
                   <div class="services-terri-caption"><span class="services-terri-icon linearicons-ice-cream"></span>
                     <h5 class="services-terri-title"><a href="#">Desserts</a></h5>
@@ -270,7 +270,7 @@
               <div class="oh-desktop">
                 <!-- Services Terri-->
                 <article class="services-terri wow slideInUp">
-                  <div class="services-terri-figure"><img src="../assets/img/menu-5-370x278.jpg" alt="" width="370" height="278"/>
+                  <div class="services-terri-figure"><img src="assets/img/menu-5-370x278.jpg" alt="" width="370" height="278"/>
                   </div>
                   <div class="services-terri-caption"><span class="services-terri-icon linearicons-coffee-cup"></span>
                     <h5 class="services-terri-title"><a href="#">Drinks</a></h5>
@@ -282,7 +282,7 @@
               <div class="oh-desktop">
                 <!-- Services Terri-->
                 <article class="services-terri wow slideInDown">
-                  <div class="services-terri-figure"><img src="../assets/img/menu-6-370x278.jpg" alt="" width="370" height="278"/>
+                  <div class="services-terri-figure"><img src="assets/img/menu-6-370x278.jpg" alt="" width="370" height="278"/>
                   </div>
                   <div class="services-terri-caption"><span class="services-terri-icon linearicons-steak"></span>
                     <h5 class="services-terri-title"><a href="#">Seafood</a></h5>
@@ -295,7 +295,7 @@
       </section>
 
       <!-- Section CTA-->
-      <section class="primary-overlay section parallax-container" data-parallax-img="../assets/img/bg-3.jpg">
+      <section class="primary-overlay section parallax-container" data-parallax-img="assets/img/bg-3.jpg">
         <div class="parallax-content section-xl context-dark text-md-left">
           <div class="container">
             <div class="row justify-content-end">
@@ -319,7 +319,7 @@
             <div class="col-sm-6 col-lg-4 col-xl-3">
               <!-- Product-->
               <article class="product wow fadeInLeft" data-wow-delay=".15s">
-                <div class="product-figure"><img src="../assets/img/product-1-161x162.png" alt="" width="161" height="162"/>
+                <div class="product-figure"><img src="assets/img/product-1-161x162.png" alt="" width="161" height="162"/>
                 </div>
                 <div class="product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
                 </div>
@@ -336,7 +336,7 @@
             <div class="col-sm-6 col-lg-4 col-xl-3">
               <!-- Product-->
               <article class="product wow fadeInLeft" data-wow-delay=".1s">
-                <div class="product-figure"><img src="../assets/img/product-2-161x162.png" alt="" width="161" height="162"/>
+                <div class="product-figure"><img src="assets/img/product-2-161x162.png" alt="" width="161" height="162"/>
                 </div>
                 <div class="product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span>
                 </div>
@@ -353,7 +353,7 @@
             <div class="col-sm-6 col-lg-4 col-xl-3">
               <!-- Product-->
               <article class="product wow fadeInLeft" data-wow-delay=".05s">
-                <div class="product-figure"><img src="../assets/img/product-3-161x162.png" alt="" width="161" height="162"/>
+                <div class="product-figure"><img src="assets/img/product-3-161x162.png" alt="" width="161" height="162"/>
                 </div>
                 <div class="product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
                 </div>
@@ -370,7 +370,7 @@
             <div class="col-sm-6 col-lg-4 col-xl-3">
               <!-- Product-->
               <article class="product wow fadeInLeft">
-                <div class="product-figure"><img src="../assets/img/product-4-161x162.png" alt="" width="161" height="162"/>
+                <div class="product-figure"><img src="assets/img/product-4-161x162.png" alt="" width="161" height="162"/>
                 </div>
                 <div class="product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span>
                 </div>
@@ -390,7 +390,7 @@
       </section>
 
       <!-- Section CTA-->
-      <section class="primary-overlay section parallax-container" data-parallax-img="../assets/img/bg-4.jpg">
+      <section class="primary-overlay section parallax-container" data-parallax-img="assets/img/bg-4.jpg">
         <div class="parallax-content section-xxl context-dark text-md-left">
           <div class="container">
             <div class="row justify-content-end">
@@ -418,7 +418,7 @@
                 <div class="quote-tara-text">
                   <p class="q">PizzaHouse is the longest lasting pizza place in the city and is well run and staffed. Prices are great and allow me to keep coming back.</p>
                 </div>
-                <div class="quote-tara-figure"><img src="../assets/img/user-6-115x115.jpg" alt="" width="115" height="115"/>
+                <div class="quote-tara-figure"><img src="assets/img/user-6-115x115.jpg" alt="" width="115" height="115"/>
                 </div>
               </div>
               <h6 class="quote-tara-author">Ashley Fitzgerald</h6>
@@ -430,7 +430,7 @@
                 <div class="quote-tara-text">
                   <p class="q">I am a real pizza addict, and even when I’m home I prefer your pizzas to all others. They taste awesome and are very affordable.</p>
                 </div>
-                <div class="quote-tara-figure"><img src="../assets/img/user-8-115x115.jpg" alt="" width="115" height="115"/>
+                <div class="quote-tara-figure"><img src="assets/img/user-8-115x115.jpg" alt="" width="115" height="115"/>
                 </div>
               </div>
               <h6 class="quote-tara-author">Stephanie Williams</h6>
@@ -442,7 +442,7 @@
                 <div class="quote-tara-text">
                   <p class="q">PizzaHouse has amazing pizza. Not only do you get served with a great attitude, you also get delicious pizza at a great price!</p>
                 </div>
-                <div class="quote-tara-figure"><img src="../assets/img/user-7-115x115.jpg" alt="" width="115" height="115"/>
+                <div class="quote-tara-figure"><img src="assets/img/user-7-115x115.jpg" alt="" width="115" height="115"/>
                 </div>
               </div>
               <h6 class="quote-tara-author">Bill Johnson</h6>
@@ -454,7 +454,7 @@
                 <div class="quote-tara-text">
                   <p class="q">PizzaHouse has great pizza. Not only do you get served with a great attitude and delivered delicious pizza, you get a great price.</p>
                 </div>
-                <div class="quote-tara-figure"><img src="../assets/img/user-9-115x115.jpg" alt="" width="115" height="115"/>
+                <div class="quote-tara-figure"><img src="assets/img/user-9-115x115.jpg" alt="" width="115" height="115"/>
                 </div>
               </div>
               <h6 class="quote-tara-author">Aaron Wilson</h6>
@@ -469,7 +469,7 @@
           <div class="row row-10 gutters-10 isotope" data-isotope-layout="masonry" data-isotope-group="gallery" data-lightgallery="group">
             <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
               <!-- Thumbnail Mary-->
-              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft"><a class="thumbnail-mary-figure" href="../assets/img/gallery-1-1200x800-original.jpg" data-lightgallery="item"><img src="../assets/img/gallery-1-310x585.jpg" alt="" width="310" height="585"/></a>
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft"><a class="thumbnail-mary-figure" href="assets/img/gallery-1-1200x800-original.jpg" data-lightgallery="item"><img src="assets/img/gallery-1-310x585.jpg" alt="" width="310" height="585"/></a>
                 <div class="thumbnail-mary-caption">
                   <div>
                     <h6 class="thumbnail-mary-title"><a href="#">Best Ingredients</a></h6>
@@ -480,7 +480,7 @@
             </div>
             <div class="col-xs-6 col-sm-8 col-xl-4 isotope-item oh-desktop">
               <!-- Thumbnail Mary-->
-              <article class="thumbnail thumbnail-mary thumbnail-mary-big wow slideInRight"><a class="thumbnail-mary-figure" href="../assets/img/gallery-2-1200x800-original.jpg" data-lightgallery="item"><img src="../assets/img/gallery-2-631x587.jpg" alt="" width="631" height="587"/></a>
+              <article class="thumbnail thumbnail-mary thumbnail-mary-big wow slideInRight"><a class="thumbnail-mary-figure" href="assets/img/gallery-2-1200x800-original.jpg" data-lightgallery="item"><img src="assets/img/gallery-2-631x587.jpg" alt="" width="631" height="587"/></a>
                 <div class="thumbnail-mary-caption">
                   <div>
                     <h6 class="thumbnail-mary-title"><a href="#">Comfortable interior</a></h6>
@@ -491,7 +491,7 @@
             </div>
             <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
               <!-- Thumbnail Mary-->
-              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInDown"><a class="thumbnail-mary-figure" href="../assets/img/gallery-3-1200x800-original.jpg" data-lightgallery="item"><img src="../assets/img/gallery-3-311x289.jpg" alt="" width="311" height="289"/></a>
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInDown"><a class="thumbnail-mary-figure" href="assets/img/gallery-3-1200x800-original.jpg" data-lightgallery="item"><img src="assets/img/gallery-3-311x289.jpg" alt="" width="311" height="289"/></a>
                 <div class="thumbnail-mary-caption">
                   <div>
                     <h6 class="thumbnail-mary-title"><a href="#">quality Dishware</a></h6>
@@ -502,7 +502,7 @@
             </div>
             <div class="col-xs-6 col-sm-8 col-xl-4 isotope-item oh-desktop">
               <!-- Thumbnail Mary-->
-              <article class="thumbnail thumbnail-mary wow slideInUp"><a class="thumbnail-mary-figure" href="../assets/img/gallery-4-1200x800-original.jpg" data-lightgallery="item"><img src="../assets/img/gallery-4-631x289.jpg" alt="" width="631" height="289"/></a>
+              <article class="thumbnail thumbnail-mary wow slideInUp"><a class="thumbnail-mary-figure" href="assets/img/gallery-4-1200x800-original.jpg" data-lightgallery="item"><img src="assets/img/gallery-4-631x289.jpg" alt="" width="631" height="289"/></a>
                 <div class="thumbnail-mary-caption">
                   <div>
                     <h6 class="thumbnail-mary-title"><a href="#">Refreshing cocktails</a></h6>
@@ -513,7 +513,7 @@
             </div>
             <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
               <!-- Thumbnail Mary-->
-              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInUp"><a class="thumbnail-mary-figure" href="../assets/img/gallery-5-1200x800-original.jpg" data-lightgallery="item"><img src="../assets/img/gallery-5-311x289.jpg" alt="" width="311" height="289"/></a>
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInUp"><a class="thumbnail-mary-figure" href="assets/img/gallery-5-1200x800-original.jpg" data-lightgallery="item"><img src="assets/img/gallery-5-311x289.jpg" alt="" width="311" height="289"/></a>
                 <div class="thumbnail-mary-caption">
                   <div>
                     <h6 class="thumbnail-mary-title"><a href="#">Exotic Salads</a></h6>
@@ -524,7 +524,7 @@
             </div>
             <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
               <!-- Thumbnail Mary-->
-              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInRight"><a class="thumbnail-mary-figure" href="../assets/img/gallery-6-1200x800-original.jpg" data-lightgallery="item"><img src="../assets/img/gallery-6-311x289.jpg" alt="" width="311" height="289"/></a>
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInRight"><a class="thumbnail-mary-figure" href="assets/img/gallery-6-1200x800-original.jpg" data-lightgallery="item"><img src="assets/img/gallery-6-311x289.jpg" alt="" width="311" height="289"/></a>
                 <div class="thumbnail-mary-caption">
                   <div>
                     <h6 class="thumbnail-mary-title"><a href="#">All Types of pizza</a></h6>
@@ -535,7 +535,7 @@
             </div>
             <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
               <!-- Thumbnail Mary-->
-              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft"><a class="thumbnail-mary-figure" href="../assets/img/gallery-7-1200x800-original.jpg" data-lightgallery="item"><img src="../assets/img/gallery-7-311x289.jpg" alt="" width="311" height="289"/></a>
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft"><a class="thumbnail-mary-figure" href="assets/img/gallery-7-1200x800-original.jpg" data-lightgallery="item"><img src="assets/img/gallery-7-311x289.jpg" alt="" width="311" height="289"/></a>
                 <div class="thumbnail-mary-caption">
                   <div>
                     <h6 class="thumbnail-mary-title"><a href="#">Diverse menu</a></h6>
@@ -633,7 +633,7 @@
         </div>
       </section>
 
-      <!-- Bottom Banner--><a class="section section-banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(../assets/img/banner/background-03-1920x310.jpg); background-image: -webkit-image-set( url(../assets/img/banner/background-03-1920x310.jpg) 1x, url(../assets/img/banner/background-03-3840x620.jpg) 2x )"><img src="../assets/img/banner/foreground-03-1600x310.png" srcset="../assets/img/banner/foreground-03-1600x310.png 1x, ../assets/img/banner/foreground-03-3200x620.png 2x" alt="" width="1600" height="310"></a>
+      <!-- Bottom Banner--><a class="section section-banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(assets/img/banner/background-03-1920x310.jpg); background-image: -webkit-image-set( url(assets/img/banner/background-03-1920x310.jpg) 1x, url(assets/img/banner/background-03-3840x620.jpg) 2x )"><img src="assets/img/banner/foreground-03-1600x310.png" srcset="assets/img/banner/foreground-03-1600x310.png 1x, assets/img/banner/foreground-03-3200x620.png 2x" alt="" width="1600" height="310"></a>
       <!-- Page Footer-->
       <footer class="section footer-modern context-dark footer-modern-2">
         <div class="footer-modern-line">
@@ -683,9 +683,9 @@
             <div class="row row-30 align-items-center">
               <div class="col-sm-6 col-md-7 col-lg-4 col-xl-4">
                 <div class="row row-30 align-items-center text-lg-center">
-                  <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img src="../assets/img/logo-inverse-198x66.png" alt="" width="198" height="66"/></a></div>
+                  <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img src="assets/img/logo-inverse-198x66.png" alt="" width="198" height="66"/></a></div>
                   <div class="col-md-5 col-xl-6">
-                    <div class="iso-1"><span><img src="../assets/img/like-icon-58x25.png" alt="" width="58" height="25"/></span><span class="iso-1-big">9.4k</span></div>
+                    <div class="iso-1"><span><img src="assets/img/like-icon-58x25.png" alt="" width="58" height="25"/></span><span class="iso-1-big">9.4k</span></div>
                   </div>
                 </div>
               </div>
@@ -732,8 +732,8 @@
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
     <!-- Javascript-->
-    <script src="../inc/script/js/core.min.js"></script>
-    <script src="../inc/script/js/script.js"></script>
+    <script src="inc/script/js/core.min.js"></script>
+    <script src="inc/script/js/script.js"></script>
     <!-- coded by Himic-->
   </body>
 </html>
