@@ -47,17 +47,5 @@ class Cavalier extends Personne{
         return $this->cav_nlic;
     }
 
-    function get_all_cav()
-    {
-        global $db;
-        $req = "SELECT * FROM ".DB_TABLE_PERSONNE." WHERE num_licence != :val ;";
-        $sql = $db->prepare($req);
-        $sql->bindValue(':val',0,PDO::PARAM_INT);
-        try {
-            $sql->execute();
-            return $sql->fetchAll();
-        } catch (PDOException $e) {
-            return $e->getMessage();
-        }
-    }
+
 }

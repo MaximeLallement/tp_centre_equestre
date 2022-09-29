@@ -1,8 +1,10 @@
 <?php
 
-require "../../inc/bdd.inc.php";
 
-$cav_all = new Cavalier('','','','','','',0,'');
+require "../../model/Cavalier.php";
+
+require "../header.php";
+//$cav_all = new Cavalier('','','','','','',0,'');
 //var_dump($cav_all->get_all_cav());
 
 ?>
@@ -33,7 +35,7 @@ $cav_all = new Cavalier('','','','','','',0,'');
     <tbody>
         <?php
         //Loop sur les éléments de la requête SQL pour affichage
-        foreach ($cav_all->get_all_cav() as $cav) {
+        foreach (get_all_cav() as $cav) {
 
         ?>
             <tr>
