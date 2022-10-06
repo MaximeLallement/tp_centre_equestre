@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `cheval` (
   `SIRE` varchar(9) NOT NULL,
   `nom_cheval` varchar(65) NOT NULL,
   `id_robe` int(7) NOT NULL,
-  `id_cav` int NOT NULL,
+  `id_cav` int,
   PRIMARY KEY (`id_cheval`),
   CONSTRAINT fk_id_rob FOREIGN KEY(`id_robe`) REFERENCES `robe`(`id_robe`),
   CONSTRAINT fk_id_cav FOREIGN KEY(`id_cav`) REFERENCES `personne`(`id_personne`)
