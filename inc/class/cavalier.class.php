@@ -46,6 +46,5 @@ class Cavalier extends Personne{
     {
         return $this->cav_nlic;
     }
-
-
+    
 }

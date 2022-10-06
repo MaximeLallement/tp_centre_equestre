@@ -6,7 +6,7 @@
 
 /**
  * Selectionne tous les cavaliers de la table
- * On distingue un cavalier d'un représentant par sa valeur de license 
+ * On distingue un cavalier d'un représentant par la valeur de sa license 
  */
 function get_all_cav()
 {
@@ -16,8 +16,8 @@ function get_all_cav()
     $req->bindValue(':val',0,PDO::PARAM_INT);
     
     try {
-        $req->execute();
-        return $req->fetchAll();
+         $req->execute();
+         return $req->fetchAll();
     } catch (PDOException $e) {
         return $e->getMessage();
     }
