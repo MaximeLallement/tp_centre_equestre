@@ -24,6 +24,10 @@ $doc_root = str_replace('/','\\', $doc_root);
 $base_url = str_replace($doc_root, '', $base_dir);
 
 /* Mise en place de l'url dynamic */
+/**
+ * La variable permet d'integrer le header dans les différents
+ * répertoires du projet
+ */
 $url = "${protocol}://${domain}${disp_port}${base_url}";
 
 ?>
@@ -31,7 +35,13 @@ $url = "${protocol}://${domain}${disp_port}${base_url}";
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
   <head>
-    <title>{{PAGE_NAME}}</title>
+    <title><?php if(isset($page_name))
+    {
+      echo $page_name;
+    }else{
+      echo "PAGE SANS NOM";
+    }
+    ?></title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

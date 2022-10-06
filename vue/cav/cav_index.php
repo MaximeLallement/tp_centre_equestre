@@ -1,27 +1,19 @@
 <?php
 
+$page_name = "Cavaliers";
 
-require "../../model/Cavalier.php";
+
 
 require "../header.php";
-//$cav_all = new Cavalier('','','','','','',0,'');
-//var_dump($cav_all->get_all_cav());
+
+// Reconstruit mes valeurs
+$data = unserialize($_GET["data"]) ;
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
-    
-    <title>Document</title>
-</head>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
+
 <body>
-    
-</body>
-</html>
+
 <table id="cav_list">
     <thead>
         <tr>
@@ -35,8 +27,7 @@ require "../header.php";
     <tbody>
         <?php
         //Loop sur les éléments de la requête SQL pour affichage
-        foreach (get_all_cav() as $cav) {
-
+        foreach ($data as $cav) {
         ?>
             <tr>
                 <td><?= $cav["nom_personne"] ?></td>
@@ -49,6 +40,9 @@ require "../header.php";
         ?>
     </tbody>
 </table>
+
+</body>
+</html>
     <!--  CDN  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
