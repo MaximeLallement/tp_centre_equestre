@@ -15,6 +15,7 @@ require "header.php";
     <!-- AJOUT D'UN ELEMENT -->
     <form action="../controller/CavalierController.php" method="post">
         <input type="hidden" name="action" value="form">
+        <input type="hidden" name="subaction" value="new">
         <input type="submit" value="AJOUT">
     </form>
 
