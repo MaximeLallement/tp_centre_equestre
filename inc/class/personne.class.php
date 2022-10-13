@@ -68,4 +68,16 @@ abstract Class Personne{
         return $this->per_tel;
     }
 
+    function set_to_display(){
+        $this->per_nom      = html_entity_decode($this->per_nom,ENT_QUOTES,"UTF-8");
+        $this->per_prenom   = html_entity_decode($this->per_prenom,ENT_QUOTES,"UTF-8");
+        $this->per_mail     = html_entity_decode($this->per_mail,ENT_QUOTES,"UTF-8");
+    }
+
+    function set_from_form(){
+        $this->per_nom      = html_entity_decode($this->per_nom,ENT_QUOTES,"UTF-8");
+        $this->per_prenom   = html_entity_decode($this->per_prenom,ENT_QUOTES,"UTF-8");
+        $this->per_mail     = html_entity_decode($this->per_mail,ENT_QUOTES,"UTF-8");
+    }
+
 }

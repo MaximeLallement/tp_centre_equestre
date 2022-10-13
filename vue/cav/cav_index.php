@@ -1,13 +1,8 @@
 <?php
-
 $page_name = "Cavaliers";
-
-
-
-require "../header.php";
+require $headerpath;
 
 // Reconstruit mes valeurs
-$data = unserialize($_GET["data"]) ;
 
 ?>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
@@ -21,6 +16,8 @@ $data = unserialize($_GET["data"]) ;
             <th>Prenom</th>
             <th>Licence</th>
             <th>Date de Naissance</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
 
         </tr>
     </thead>
@@ -34,6 +31,22 @@ $data = unserialize($_GET["data"]) ;
                 <td><?= $cav["prenom_personne"] ?></td>
                 <td><?= $cav["num_licence"] ?></td>
                 <td><?= $cav["date_de_naissance"] ?></td>
+                <td>
+                    <form action="" method="post">
+                        <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
+                        <input type="hidden" name="action" value="form">
+                        <input type="hidden" name="subaction" value="modify">
+                        <input type="submit" value="modifier">
+                    </form>
+                </td>
+                <td>
+                        
+                    <form action="" method="post">
+                        <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="submit" value="supprimer">
+                    </form>
+                </td>
             </tr>
         <?php
         }

@@ -8,7 +8,7 @@
  * 
  */
 
- Class Representant extends Personne{
+Class Representant extends Personne{
     //Property
 
     //Adresse
@@ -16,7 +16,7 @@
     private string $rep_comp;
     private string $rep_cp;
     private string $rep_ville;
-    //private string $rep_pays;
+    private string $rep_pays;
 
     //Constructor
     public function __construct($nom,$prenom,$date,$m,$tel,$r ,$n, $cp, $v, $p)
