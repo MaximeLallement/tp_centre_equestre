@@ -3,6 +3,8 @@ require "../inc/bdd.inc.php";
 require "../model/Cavalier.php";
 $headerpath = "../vue/header.php";
 
+// Simon est passé par là
+
 if(isset($_POST) && $_POST["action"] == "index"){
     
     // Recupère les valeurs en base de données puis les passent dans un convertisseur
