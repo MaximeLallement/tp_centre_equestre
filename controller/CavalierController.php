@@ -123,8 +123,6 @@ if(isset($_POST) && $_POST["action"] == "form"){
         return require_once "../vue/cav/cav_form.php";   
     }
 
-    //return var_dump($_FILES["photo"]);
-
     // Validation de la composition du numéro de license
     // 7 caractères alphabétiques + 1 caractère numérique
     // Plus d'info --> Rechercher "regex php"

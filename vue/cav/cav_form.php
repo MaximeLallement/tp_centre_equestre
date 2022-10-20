@@ -1,6 +1,5 @@
 <?php
 $page_name = "Formulaire pour Cavalier";
-
 require $headerpath;
 ?>
 <body>
