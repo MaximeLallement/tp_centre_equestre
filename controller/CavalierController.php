@@ -1,33 +1,78 @@
 <?php
 require "../inc/bdd.inc.php";
 require "../model/Cavalier.php";
+require "../model/Representant.php";
+require "../model/CavalierRepresentant.php";
+
 $headerpath = "../vue/header.php";
 
-// Simon est passé par là
-
+/**
+ * Retourne la vue qui affiche l'ensemble des Cavaliers 
+ */
 if(isset($_POST) && $_POST["action"] == "index"){
     
-    // Recupère les valeurs en base de données puis les passent dans un convertisseur
     $data = get_all_cav();
 
     return require_once "../vue/cav/cav_index.php";
-    
+
 }
 
+/**
+ * Retourne la vue qui affiche un cavalier et son représentant s'il en a un
+ */
+if(isset($_POST) && $_POST["action"] == "show")
+{
+    $data = get_one_cav($_POST["cav_id"]);
+
+    if ( isset($data["id_representant"]) && $data["id_representant"] != 0)
+    {
+        $rep = get_one_cav($data["id_representant"]);
+    }
+
+    return require_once "../vue/cav/cav_show.php";
+}
+
+/**
+ * Retourne la vue qui affiche l'ensemble des Cavaliers après suppression ( SoftDelte ) d'un Cavalier
+ */
 if(isset($_POST) && $_POST["action"] == "delete"){
-    return var_dump(soft_delete_by_id($_POST["cav_id"]));
+
+    soft_delete_by_id($_POST["cav_id"]);
+    
+    return require_once "../vue/cav/cav_index.php";
 
 }
 
 
+/**
+ * Reception des action sur la vue formulaire
+ * 
+ * Rentre via $_POST["action"] = form
+ * 
+ * S'execute selon $_POST["subaction"] =
+ * new -> redirige sur formulaire vide
+ * modify -> redirige sur formulaire pré rempli
+ * [null] -> traitement d'ajout d'un cavalier
+ * update -> traitement de modification d'un cavalier
+ * 
+ * 
+ */
 if(isset($_POST) && $_POST["action"] == "form"){
+
+    /**
+     * Affiche la vue de formulaire pour un nouveau cavalier
+     */
     if(isset($_POST["subaction"] ) && $_POST["subaction"] == "new"){
         
         return require_once "../vue/cav/cav_form.php";
     }
+    /**
+     * Affiche la vue de formulaire pour modifier un cavalier existant
+     */
     if(isset($_POST["subaction"] ) && $_POST["subaction"] == "modify"){
         
         $data = get_one_cav($_POST['cav_id']);
+
         $infosaved["id_personne"]   = $data["id_personne"] ;
         $infosaved["nom"]           = $data["nom_personne"] ;
         $infosaved["prenom"]        = $data["prenom_personne"] ;
@@ -37,56 +82,55 @@ if(isset($_POST) && $_POST["action"] == "form"){
         $infosaved["photo"]         = $data["photo"] ;
         $infosaved["numlic"]        = $data["num_licence"];
 
-        /**
-         * if has representant
-         * then 
-         *  new sql
-         *  $infosaved["nomrep"]    = $data["nom_personne"] ;
-         *  $infosaved["prenomrep"] = $data["prenom_personne"] ;
-         *  $infosaved["prenom"]    = $data["prenom_personne"] ;
-         *  $infosaved["mail"]      = $data["mail"] ;
-         *  $infosaved["tel"]       = $data["tel"] ;
-         *  $infosaved["rue"]       = $data["rue"] ;
-         * $infosaved["numaddr"]    = $data["complement"] ;
-         *  $infosaved["ville"]     = $data["ville"] ;
-         *  $infosaved["pays"]      = $data["pays"] ;
-         * 
-         */
+        
+         if ( isset($data["id_representant"]) && $data["id_representant"] != 0){
 
+            $infosaved["id_representant"] = $data["id_representant"];
+            $data = get_one_cav($data['id_representant']);
 
+            $infosaved["nomrep"]    = $data["nom_personne"] ;
+            $infosaved["prenomrep"] = $data["prenom_personne"] ;
+            $infosaved["datenaissancerep"]    = $data["date_de_naissance"] ;
+            $infosaved["mailrep"]   = $data["mail"] ;
+            $infosaved["telrep"]    = $data["tel"] ;
+
+        }
+            
+        $infosaved["rue"]           = $data["rue"] ;
+        $infosaved["numaddr"]       = $data["complement"] ;
+        $infosaved["codep"]         = $data["code_postal"];
+        $infosaved["ville"]         = $data["ville"] ;
+        $infosaved["pays"]          = "Pays" ;
+        
+        $update = true;
 
         return require_once "../vue/cav/cav_form.php";
+        
     }
 
     
     
-    require "../inc/photo.trait.php";
-
-    //Save Information in order to reload form with already filed input in case of error
+    
+    //Sauvegarde en cas de rafraichissement de la page ou d'erreur formulaire
     $infosaved = $_POST;
     $error = null;
 
-    //test 
-    $error = "testerror";
-    require_once "../vue/cav/cav_form.php";
-    
-    
-
-    // Validation des INPUTS
-    if(!upload_photo()){ 
-        $error= "img";
-        require_once "../vue/cav/cav_form.php";
-        exit;
+    // Validation de l' input photo
+    require "../inc/photo.trait.php";
+    isset($_POST["subaction"]) && $_POST["subaction"] == "modify" ? $toUpdate = true : $toUpdate = false ;
+    if(!upload_photo($toUpdate)){ 
+        $error= upload_photo();
+        return require_once "../vue/cav/cav_form.php";   
     }
 
-    // Vérification de la composition du numéro de license
+    //return var_dump($_FILES["photo"]);
+
+    // Validation de la composition du numéro de license
     // 7 caractères alphabétiques + 1 caractère numérique
     // Plus d'info --> Rechercher "regex php"
     if( !preg_match('/[A-Z]{7}[1-9]{1}/',$_POST["numlic"]) ){
         $error= "numlic";
-        require_once "../vue/cav/cav_form.php";
-
-        exit;
+        return require_once "../vue/cav/cav_form.php";
     }
 
     if( isset($_POST["choixRepresentant"]) && $_POST["choixRepresentant"] == "cav"){
@@ -105,16 +149,26 @@ if(isset($_POST) && $_POST["action"] == "form"){
                                                     $_POST["pays"]
         );
 
-        // modele function add
-        /*if(!add_cavRep($cavalierRep)){
+        if ( isset($_POST["subaction"] ) && $_POST["subaction"] == "update") {
+            if(!update_cavRep($cavalierRep,$_POST["id_personne"])){
+                $error = "updcav";
+                echo $error;
+                return require_once "../vue/cav/cav_form.php";
+            }else {
+                var_dump(update_cavRep($cavalierRep,$_POST["id_personne"]));
+                $data = get_all_cav();
+                return require_once "../vue/cav/cav_index.php";
+            }
+        }
+
+        if(!add_cavRep($cavalierRep)){
+
             $error = "addcavrep";
-            require_once "../vue/cav/cav_form.php";
-            exit;
+            return require_once "../vue/cav/cav_form.php";
         }else {
-            //Success
-        }*/
-
-
+            $data = get_all_cav();
+            return require_once "../vue/cav/cav_index.php";
+        }
 
     }else{
         $cavalier = new Cavalier($_POST["nom"],
@@ -136,29 +190,35 @@ if(isset($_POST) && $_POST["action"] == "form"){
                                             $_POST["codep"],
                                             $_POST["ville"],
                                             $_POST["pays"]
-
     );
-        //modele function add
-        /*if(!add_cav($cavalier)){
-            $error = "addcav"
-            require_once "../vue/cav/cav_form.php";
-            exit;
 
+    if (isset($_POST["subaction"] ) && $_POST["subaction"] == "update") {
+        if(!update_cav($cavalier,$_POST["id_personne"])){
+            $error = "updcav";
+            echo $error;
+            return require_once "../vue/cav/cav_form.php";
+        }else if(!update_rep($representant,$_POST["idrep"])){
+            $error = "updrep";
+            echo $error;
+            return require_once "../vue/cav/cav_form.php";
+        }else{
+           $data = get_all_cav();
+           var_dump(update_cav($cavalier,$_POST["id_personne"]));
+           var_dump(update_rep($representant,$_POST["idrep"]));
+
+           return require_once "../vue/cav/cav_index.php";
+        }
+    }
+        
+        if(!add_cav($cavalier)){
+            $error = "addcav";
+            return require_once "../vue/cav/cav_form.php";
         }else if(!add_rep($representant)){
             $error = "addrep";
-            require_once "../vue/cav/cav_form.php";
-            exit;
-
+            return require_once "../vue/cav/cav_form.php";
         }else{
-            //Success
-        }*/
+           $data = get_all_cav();
+           return require_once "../vue/cav/cav_index.php";
+        }
     }
-
-    //header("Location: http://localhost/2a/tp_centre_equestre/vue/cav/cav_form.php?formFailed=true&reason=$error");
-
-
 }
-
-
-
-
