@@ -15,7 +15,7 @@ require $headerpath;
         <div class="row justify-content-center" >
             <div class="col-6" role="alert">
                 <div class="alert alert-danger" style="border:1px solid red;" role="alert">
-                    This is a danger alert—check it out!
+                    This is a danger alert—check it out! <?= $error ?>
                 </div>
             </div>
         </div>
@@ -51,7 +51,9 @@ require $headerpath;
 
             <div class="form-group col">
                 <label for="iPhotoCavalier">Photo*</label>
-                <input type="file" name="photo" value="<?= isset($infosaved) ? $infosaved["photo"] : null  ?>" class="form-control" id="iPhotoCavalier" placeholder="" required>
+                <img  id="imgCavalier" src="http://localhost/2a/tp_centre_equestre/media/<?= isset($infosaved) ? $infosaved["photo"] : null  ?>" alt="" onclick="openFileDialog()">
+                <input type="file" name="photo" class="form-control" id="iPhotoCavalier" style="visibility :hidden;" onchange="">
+                
             </div>
             <div class="form-group col">
                 <label for="iLicCavalier">N° License FFE*</label>
@@ -82,14 +84,15 @@ require $headerpath;
 
             <h5 class="col-12">Etes-vous votre représentant(e) légale</h5>
             <label for="choixCav" class="col-6"> Je suis mon représentant légale</label>
-            <input type="radio"  name="choixRepresentant" value="cav" id="choixCav" onclick="show( 0)" checked >
+            <input type="radio"  name="choixRepresentant" value="cav" id="choixCav" onclick="show(0)" checked >
             <label for="choixRep" class="col-6" > Je suis ne suis pas mon représentant légale</label>
-            <input type="radio"name="choixRepresentant" value="rep" id="choixRep" onclick="show( 1)" >
+            <input type="radio"name="choixRepresentant" value="rep" id="choixRep" onclick="show(1)" >
         </div>
         
         <!-- LE CAVALIER N'EST PAS SON REPRESENTANT 
         DONC NOUVEAUX NOM,PRENOM, ETC... -->
         <div class="collapse"  id="repInfo">
+            <input type="hidden" name="idrep" value="<?= isset($infosaved["id_representant"]) ? $infosaved["id_representant"] : "";  ?>">
             <div class="row">
                     <div class="form-group col">
                         <label for="iNomCavalier">Nom du représentant</label>
@@ -141,20 +144,20 @@ require $headerpath;
                 <input type="text" name="pays" value="<?= isset($infosaved) ? $infosaved["pays"] : "";  ?>" class="form-control" id="iPhotoCavalier" placeholder="" required>
             </div>
         </div>
-
-        <input type="hidden" name="action" value="add">
+        <?php if(isset($update) && $update == true ){ ?>
+        <input type="hidden" name="subaction" value="update">
+        <?php  } ?>
+        <input type="hidden" name="action" value="form">
         <button type="submit" class="btn btn-primary">Submit</button>
     </form> 
+
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
 
 
-    /**
-     * Fonction show
-     * Permet l'affichage dynamic du formulaire
-     */
+
      let blocRepInfo = document.getElementById("repInfo")
 
     function setRequired(bool){
@@ -170,6 +173,10 @@ require $headerpath;
         }
     }
 
+    /**
+     * Fonction show
+     * Permet l'affichage dynamic du formulaire
+     */
     function show(value){
         if(value == 0){
             setRequired(false)    
@@ -183,6 +190,40 @@ require $headerpath;
             },500)
         }
     }
+
+    <?php  if (isset($infosaved["nomrep"]) && $infosaved["nomrep"] != "") { ?>
+        show(1) 
+    <?php } ?>
+
+        
+    let iFile = document.getElementById('iPhotoCavalier')
+    
+    function openFileDialog()
+    {
+        iFile.click()
+    }
+    /*
+    function reInsertPhoto($e)
+    {
+        document.getElementById("imgCavalier").src = iFile.value
+    }*/
+
+    $(document).ready(function(){
+    $(iFile).on('change', function(evt){
+        var f = evt.target.files[0]; 
+        if (f){
+        var r = new FileReader();
+        r.onload = function(e){  
+            $('#imgCavalier').attr('src', e.target.result);        
+            console.log(e.target.result);
+        };
+            r.readAsDataURL(f);
+        } else 
+        {
+            console.log("failed");
+        }
+    });
+});
 
 
 </script>

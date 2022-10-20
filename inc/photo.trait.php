@@ -3,7 +3,7 @@
  * Function : upload_photo
  * Need $_POST["nom"], $_POST["prenom"] and $_FILES[]
  */
-function upload_photo()
+function upload_photo($toUpdate = false)
 {
     /** 
      * Traitement de la photo
@@ -30,10 +30,12 @@ function upload_photo()
         }
     }
     // Check if the file already exist within the folder
-    if(file_exists($target_file)) {
-        
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
+    if(!$toUpdate)
+    {  
+        if(file_exists($target_file)) {    
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
     }
     // Check file size
     if ($_FILES["photo"]["size"] > 500000) {
@@ -41,11 +43,10 @@ function upload_photo()
         $uploadOk = 0;
     }
 
-
     if ($uploadOk == 0) {
         return false;
-        // if everything is ok, try to upload file
     } else {
+        // if everything is ok, try to upload file
         if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
            return true;
         } else {

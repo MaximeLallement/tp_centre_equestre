@@ -52,7 +52,7 @@ public function getRue():string
 {
     return $this->car_rue;
 }
-public function getComp():string
+public function getComplement():string
 {
     return $this->car_comp;
 }

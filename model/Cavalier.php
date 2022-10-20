@@ -1,8 +1,4 @@
 <?php
-/* Model Default */
-
-
-// SELECT
 
 /**
  * Selectionne tous les cavaliers de la table
@@ -14,7 +10,7 @@ function get_all_cav()
     $sql = "SELECT * FROM ".DB_TABLE_PERSONNE." WHERE num_licence != :val AND actif = :actif ;";
     $req = $con->prepare($sql);
     $req->bindValue(':actif',1,PDO::PARAM_INT);
-    $req->bindValue(':val',0,PDO::PARAM_INT);
+    $req->bindValue(':val',"",PDO::PARAM_STR);
     
     try {
          $req->execute();
@@ -39,10 +35,11 @@ function get_one_cav(int $id){
 }
 
 
-function add_cav(Cavalier $cavalier){
+function add_cav(Cavalier $cavalier)
+{
     global $con;
-    $sql = "INSERT INTO ".DB_TABLE_PERSONNE." (nom_personne,prenom_personne,date_de_naissance, mail,tel,photo,num_licence) 
-                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :tel, :photo, :numlic )";
+    $sql = "INSERT INTO ".DB_TABLE_PERSONNE." (nom_personne,prenom_personne,date_de_naissance, mail,tel,photo,num_licence, galop) 
+                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :tel, :photo, :numlic, :galop )";
     $req = $con->prepare($sql);
     $req->bindValue(":nom",$cavalier->getNomPersonne(),PDO::PARAM_STR);
     $req->bindValue(":prenom",$cavalier->getPrenomPersonne(),PDO::PARAM_STR);
@@ -51,6 +48,7 @@ function add_cav(Cavalier $cavalier){
     $req->bindValue(":tel",$cavalier->getTel(),PDO::PARAM_STR);
     $req->bindValue(":photo",$cavalier->getPhoto(),PDO::PARAM_STR);
     $req->bindValue(":numlic",$cavalier->getNlic(),PDO::PARAM_STR);
+    $req->bindValue(":galop",$cavalier->getGalop(),PDO::PARAM_INT);
 
     try {
         $req->execute();
@@ -69,8 +67,43 @@ function soft_delete_by_id(int $id){
     
     try {
         
-        return $req->execute();
+        $req->execute();
+        return true;
    } catch (PDOException $e) {
        return $e->getMessage();
    }
+}
+
+
+function update_cav(Cavalier $cavalier, int $id)
+{
+    global $con;
+    $sql = "UPDATE ".DB_TABLE_PERSONNE." 
+            SET nom_personne = :nom, 
+                                prenom_personne = :prenom ,
+                                date_de_naissance = :datenaissance,
+                                mail = :mail,
+                                tel =  :tel,
+                                photo = :photo,
+                                num_licence = :numlic,
+                                galop = :galop  
+            WHERE id_personne = :id ;";
+    $req = $con->prepare($sql);
+    $req->bindValue(":nom",$cavalier->getNomPersonne(),PDO::PARAM_STR);
+    $req->bindValue(":prenom",$cavalier->getPrenomPersonne(),PDO::PARAM_STR);
+    $req->bindValue(":datenaissance",$cavalier->getDateNaissance(),PDO::PARAM_STR);
+    $req->bindValue(":mail",$cavalier->getMail(),PDO::PARAM_STR);
+    $req->bindValue(":tel",$cavalier->getTel(),PDO::PARAM_STR);
+    $req->bindValue(":photo",$cavalier->getPhoto(),PDO::PARAM_STR);
+    $req->bindValue(":numlic",$cavalier->getNlic(),PDO::PARAM_STR);
+    $req->bindValue(":galop",$cavalier->getGalop(),PDO::PARAM_INT);
+    $req->bindValue(":id",$id,PDO::PARAM_INT);
+
+
+    try {
+        $req->execute() ;
+        return true;  
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
 }
