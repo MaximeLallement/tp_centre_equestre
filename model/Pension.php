@@ -1,17 +1,24 @@
 <?php
-require "../bdd.inc.php";
+require "../inc/bdd.inc.php";
 
 /* CREATE / INSERT INTO
  * 
  * Créer la pension dans la table
  * 
  */
-function create_pension(){
+function create_pension(Pension $pension){
     global $con;    
-    $sql = "INSERT INTO ".DB_TABLE_PENSION." VALUES (NULL, '".$_POST['libelle_pension']."', '".$_POST['tarif']."', '".$_POST['date_de_debut']."', '".$_POST['duree']."')";
+    $sql = "INSERT INTO ".DB_TABLE_PENSION." (`libelle_pension`, `tarif`, `date_de_debut`, `duree`) "
+            . "VALUES (:libelle_pension, :tarif, :date_de_debut, :duree);";
+    $req = $con->prepare($sql);
+    $req->bindValue(':libelle_pension', $pension->getLibelle(), PDO::PARAM_STR);
+    $req->bindValue(':tarif', $pension->getTarif(), PDO::PARAM_INT);
+    $req->bindValue(':date_de_debut', $pension->getDate_de_debut(), PDO::PARAM_STR);
+    $req->bindValue(':duree', $pension->getDuree(), PDO::PARAM_INT);
+            
     try {
         $con->exec($sql);
- }
+    }
     catch (PDOException $e) {
         return $e->getMessage();
     }
