@@ -51,8 +51,8 @@ require $headerpath;
 
             <div class="form-group col">
                 <label for="iPhotoCavalier">Photo*</label>
-                <img  id="imgCavalier" src="http://localhost/2a/tp_centre_equestre/media/<?= isset($infosaved) ? $infosaved["photo"] : null  ?>" alt="" onclick="openFileDialog()">
-                <input type="file" name="photo" class="form-control" id="iPhotoCavalier" style="visibility :hidden;" onchange="">
+                <input type="file" name="photo" class="form-control" id="iPhotoCavalier" style="display:none;" onchange="">
+                <img  id="imgCavalier" src="<?= isset($infosaved) ? "http://localhost/2a/tp_centre_equestre/media/".$infosaved['photo'] : "http://placekitten.com/400" ?>" alt="" onclick="openFileDialog()">
                 
             </div>
             <div class="form-group col">

@@ -1,5 +1,5 @@
 <?php
-$page_name = "Formulaire pour Cavalier";
+$page_name = "Formulaire pour Pension";
 
 require "../header.php";
 
