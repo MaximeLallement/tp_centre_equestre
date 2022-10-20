@@ -1,27 +1,12 @@
 <?php
-
-
-require "../../model/Cavalier.php";
-
-require "../header.php";
-//$cav_all = new Cavalier('','','','','','',0,'');
-//var_dump($cav_all->get_all_cav());
-
+ require $headerpath;
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
-    
-    <title>Document</title>
-</head>
+
 <body>
     
 </body>
 </html>
+
 <table id="cav_list">
     <thead>
         <tr>
@@ -29,7 +14,6 @@ require "../header.php";
             <th>Prenom</th>
             <th>Licence</th>
             <th>Date de Naissance</th>
-
         </tr>
     </thead>
     <tbody>
