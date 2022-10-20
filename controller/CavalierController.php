@@ -6,7 +6,6 @@ require "../model/CavalierRepresentant.php";
 
 $headerpath = "../vue/header.php";
 
-
 /**
  * Retourne la vue qui affiche l'ensemble des Cavaliers 
  */
