@@ -35,7 +35,7 @@ function get_all_pension(){
     $req = $con->prepare($sql);
     
     try {
-         $req->execute($sql);
+         $req->execute();
          return $req->fetchAll();
     }
     catch (PDOException $e) {
@@ -53,7 +53,6 @@ function update_pension()
     global $con;
     $sql = "UPDATE ".DB_TABLE_PENSION." SET `libelle_pension`='".$_POST['libelle_pensionU']."', `libelle_pension`='".$_POST['libelle_pensionU']."',";
 }
-
 
 /* DELETE
  * 

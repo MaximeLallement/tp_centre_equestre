@@ -1,10 +1,6 @@
 <?php
 
-//Rien n'a été fait 
-
 $page_name = "Pensions";
-
-
 
 require "../header.php";
 
@@ -16,7 +12,7 @@ $data = unserialize($_GET["data"]) ;
 
 <body>
 
-<table id="cav_list">
+<table id="pen_list">
     <thead>
         <tr>
             <th>Nom</th>
@@ -51,6 +47,6 @@ $data = unserialize($_GET["data"]) ;
 
     <script>
         $(document).ready(function () {
-            $('#cav_list').DataTable();
+            $('#pen_list').DataTable();
         });   
     </script>

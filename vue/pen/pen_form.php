@@ -1,7 +1,5 @@
 <?php
 
-//Rien n'a été fait sur cette page
-
 $page_name = "Formulaire pour Pension";
 
 require "../header.php";
