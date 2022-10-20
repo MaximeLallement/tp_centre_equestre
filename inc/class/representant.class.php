@@ -8,7 +8,7 @@
  * 
  */
 
-Class Representant extends Personne{
+ Class Representant extends Personne{
     //Property
 
     //Adresse
@@ -16,7 +16,7 @@ Class Representant extends Personne{
     private string $rep_comp;
     private string $rep_cp;
     private string $rep_ville;
-    private string $rep_pays;
+    //private string $rep_pays;
 
     //Constructor
     public function __construct($nom,$prenom,$date,$m,$tel,$r ,$n, $cp, $v, $p)
@@ -70,5 +70,19 @@ Class Representant extends Personne{
     public function getPays():string
     {
         return $this->rep_pays;
+    }
+
+    public function rep_get_all(){
+        global $con;
+        $sql = "SELECT nom_personne, prenom_personne, tel, mail, rue, complement FROM personne
+            WHERE DATEDIFF(NOW(), date_de_naissance) / 365 > 18"; //Sélectionne personnes ayant plus de 18 ans
+        $req = $con->prepare($sql);
+        $req->execute(array($sql));
+        try{
+            $req = $con->query($sql);
+            return $req->fetchAll(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            return $e->getMessage();
+        }
     }
  }
