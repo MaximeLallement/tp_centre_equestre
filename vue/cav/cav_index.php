@@ -14,6 +14,9 @@
             <th>Prenom</th>
             <th>Licence</th>
             <th>Date de Naissance</th>
+            <th>Modifier</th>
+            <th>Afficher</th>
+            <th>Supprimer</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +30,30 @@
                 <td><?= $cav["prenom_personne"] ?></td>
                 <td><?= $cav["num_licence"] ?></td>
                 <td><?= $cav["date_de_naissance"] ?></td>
+
+                <td>
+                        <form action="" method="post">
+                            <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
+                            <input type="hidden" name="action" value="form">
+                            <input type="hidden" name="subaction" value="modify">
+                            <input type="submit" value="Modifier">
+                        </form>
+                    </td>
+                    <td>               
+                        <form action="" method="post">
+                            <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
+                            <input type="hidden" name="action" value="show">
+                            <input type="submit" value="Afficher">
+                        </form>
+                    </td>
+                    <td>
+                            
+                        <form action="" method="post">
+                            <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="submit" value="Supprimer">
+                        </form>
+                    </td>
             </tr>
         <?php
         }
