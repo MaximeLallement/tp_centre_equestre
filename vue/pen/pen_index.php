@@ -1,6 +1,7 @@
 <?php
 
 $page_name = "Pensions";
+
 require "../header.php";
 
 // Reconstruit mes valeurs
