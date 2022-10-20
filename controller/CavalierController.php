@@ -37,7 +37,7 @@ if(isset($_POST) && $_POST["action"] == "show")
  */
 if(isset($_POST) && $_POST["action"] == "delete"){
 
-    soft_delete_by_id($_POST["cav_id"]);
+    soft_delete_cav_by_id($_POST["cav_id"]);
     
     return require_once "../vue/cav/cav_index.php";
 

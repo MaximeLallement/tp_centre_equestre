@@ -1,5 +1,17 @@
 <?php
 
+function get_all_rep(){
+    global $con;
+    $sql = "SELECT id_personne, nom_personne, prenom_personne, tel, mail, rue, complement FROM personne
+        WHERE DATEDIFF(NOW(), date_de_naissance) / 365 > 18 AND actif = 1;"; //Sélectionne personnes ayant plus de 18 ans
+        $req = $con->prepare($sql);
+        $req->execute();
+    try{
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }catch(PDOException $e){
+        return $e->getMessage();
+    }
+}
 
 function add_rep(Representant $representant)
 {
@@ -57,6 +69,19 @@ function update_rep(Representant $representant, int $id)
         $req->execute() ;
         return true; 
     } catch (PDOException $e) {
+        return $e->getMessage();
+    }
+}
+
+function soft_delete_rep_by_id(int $id){
+    global $con;
+    $sql = "UPDATE ".DB_TABLE_PERSONNE." SET is_visible = 0 WHERE id_personne = :id_personne";
+    $req = $con->prepare($sql);
+    $req->BindValue(':id_personne', $id, PDO::PARAM_INT);
+
+    try {
+        $req = $con->query($sql);
+    }catch(PDOException $e){
         return $e->getMessage();
     }
 }

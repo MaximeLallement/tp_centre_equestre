@@ -1,5 +1,5 @@
 <?php
-$page_name = "Cavalier : ".$data["nom_personne"]." ".$data["prenom_personne"];
+$pagename = "Cavalier : ".$data["nom_personne"]." ".$data["prenom_personne"];
 require $headerpath;
 
 ?>
