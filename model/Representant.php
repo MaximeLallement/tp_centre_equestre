@@ -73,7 +73,7 @@ function update_rep(Representant $representant, int $id)
     }
 }
 
-function soft_delete_by_id(int $id){
+function soft_delete_rep_by_id(int $id){
     global $con;
     $sql = "UPDATE ".DB_TABLE_PERSONNE." SET is_visible = 0 WHERE id_personne = :id_personne";
     $req = $con->prepare($sql);
