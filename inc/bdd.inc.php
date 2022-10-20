@@ -14,14 +14,11 @@ try {
 }
 
 // DEFINE
-define('DB_TABLE_PERSONNE','personne');
-define('DB_TABLE_PENSION', 'pension');
-
+define('DB_TABLE_PERSONNE', 'personne');
 /* Include des class  */
 require "class/Personne.class.php";
 require "class/Cavalier.class.php";
 require "class/Representant.class.php";
 require "class/CavalierRepresentant.class.php";
-require "class/pension.class.php";
 
 /* Récupération des objets */
