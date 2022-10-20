@@ -1,4 +1,5 @@
 <?php
+ $pagename = "Cavalier";
  require $headerpath;
 ?>
 
@@ -6,7 +7,7 @@
     
 </body>
 </html>
-
+<p>Liste Cavalier</p>
 <table id="cav_list">
     <thead>
         <tr>
