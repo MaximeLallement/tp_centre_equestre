@@ -1,39 +1,62 @@
 <?php
 
-// Insertion des données d'un représentant
-// INSERT
-// Récupérer les valeurs du formulaire et les insérer dans la base
-require('../inc/bdd.inc.php');
 
-function create_cav_rep()
+function add_rep(Representant $representant)
 {
     global $con;
-    $nom = $_POST['nom_personne'];
-    $prenom = $_POST['prenom_personne'];
-    $date = $_POST['date_personne'];
-    $m = $_POST['mail_personne'];
-    $tel = $_POST['tel_personne'];
-    $num = $_POST['licence_personne'];
-    $r = $_POST['rue_personne'];
-    $n = $_POST['complement_personne'];
-    $cp = $_POST['cp_personne'];
-    $v = $_POST['ville_personne'];
-
-    $sql = "INSERT INTO ".DB_TABLE_PERSONNE."
-    (nom_personne, prenom_personne, date_de_naissance, mail, tel, num_licence, rue, complement, code_postal, ville) 
-    VALUES('".$nom."', '".$prenom."', '".$date."', '".$m."', '".$tel."', '".$num."', '".$r."', '".$n."', '".$cp."', '".$v."');";
+    $sql = "INSERT INTO ".DB_TABLE_PERSONNE." (nom_personne,prenom_personne,date_de_naissance, mail,tel, rue,complement, code_postal, ville ) 
+                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :rue , :complement, :codepostal , :ville )";
     $req = $con->prepare($sql);
-    
+    $req->bindValue(":nom",$representant->getNomPersonne(),PDO::PARAM_STR);
+    $req->bindValue(":prenom",$representant->getPrenomPersonne(),PDO::PARAM_STR);
+    $req->bindValue(":datenaissance",$representant->getDateNaissance(),PDO::PARAM_STR);
+    $req->bindValue(":mail",$representant->getMail(),PDO::PARAM_STR);
+    $req->bindValue(":tel",$representant->getTel(),PDO::PARAM_STR);
+    $req->bindValue(":rue",$representant->getRue(),PDO::PARAM_STR);
+    $req->bindValue(":complement",$representant->getComplement(),PDO::PARAM_STR);
+    $req->bindValue(":codepostal",$representant->getCodePostal(),PDO::PARAM_INT);
+    $req->bindValue(":ville",$representant->getVille(),PDO::PARAM_STR);
+
     try {
-        $req->execute();
+        $req->execute() ;
+        return true; 
     } catch (PDOException $e) {
         return $e->getMessage();
     }
-
-    echo "Formulaire envoyé";
 }
 
-create_cav_rep();
+
+function update_rep(Representant $representant, int $id)
+{
+    global $con;
+    $sql = "UPDATE ".DB_TABLE_PERSONNE." 
+            SET nom_personne = :nom, 
+                                prenom_personne = :prenom ,
+                                date_de_naissance = :datenaissance,
+                                mail = :mail,
+                                tel =  :tel,
+                                rue = :rue,
+                                complement = :complement,
+                                code_postal = :codepostal,
+                                ville = :ville
+            WHERE id_personne = :id ;";
+    $req = $con->prepare($sql);
+    $req->bindValue(":nom",$representant->getNomPersonne(),PDO::PARAM_STR);
+    $req->bindValue(":prenom",$representant->getPrenomPersonne(),PDO::PARAM_STR);
+    $req->bindValue(":datenaissance",$representant->getDateNaissance(),PDO::PARAM_STR);
+    $req->bindValue(":mail",$representant->getMail(),PDO::PARAM_STR);
+    $req->bindValue(":tel",$representant->getTel(),PDO::PARAM_STR);
+    $req->bindValue(":rue",$representant->getRue(),PDO::PARAM_STR);
+    $req->bindValue(":complement",$representant->getComplement(),PDO::PARAM_STR);
+    $req->bindValue(":codepostal",$representant->getCodePostal(),PDO::PARAM_INT);
+    $req->bindValue(":ville",$representant->getVille(),PDO::PARAM_STR);
+    $req->bindValue(":id",$id,PDO::PARAM_INT);
 
 
-?>
+    try {
+        $req->execute() ;
+        return true; 
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
+}
