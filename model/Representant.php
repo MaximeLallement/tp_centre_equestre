@@ -2,7 +2,7 @@
 
 function get_all_rep(){
     global $con;
-    $sql = "SELECT id_personne, nom_personne, prenom_personne, tel, mail, rue, complement FROM personne
+    $sql = "SELECT * FROM ".DB_TABLE_PERSONNE."
         WHERE DATEDIFF(NOW(), date_de_naissance) / 365 > 18 AND actif = 1;"; //Sélectionne personnes ayant plus de 18 ans
         $req = $con->prepare($sql);
         $req->execute();
@@ -11,6 +11,20 @@ function get_all_rep(){
     }catch(PDOException $e){
         return $e->getMessage();
     }
+}
+
+function get_one_rep(int $id){
+    global $con;
+    $sql = "SELECT * FROM ".DB_TABLE_PERSONNE." WHERE id_personne = :id ;";
+    $req = $con->prepare($sql);
+    $req->bindValue(':id', $id, PDO::PARAM_INT);
+    
+    try {
+        $req->execute();
+        return $req->fetch();
+   } catch (PDOException $e) {
+       return $e->getMessage();
+   }
 }
 
 function add_rep(Representant $representant)
@@ -38,7 +52,7 @@ function add_rep(Representant $representant)
 }
 
 
-function update_rep(Representant $representant, int $id)
+function update_rep(Representant $representant, int $id) //Modifie les valeurs d'un représentant en base
 {
     global $con;
     $sql = "UPDATE ".DB_TABLE_PERSONNE." 
@@ -67,6 +81,12 @@ function update_rep(Representant $representant, int $id)
 
     try {
         $req->execute() ;
+        echo "Modifications réussies !"; //Message de confirmation
+        echo "
+            <form action='.././controller/RepresentantController.php' method='post'>
+                <button type='submit' name='index'>OK</button>
+            </form>
+        ";
         return true; 
     } catch (PDOException $e) {
         return $e->getMessage();
@@ -75,12 +95,12 @@ function update_rep(Representant $representant, int $id)
 
 function soft_delete_rep_by_id(int $id){
     global $con;
-    $sql = "UPDATE ".DB_TABLE_PERSONNE." SET is_visible = 0 WHERE id_personne = :id_personne";
+    $sql = "UPDATE ".DB_TABLE_PERSONNE." SET actif = 0 WHERE id_personne = :id_personne";
     $req = $con->prepare($sql);
     $req->BindValue(':id_personne', $id, PDO::PARAM_INT);
 
     try {
-        $req = $con->query($sql);
+        $req->execute();
     }catch(PDOException $e){
         return $e->getMessage();
     }
