@@ -45,3 +45,9 @@ $url = "${protocol}://${domain}${disp_port}${base_url}";
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
   </head>
+
+  <header>
+    <form action="./RepresentantController.php" method="post">
+      <input type="submit" name="index" value="Accueil"> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
+    </form>
+  </header>
