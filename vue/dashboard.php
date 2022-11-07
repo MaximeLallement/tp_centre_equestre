@@ -22,7 +22,11 @@ require "header.php";
         </div>
         <div class="col-6">
             <h5>Representant</h5>
-            
+            <form action="rep/rep_index.php" method="post">
+                <input type="hidden" name="action" value="form">
+                <input type="hidden" name="subaction" value="new">
+                <input type="submit" value="INDEX">
+            </form>
         </div>
         <div class="col-6">
             <h5>Pension</h5>

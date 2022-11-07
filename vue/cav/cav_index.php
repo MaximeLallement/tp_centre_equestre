@@ -23,7 +23,7 @@
     <tbody>
         <?php
         //Loop sur les éléments de la requête SQL pour affichage
-        foreach (get_all_cav() as $cav) {
+        foreach ($data as $cav) {
 
         ?>
             <tr>
