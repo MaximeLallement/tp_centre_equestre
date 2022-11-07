@@ -1,5 +1,5 @@
 <?php
-require "../inc/bdd.inc.php";
+require_once "../inc/bdd.inc.php";
 
 /* CREATE / INSERT INTO
  * 
@@ -8,8 +8,8 @@ require "../inc/bdd.inc.php";
  */
 function create_pension(Pension $pension){
     global $con;    
-    $sql = "INSERT INTO ".DB_TABLE_PENSION." (`libelle_pension`, `tarif`, `date_de_debut`, `duree`) "
-            . "VALUES (:libelle_pension, :tarif, :date_de_debut, :duree);";
+    $sql = "INSERT INTO ".DB_TABLE_PENSION." (`libelle_pension`, `tarif`, `date_de_debut`, `duree`) 
+            VALUES (:libelle_pension, :tarif, :date_de_debut, :duree);";
     $req = $con->prepare($sql);
     $req->bindValue(':libelle_pension', $pension->getLibelle(), PDO::PARAM_STR);
     $req->bindValue(':tarif', $pension->getTarif(), PDO::PARAM_INT);
@@ -18,6 +18,7 @@ function create_pension(Pension $pension){
             
     try {
         $con->exec($sql);
+        return true;
     }
     catch (PDOException $e) {
         return $e->getMessage();
@@ -31,16 +32,30 @@ function create_pension(Pension $pension){
  */
 function get_all_pension(){
     global $con;
-    $sql = "SELECT * FROM ".DB_TABLE_PENSION.";";
-    $req = $con->prepare($sql);
-    
-    try {
-         $req->execute($sql);
-         return $req->fetchAll();
+        
+    $req="SELECT * FROM ".DB_TABLE_PENSION;
+    $sql=$con->prepare($req);
+    try{
+        $sql->execute();
+        return $sql->fetchAll (PDO::FETCH_ASSOC);
     }
-    catch (PDOException $e) {
+    catch(PDOException $e){
         return $e->getMessage();
     }
+}
+
+function get_one_pen(int $id){
+    global $con;
+    $sql = "SELECT * FROM ".DB_TABLE_PERSONNE." WHERE id_personne = :id ;";
+    $req = $con->prepare($sql);
+    $req->bindValue(':id',$id,PDO::PARAM_INT);
+    
+    try {
+        $req->execute();
+        return $req->fetch();
+   } catch (PDOException $e) {
+       return $e->getMessage();
+   }
 }
 
 /* UPDATE
