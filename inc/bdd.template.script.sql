@@ -30,14 +30,14 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `date_de_naissance` varchar(10) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `tel` varchar(20) NOT NULL,
-  `photo` varchar(20),
-  `actif` tinyint NOT NULL,
+  `photo` varchar(255),
+  `actif` tinyint NOT NULL DEFAULT 1,
   `num_licence` varchar(9) DEFAULT NULL,
   `id_representant` int,
   `galop` int DEFAULT NULL,
   `rue` varchar(85),
   `complement` varchar(85),
-  `code_postal` int ,
+  `code_postal` varchar(85) ,
   `ville` varchar(85),
   PRIMARY KEY (`id_personne`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;

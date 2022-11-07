@@ -4,8 +4,8 @@ require $headerpath;
 
 ?>
 <div class="container">
+    <p>Information Générale</p>
     <div class="row">
-        <p>Information Générale</p>
         <div class="col">
             <table style="width:100%;">
                 <thead>
@@ -37,13 +37,13 @@ require $headerpath;
         </table>
         <div class="container-fluid">
             <form action="" method="post" class="d-inline" >
-                <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
+                <input type="hidden" name="cav_id" value="<?= $data["id_personne"]; ?>">
                 <input type="hidden" name="action" value="form">
                 <input type="hidden" name="subaction" value="modify">
                 <input type="submit" value="Modifier ce Cavalier" style="width:35%;">
             </form>
             <form action="" method="post" class="d-inline">
-                <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
+                <input type="hidden" name="cav_id" value="<?= $data["id_personne"]; ?>">
                 <input type="hidden" name="action" value="delete">
                 <input type="submit" value="Supprimer ce Cavalier" style="width:35%;">
             </form>
@@ -53,9 +53,9 @@ require $headerpath;
             <img src="http://localhost/2a/tp_centre_equestre/media/<?= isset($data) ? $data["photo"] : null  ?>" alt="">
         </div>
     </div>
+    <p>Information Cavalier</p>
     <div class="row">
-        <p>Information Cavalier</p>
-        <table>
+        <table style="width:100%;">
             <thead>
                 <th>Galop</th>
                 <th>License</th>
@@ -75,9 +75,9 @@ require $headerpath;
             </tbody>
         </table>
     </div>
+    <p>Information Cours</p>
     <div class="row">
-        <p>Information Cours</p>
-        <table>
+        <table style="width:100%;">
             <thead>
                 <th>Date</th>
                 <th>Durée</th>
