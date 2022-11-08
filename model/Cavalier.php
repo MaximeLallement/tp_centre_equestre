@@ -58,7 +58,7 @@ function add_cav(Cavalier $cavalier)
     }
 }
 
-function soft_delete_by_id(int $id){
+function soft_delete_cav_by_id(int $id){
     global $con;
     $sql = "UPDATE ".DB_TABLE_PERSONNE." SET actif = :actif WHERE id_personne = :id ;";
     $req = $con->prepare($sql);

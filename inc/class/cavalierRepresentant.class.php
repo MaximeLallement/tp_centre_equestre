@@ -31,7 +31,7 @@ public function setRue( $r )
 {
     $this->car_rue = $r;
 }
-public function setComp( $n )
+public function setComplement( $n )
 {
     $this->car_comp = $n;
 }

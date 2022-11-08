@@ -1,8 +1,6 @@
 <?php
-$page_name = "Formulaire pour Cavalier";
-
+$pagename = "Formulaire pour Cavalier";
 require $headerpath;
-
 ?>
 <body>
     <style>
@@ -11,11 +9,11 @@ require $headerpath;
         }
     </style>
 <div class="container">
-    <?php if(isset($error)){  ?>
+    <?php if(isset($error) && $error != ""){  ?>
         <div class="row justify-content-center" >
             <div class="col-6" role="alert">
                 <div class="alert alert-danger" style="border:1px solid red;" role="alert">
-                    This is a danger alert—check it out! <?= $error ?>
+                    <?= $error ?>
                 </div>
             </div>
         </div>
@@ -51,9 +49,8 @@ require $headerpath;
 
             <div class="form-group col">
                 <label for="iPhotoCavalier">Photo*</label>
-                <img  id="imgCavalier" src="http://localhost/2a/tp_centre_equestre/media/<?= isset($infosaved) ? $infosaved["photo"] : null  ?>" alt="" onclick="openFileDialog()">
-                <input type="file" name="photo" class="form-control" id="iPhotoCavalier" style="visibility :hidden;" onchange="">
-                
+                <input type="file" name="photo" class="form-control" id="iPhotoCavalier" style="display:none;" onchange="">
+                <img  id="imgCavalier" src="<?= isset($infosaved) ? "http://localhost/2a/tp_centre_equestre/media/".$infosaved['photo'] : "http://placekitten.com/400" ?>" alt="" onclick="openFileDialog()">
             </div>
             <div class="form-group col">
                 <label for="iLicCavalier">N° License FFE*</label>
@@ -81,10 +78,9 @@ require $headerpath;
         0 = le cavalier n'est pas son représentant
         -->
         <div class="form-group">
-
             <h5 class="col-12">Etes-vous votre représentant(e) légale</h5>
             <label for="choixCav" class="col-6"> Je suis mon représentant légale</label>
-            <input type="radio"  name="choixRepresentant" value="cav" id="choixCav" onclick="show(0)" checked >
+            <input type="radio"  name="choixRepresentant" value="cav" id="choixCav" onclick="show(0)">
             <label for="choixRep" class="col-6" > Je suis ne suis pas mon représentant légale</label>
             <input type="radio"name="choixRepresentant" value="rep" id="choixRep" onclick="show(1)" >
         </div>
@@ -145,7 +141,7 @@ require $headerpath;
             </div>
         </div>
         <?php if(isset($update) && $update == true ){ ?>
-        <input type="hidden" name="subaction" value="update">
+            <input type="hidden" name="subaction" value="update">
         <?php  } ?>
         <input type="hidden" name="action" value="form">
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -192,6 +188,7 @@ require $headerpath;
     }
 
     <?php  if (isset($infosaved["nomrep"]) && $infosaved["nomrep"] != "") { ?>
+        $('#choixRep').prop("checked", true)
         show(1) 
     <?php } ?>
 
@@ -202,11 +199,6 @@ require $headerpath;
     {
         iFile.click()
     }
-    /*
-    function reInsertPhoto($e)
-    {
-        document.getElementById("imgCavalier").src = iFile.value
-    }*/
 
     $(document).ready(function(){
     $(iFile).on('change', function(evt){

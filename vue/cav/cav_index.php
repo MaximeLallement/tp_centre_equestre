@@ -1,15 +1,13 @@
 <?php
-$page_name = "Cavaliers";
-require $headerpath;
-
-// Reconstruit mes valeurs
-
-
+ $pagename = "Cavalier";
+ require $headerpath;
 ?>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
 
 <body>
-
+    
+</body>
+</html>
+<p>Liste Cavalier</p>
 <table id="cav_list">
     <thead>
         <tr>
@@ -20,51 +18,49 @@ require $headerpath;
             <th>Modifier</th>
             <th>Afficher</th>
             <th>Supprimer</th>
-
         </tr>
     </thead>
     <tbody>
         <?php
         //Loop sur les éléments de la requête SQL pour affichage
         foreach ($data as $cav) {
+
         ?>
             <tr>
                 <td><?= $cav["nom_personne"] ?></td>
                 <td><?= $cav["prenom_personne"] ?></td>
                 <td><?= $cav["num_licence"] ?></td>
                 <td><?= $cav["date_de_naissance"] ?></td>
+
                 <td>
-                    <form action="" method="post">
-                        <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
-                        <input type="hidden" name="action" value="form">
-                        <input type="hidden" name="subaction" value="modify">
-                        <input type="submit" value="Modifier">
-                    </form>
-                </td>
-                <td>               
-                    <form action="" method="post">
-                        <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
-                        <input type="hidden" name="action" value="show">
-                        <input type="submit" value="Afficher">
-                    </form>
-                </td>
-                <td>
-                        
-                    <form action="" method="post">
-                        <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
-                        <input type="hidden" name="action" value="delete">
-                        <input type="submit" value="Supprimer">
-                    </form>
-                </td>
+                        <form action="" method="post">
+                            <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
+                            <input type="hidden" name="action" value="form">
+                            <input type="hidden" name="subaction" value="modify">
+                            <input type="submit" value="Modifier">
+                        </form>
+                    </td>
+                    <td>               
+                        <form action="" method="post">
+                            <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
+                            <input type="hidden" name="action" value="show">
+                            <input type="submit" value="Afficher">
+                        </form>
+                    </td>
+                    <td>
+                            
+                        <form action="" method="post">
+                            <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="submit" value="Supprimer">
+                        </form>
+                    </td>
             </tr>
         <?php
         }
         ?>
     </tbody>
 </table>
-
-</body>
-</html>
     <!--  CDN  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>

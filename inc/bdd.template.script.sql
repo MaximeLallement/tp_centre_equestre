@@ -30,14 +30,14 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `date_de_naissance` varchar(10) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `tel` varchar(20) NOT NULL,
-  `photo` varchar(20),
-  `actif` tinyint NOT NULL,
+  `photo` varchar(255),
+  `actif` tinyint NOT NULL DEFAULT 1,
   `num_licence` varchar(9) DEFAULT NULL,
   `id_representant` int,
   `galop` int DEFAULT NULL,
   `rue` varchar(85),
   `complement` varchar(85),
-  `code_postal` int ,
+  `code_postal` varchar(85) ,
   `ville` varchar(85),
   PRIMARY KEY (`id_personne`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
@@ -49,16 +49,16 @@ CREATE TABLE IF NOT EXISTS `personne` (
 INSERT INTO `personne` (`id_personne`, `nom_personne`, `prenom_personne`, `date_de_naissance`, `mail`, `tel`,`photo`, `actif`,
 						`galop`,`num_licence`,`id_representant`,`rue`,`complement`,`code_postal`,`ville`) VALUES
                         
-(1, 'Legrand', 'Robert', '02/05/1986', 'robert.legrand@mail.com', '07xxxxxxxx','default.jpg', 1,'2','000000001',5,'','',null,''),
-(2, 'Legrand', 'Colette', '25/01/1991', 'colette.legrand@mail.com', '07xxxxxxxx','default.jpg', 1,'2','000000001',5,'','',null,''),
-(4, 'Richard', 'Tom', '10/05/2001', 'richard.tom@mail.com', '07xxxxxxxx','default.jpg', 1,'2','000000001',8,'','',null,''),
-(6, 'Agel', 'Tom', '05/12/2000', 'agel.tom@mail.com', '07xxxxxxxx','default.jpg', 1,'2','000000001',8,'','',null,''),
-(7, 'Petit', 'Pierre', '03/04/1992', 'petit.pierre@mail.com', '07xxxxxxxx','default.jpg', 1,'2','000000001',8,'','',null,''),
-(9, 'Charles', 'Renault', '14/02/1972', 'charles.renault@mail.com', '07xxxxxxxx','default.jpg', 1,'2','000000001',10,'','',null,''),
-(3, 'Bernard', 'Michel', '09/09/1979', 'bernard.michel@mail.com', '07.xxxxxxxx','default.jpg', 1,'5','000000001','','Avenue Saint Honoré','53 bis','19053','Saint Astier'),
-(5, 'Durand', 'Axel', '23/04/1982', 'durand.axel@mail.com', '07xxxxxxxx','default.jpg', 1,'0','','','Rue Malbec','05','33800','Bordeaux'),
-(8, 'André', 'René', '07/06/1996', 'andre.rene@mail.com', '07xxxxxxxx','default.jpg', 1,'0','','','Place de la liverte','1','25600','Libourne'),
-(10, 'Francois', 'Chevalier', '10/11/1982', 'chevalier.francois@mail.com', '07xxxxxxxx','default.jpg', 1,'0','','','Chemin du Pouget','8','19100','Brive-la-Gaillarde');
+(1, 'Legrand', 'Robert', '1986/04/05', 'robert.legrand@mail.com', '0701020304','default.jpg', 1,'2','000000001',5,'','',null,''),
+(2, 'Legrand', 'Colette', '1991-01-25', 'colette.legrand@mail.com', '0702030405','default.jpg', 1,'2','000000001',5,'','',null,''),
+(4, 'Richard', 'Tom', '2001-05-10', 'richard.tom@mail.com', '0703040506','default.jpg', 1,'2','000000001',8,'','',null,''),
+(6, 'Agel', 'Tom', '2000-05-10', 'agel.tom@mail.com', '0704050607','default.jpg', 1,'2','000000001',8,'','',null,''),
+(7, 'Petit', 'Pierre', '1992-03-04', 'petit.pierre@mail.com', '0705060708','default.jpg', 1,'2','000000001',8,'','',null,''),
+(9, 'Charles', 'Renault', '1972-06-07', 'charles.renault@mail.com', '0706070809','default.jpg', 1,'2','000000001',10,'','',null,''),
+(3, 'Bernard', 'Michel', '1979-09-09', 'bernard.michel@mail.com', '0707080910','default.jpg', 1,'5','000000001','','Avenue Saint Honoré','53 bis','19053','Saint Astier'),
+(5, 'Durand', 'Axel', '1982-05-07', 'durand.axel@mail.com', '0708091011','default.jpg', 1,'0','','','Rue Malbec','05','33800','Bordeaux'),
+(8, 'André', 'René', '1996-05-03', 'andre.rene@mail.com', '0709101112','default.jpg', 1,'0','','','Place de la liverte','1','25600','Libourne'),
+(10, 'Francois', 'Chevalier', '1982-10-12', 'chevalier.francois@mail.com', '0710111213','default.jpg', 1,'0','','','Chemin du Pouget','8','19100','Brive-la-Gaillarde');
 
 -- --------------------------------------------------------
 
