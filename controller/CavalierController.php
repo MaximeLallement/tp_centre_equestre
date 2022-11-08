@@ -9,7 +9,7 @@ $headerpath = "../vue/header.php";
 /**
  * Retourne la vue qui affiche l'ensemble des Cavaliers 
  */
-if(isset($_POST) && $_POST["index"] == "index"){
+    if(isset($_POST) && $_POST["action"] == "index"){
     
     $data = get_all_cav();
 
