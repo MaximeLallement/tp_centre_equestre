@@ -9,12 +9,11 @@ $headerpath = "../vue/header.php";
 /**
  * Retourne la vue qui affiche l'ensemble des Cavaliers 
  */
-if(isset($_POST) && $_POST["index"] == "index"){
+if(isset($_POST) && $_POST["action"] == "index"){
     
     $data = get_all_cav();
 
     return require_once "../vue/cav/cav_index.php";
-
 }
 
 /**
@@ -120,7 +119,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
     
     isset($_POST["subaction"]) && $_POST["subaction"] == "update" ? $toUpdate = true : $toUpdate = false ;
     if($_FILES['photo']['size'] > 0){
-        if(!upload_photo($toUpdate)){ 
+        if(!upload_photo($toUpdate, $_FILES['photo'],$_POST['nom'])){ 
             $error = "error photo";
             return require_once "../vue/cav/cav_form.php";
         }
