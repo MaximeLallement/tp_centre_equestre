@@ -4,7 +4,7 @@ try {
     /*  Connexion  */
     $hostname = "localhost";
     $username = "root";
-    $password = "Hashka852456";
+    $password = "";
     $dbname = "tp_centre_equestre";
 
     $con = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
@@ -15,8 +15,10 @@ try {
 
 // DEFINE
 define('DB_TABLE_PERSONNE','personne');
+
 define('DB_TABLE_PENSION','pension');
 define('DB_TABLE_CHEVAL','cheval');
+
 
 /* Include des class  */
 require "class/Personne.class.php";
@@ -24,3 +26,7 @@ require "class/Cavalier.class.php";
 require "class/Representant.class.php";
 require "class/CavalierRepresentant.class.php";
 require "class/cheval.class.php";
+require "class/pension.class.php";
+
+/* Récupération des objets */
+
