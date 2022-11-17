@@ -60,7 +60,7 @@ if(isset($_POST["delete"])){
 
 if(isset($_POST["index"])){
 
-    return require_once "./Test.php";
+    return require_once "../vue/dashboard.php";
 
 }
 
