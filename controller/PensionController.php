@@ -5,7 +5,7 @@ require "../model/Pension.php";
 $headerpath = "../vue/header.php";
 
 /**
- * Retourne la vue qui affiche l'ensemble des Cavaliers 
+ * Retourne la vue qui affiche l'ensemble des Pensions 
  */
 if(isset($_POST) && $_POST["action"] == "index"){
     
@@ -16,6 +16,33 @@ if(isset($_POST) && $_POST["action"] == "index"){
 }
 
 /**
+ * Retourne la vue qui affiche une Pension
+ */
+if(isset($_POST) && $_POST["action"] == "show")
+{
+    $data = get_one_pen($_POST["pen_id"]);
+
+    if ( isset($data["id_pension"]) && $data["id_pension"] != 0)
+    {
+        $rep = get_one_pen($data["id_pension"]);
+    }
+
+    return require_once "../vue/pen/pen_show.php";
+}
+
+/**
+ * Retourne la vue qui affiche l'ensemble des Pensions après suppression ( SoftDelte ) d'une Pension
+ */
+if(isset($_POST) && $_POST["action"] == "delete"){
+
+    soft_delete_pen_by_id($_POST["pen_id"]);
+    
+    return require_once "../vue/pen/pen_index.php";
+
+}
+
+/*
+ *
  * Retourne la vue qui affiche une pension
  * 
  */
@@ -34,15 +61,15 @@ if(isset($_POST) && $_POST["action"] == "show")
 
 /**
  * Retourne la vue qui affiche l'ensemble des Pension après suppression ( SoftDelte ) d'une Pension
-
+*/
 if(isset($_POST) && $_POST["action"] == "delete"){
 
-    soft_delete_by_id($_POST["pen_id"]);
+    soft_delete_pen_by_id($_POST["pen_id"]);
     
     return require_once "../vue/pen/pen_index.php";
 
 }
-*/
+
 
 /**
  * Reception des action sur la vue formulaire
