@@ -15,7 +15,7 @@ class Cavalier extends Personne{
     private int     $cav_actif = 1;
 
     //Constructor
-    public function __construct($nom,$prenom,$date,$m,$tel,$ph, $g, $num)
+    public function __construct($nom,$prenom,$date,$m,$tel,$ph = "default.jpg", $g, $num)
     {
         parent::__construct($nom,$prenom,$date,$m,$tel);
         $this->cav_photo = $ph;

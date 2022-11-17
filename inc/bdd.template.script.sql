@@ -32,13 +32,23 @@ CREATE TABLE `cheval` (
   `SIRE` varchar(9) NOT NULL,
   `nom_cheval` varchar(65) NOT NULL,
   `id_robe` int(7) NOT NULL,
+<<<<<<< HEAD
   `id_cav` int(11) DEFAULT NULL
+=======
+  `id_cav` int,
+  `photo_cheval` VARCHAR(255) NULL,
+  `valid` tinyint NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id_cheval`),
+  CONSTRAINT fk_id_rob FOREIGN KEY(`id_robe`) REFERENCES `robe`(`id_robe`),
+  CONSTRAINT fk_id_cav FOREIGN KEY(`id_cav`) REFERENCES `personne`(`id_personne`)
+>>>>>>> 7db83d09fd0d8ab5794b4be4f504cf3720866692
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `cheval`
 --
 
+<<<<<<< HEAD
 INSERT INTO `cheval` (`id_cheval`, `SIRE`, `nom_cheval`, `id_robe`, `id_cav`) VALUES
 (1, '000000001', 'Flamme des tenebres', 1, NULL),
 (2, '000000002', 'Aurore pure', 2, NULL),
@@ -46,6 +56,15 @@ INSERT INTO `cheval` (`id_cheval`, `SIRE`, `nom_cheval`, `id_robe`, `id_cav`) VA
 (4, '000000004', 'Rosee printanière', 4, NULL),
 (5, '000000005', 'Liberte matinal', 5, NULL),
 (6, '000000006', 'Chemin pourpre', 6, NULL);
+=======
+INSERT INTO `cheval` (`id_cheval`,`SIRE`,`nom_cheval`,`id_robe`,`id_cav`,`photo_cheval`) VALUES
+(1,'000000001','Flamme des tenebres',1,5,'default.jpg'),
+(2,'000000002','Aurore pure',2,2,'default.jpg'),
+(3,'000000003','Horizon fluiviale',3,,'default.jpg'),
+(4,'000000004','Rosee printanière',4,,'default.jpg'),
+(5,'000000005','Liberte matinal',5,4,'default.jpg'),
+(6,'000000006','Chemin pourpre',6,5,'default.jpg');
+>>>>>>> 7db83d09fd0d8ab5794b4be4f504cf3720866692
 
 -- --------------------------------------------------------
 
