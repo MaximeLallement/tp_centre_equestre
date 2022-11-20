@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?php
 require "../inc/bdd.inc.php";
 require "../model/Pension.php";
@@ -190,3 +191,9 @@ if(isset($_POST) && $_POST["action"] == "form"){
         }
     }*/
 }
+=======
+<?php
+require "../inc/bdd.inc.php";
+require "../model/Pension.php";
+$headerpath = "../vue/header.php";
+>>>>>>> Stashed changes

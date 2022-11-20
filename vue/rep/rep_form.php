@@ -7,7 +7,7 @@
 -->
     <body>
         <div class="container">
-            <h3 text-align="center">Modifier le profil de <b><?= $infosaved["rep_prenom"]?> <?= $infosaved["rep_nom"] ?></b></h3> <!-- Titre personnalisé -->
+            <h3 text-align="center">Modifier le profil de <b><?= $infosaved["rep_prenom"]." ".$infosaved["rep_nom"] ?></b></h3> <!-- Titre personnalisé -->
             <form method="post" action=".././controller/RepresentantController.php">
                 <input type="hidden" name="rep_id" value="<?= isset($infosaved["rep_id"]) ? $infosaved["rep_id"] : "" ;?>">
                 <div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <input type="submit" name="modify_validation" value="Modifier" onclick="return confirm('Voulez-vous modifier cet utilisateur ?')"/> <!-- Exécute la requête de modification si msg de confirmation validé-->
-                <input type="submit" name="index" value="Annuler" onclick="return confirm('Voulez-vous annuler la saisie ?')"/> <!-- Retourne sur la page 'rep_index.php' -->  
+                <input type="submit" name="showAll" value="Annuler" onclick="return confirm('Voulez-vous annuler la saisie ?')"/> <!-- Retourne sur la page 'rep_index.php' -->  
             </form>
         </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
