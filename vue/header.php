@@ -46,8 +46,47 @@ $url = "${protocol}://${domain}${disp_port}${base_url}";
     <![endif]-->
   </head>
 
-  <header>
-    <form action="./RepresentantController.php" method="post">
-      <input type="submit" name="index" value="Accueil"> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
-    </form>
-  </header>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse">
+		
+        <button class="navbar-brand" type="submit" name="index" value="Accueil" onclick="location.href = '../controller/Test.php'">Accueil</button> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
+		
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <form action="../controller/RepresentantController.php" method="post">
+              <button type="submit" name="showAll">Représentants</button>
+            </form>
+          </li>
+
+          <li class="nav-item">
+            <form action="../controller/CavalierController.php" method="post">
+              <button type="submit" name="index" value="index">Cavaliers</button>
+            </form>
+          </li>
+
+          <?php 
+            if(isset($_SESSION) && $_SESSION['connecte'] == True){ //Si connecté, afficher boutton déconnexion?> 
+
+              <li class="nav-item">
+                <form action="../controller/ConnexionController.php" method="post">
+                  <button type="submit" name="deconnexion">Déconnexion</button>
+                </form>
+              </li>
+
+            <?php }
+
+            else{ //Sinon afficher boutton connexion?>
+
+            	<li class="nav-item">
+            		<form action="../controller/ConnexionController.php" method="post">
+              			<button type="submit" name="connexion">Connexion</button>
+                	</form>
+              	</li>
+				
+            <?php } ?>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</html>
