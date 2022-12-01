@@ -22,14 +22,14 @@ function get_all_cav()
 
 function get_one_cav(int $id){
     global $con;
-    $sql = "SELECT * FROM ".DB_TABLE_PENSION." WHERE id_personne = :id ;";
+    $sql = "SELECT * FROM ".DB_TABLE_PERSONNE." WHERE id_personne = :id ;";
     $req = $con->prepare($sql);
     $req->bindValue(':id',$id,PDO::PARAM_INT);
     
     try {
         $req->execute();
         return $req->fetch();
-   } catch (PDOException $e) {
+    } catch (PDOException $e) {
        return $e->getMessage();
    }
 }
