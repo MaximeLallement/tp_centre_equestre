@@ -6,6 +6,7 @@
  */
 function upload_photo($toUpdate = false, $file, $photoName )
 {
+    $error = "";
     /** 
      * Traitement de la photo
      */
@@ -26,7 +27,7 @@ function upload_photo($toUpdate = false, $file, $photoName )
             echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } else {
-            echo "File is not an image.";
+            $error = "File is not an image.";
             $uploadOk = 0;
         }
     }
@@ -34,13 +35,13 @@ function upload_photo($toUpdate = false, $file, $photoName )
     if(!$toUpdate)
     {  
         if(file_exists($target_file)) {    
-            echo "Sorry, file already exists.";
+            $error = "Sorry, file already exists.";
             $uploadOk = 0;
         }
     }
     // Check file size
     if ($_FILES[$file]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
+        $error = "Sorry, your file is too large.";
         $uploadOk = 0;
     }
 

@@ -5,7 +5,7 @@ try {
     /*  Connexion  */
     $hostname = "localhost";
     $username = "root";
-    $password = "";
+    $password = "Hashka852456";
     $dbname = "tp_centre_equestre";
 
     $con = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
@@ -16,9 +16,10 @@ try {
 
 // DEFINE
 define('DB_TABLE_PERSONNE','personne');
-
+define('DB_TABLE_EVENT','event');
 define('DB_TABLE_PENSION','pension');
 define('DB_TABLE_CHEVAL','cheval');
+define('DB_TABLE_ROBE','robe');
 
 
 /* Include des class  */

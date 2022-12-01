@@ -63,11 +63,10 @@ abstract class Pension{
         
         $req="SELECT * FROM ".DB_TABLE_PENSION;
         try{
-            $sql=$conn->query($req);
+            $sql=$con->query($req);
             return $sql->fetchAll (PDO::FETCH_ASSOC);
         }
         catch(PDOException $e){
             return $this->errmessage.$e->getMessage();
         }        
     }
-}

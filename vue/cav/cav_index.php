@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <?php
  $pagename = "Cavalier";
  require $headerpath;
@@ -27,7 +26,7 @@
         foreach ($data as $cav) {
 
         ?>
-            <tr>
+            <tr >
                 <td><?= $cav["nom_personne"] ?></td>
                 <td><?= $cav["prenom_personne"] ?></td>
                 <td><?= $cav["num_licence"] ?></td>
@@ -62,16 +61,17 @@
         ?>
     </tbody>
 </table>
-    <!--  CDN  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+<!--  CDN  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+<script src="../inc/script/js/jquery-ui.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            $('#cav_list').DataTable();
-        });   
-    </script>
-=======
+
+<script>
+    $(document).ready(function () {
+        $('#cav_list').DataTable();
+    });   
+</script>
 <?php
  $pagename = "Cavalier";
  require $headerpath;
@@ -144,4 +144,3 @@
             $('#cav_list').DataTable();
         });   
     </script>
->>>>>>> Stashed changes
