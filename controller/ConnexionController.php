@@ -1,11 +1,13 @@
 <?php
 require_once '.././inc/bdd.inc.php';
 $headerpath = "../vue/header.php";
+?>
 
+<script>console.log('here')</script>
 
+<?php
 if(isset($_POST['connexion'])){
 
-    
     return require_once '../vue/connexion.php';
 
 }
@@ -36,7 +38,7 @@ if(isset($_POST['connexion_admin_validation'])){
         $req->bindValue(':username', $username, PDO::PARAM_STR);
         $req->bindValue(':mdp', $mdp, PDO::PARAM_STR);
         $req->execute();
-    
+
         $count = $req->rowCount();
     
         if($count == 1){ //S'il existe une correspondance entre login et mdp, établir la connexion
