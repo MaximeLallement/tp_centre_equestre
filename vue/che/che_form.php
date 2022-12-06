@@ -56,7 +56,7 @@ require $headerpath;
             <!-- CHOIX DU PROPRIETAIRE -->
             <div class="form-group col">
                 <label for="nom_proprietaire">Nom du Proprietaire*</label>
-                <input type="text" name="nom_proprietaire" id="nom_proprietaire" value="<?= isset($infosaved) && $infosaved["id_cav"] != "" ? $infosaved["nom_cav"] : "";  ?>" onkeyup = "autocomplet()" class="form-control">
+                <input type="text" name="nom_cav" id="nom_proprietaire" value="<?= isset($infosaved["nom_cav"]) && $infosaved["nom_cav"] != "" ? $infosaved["nom_cav"] : "";  ?>" onkeyup = "autocomplet()" class="form-control">
                 <input type="hidden" name="id_cav" id="id_proprietaire" value="<?= isset($infosaved) && $infosaved["id_cav"] != "" ? $infosaved["id_cav"] : "";  ?>" class="form-control">
                 <ul id="list_cav"></ul>
             </div>
