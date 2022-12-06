@@ -9,10 +9,10 @@ require $headerpath;
             <li><a href="#fragment-2"><span>Information Cavalier</span></a></li>
             <li><a href="#fragment-3"><span>Information Pension</span></a></li>
         </ul>
-        <div class="row" id="fragment-1">
+        <div class="" id="fragment-1">
             <p>Information Générale</p>
             <div class="row">
-                <div class="col">
+                <div class="col-10">
                     <table style="width:100%;">
                         <thead>
                             <th>Nom</th>

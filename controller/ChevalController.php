@@ -133,6 +133,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
             return require_once "../vue/che/che_form.php";
         }else {
             $data = get_all_che();
+            $rob = get_all_rob();
             return require_once "../vue/che/che_index.php";
         }
     }
@@ -142,6 +143,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
         return require_once "../vue/che/che_form.php";
     }else {
         $data = get_all_che();
+        $rob = get_all_rob();
         return require_once "../vue/che/che_index.php";
     }
 

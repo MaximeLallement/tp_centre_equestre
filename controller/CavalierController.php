@@ -123,7 +123,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
         $photo = "default.jpg";
     }
     if($_FILES['photo']['size'] > 0){
-        if(!upload_photo($toUpdate, $_FILES['photo'],$_POST['nom'])){ 
+        if(!upload_photo($toUpdate,'photo',$_POST['nom'])){ 
             $error = "error photo";
             return require_once "../vue/cav/cav_form.php";
         }
