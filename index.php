@@ -106,7 +106,7 @@
                 <article class="services-terri wow slideInDown">
                   <div class="services-terri-figure"><img src="media/stock-photo-beautiful-draft-horse-on-the-pasture-large-horse-bred-to-be-a-working-animal-doing-hard-tasks-such-1860914509.jpg" alt="" width="370" height="278"/>
                   </div>
-                  <div class="services-terri-caption"><span class="services-terri-icon linearicons-pizza"></span>
+                  <div class="services-terri-caption"><span class="services-terri-icon linearicons-star"></span>
                     <h5 class="services-terri-title"><a href="#">Cours Galop</a></h5>
                   </div>
                 </article>
@@ -118,7 +118,7 @@
                 <article class="services-terri wow slideInUp">
                   <div class="services-terri-figure"><img src="media/stock-photo-the-eye-of-the-horse-1879808221.jpg" alt="" width="370" height="278"/>
                   </div>
-                  <div class="services-terri-caption"><span class="services-terri-icon linearicons-hamburger"></span>
+                  <div class="services-terri-caption"><span class="services-terri-icon linearicons-trophy"></span>
                     <h5 class="services-terri-title"><a href="#">Préparation Compétition</a></h5>
                   </div>
                 </article>
@@ -133,7 +133,7 @@
                 <article class="services-terri wow slideInDown">
                   <div class="services-terri-figure"><img src="media/stock-photo-welsh-pony-running-and-standing-in-high-grass-long-mane-brown-horse-galloping-brown-horse-1175510683.jpg" alt="" width="370" height="278"/>
                   </div>
-                  <div class="services-terri-caption"><span class="services-terri-icon linearicons-ice-cream"></span>
+                  <div class="services-terri-caption"><span class="services-terri-icon linearicons-heart"></span>
                     <h5 class="services-terri-title"><a href="#">Nos cheveaux</a></h5>
                   </div>
                 </article>
@@ -145,7 +145,7 @@
                 <article class="services-terri wow slideInUp">
                   <div class="services-terri-figure"><img src="media/stock-photo-close-up-portrait-of-horse-1889100730.jpg" alt="" width="370" height="278"/>
                   </div>
-                  <div class="services-terri-caption"><span class="services-terri-icon linearicons-coffee-cup"></span>
+                  <div class="services-terri-caption"><span class="services-terri-icon linearicons-sun"></span>
                     <h5 class="services-terri-title"><a href="#">Galeries</a></h5>
                   </div>
                 </article>
@@ -157,7 +157,7 @@
                 <article class="services-terri wow slideInDown">
                   <div class="services-terri-figure"><img src="media/stock-photo-welsh-pony-running-and-standing-in-high-grass-long-mane-brown-horse-galloping-brown-horse-1175510683.jpg" alt="" width="370" height="278"/>
                   </div>
-                  <div class="services-terri-caption"><span class="services-terri-icon linearicons-steak"></span>
+                  <div class="services-terri-caption"><span class="services-terri-icon linearicons-tree"></span>
                     <h5 class="services-terri-title"><a href="#">Evenementiel</a></h5>
                   </div>
                 </article>

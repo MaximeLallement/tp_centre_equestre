@@ -9,8 +9,8 @@
 */
 @font-face {
 	font-family: 'FontAwesome';
-	src: url("../fonts/fontawesome-webfont.eot?v=4.7.0");
-	src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+	src: url("../assets/fonts/fontawesome-webfont.eot?v=4.7.0");
+	src: url("../assets/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../assets/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../assets/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../assets/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../assets/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -3063,8 +3063,8 @@
 */
 @font-face {
 	font-family: "Material Design Icons";
-	src: url("../fonts/materialdesignicons-webfont.eot?v=1.4.57");
-	src: url("../fonts/materialdesignicons-webfont.eot?#iefix&v=1.4.57") format("embedded-opentype"), url("../fonts/materialdesignicons-webfont.woff2?v=1.4.57") format("woff2"), url("../fonts/materialdesignicons-webfont.woff?v=1.4.57") format("woff"), url("../fonts/materialdesignicons-webfont.ttf?v=1.4.57") format("truetype"), url("../fonts/materialdesignicons-webfont.svg?v=1.4.57#materialdesigniconsregular") format("svg");
+	src: url("../assets/fonts/materialdesignicons-webfont.eot?v=1.4.57");
+	src: url("../assets/fonts/materialdesignicons-webfont.eot?#iefix&v=1.4.57") format("embedded-opentype"), url("../assets/fonts/materialdesignicons-webfont.woff2?v=1.4.57") format("woff2"), url("../assets/fonts/materialdesignicons-webfont.woff?v=1.4.57") format("woff"), url("../assets/fonts/materialdesignicons-webfont.ttf?v=1.4.57") format("truetype"), url("../assets/fonts/materialdesignicons-webfont.svg?v=1.4.57#materialdesigniconsregular") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -8943,9 +8943,9 @@
 	font-family: 'Linearicons';
 	font-weight: normal;
 	font-style: normal;
-	src: url(../fonts/Linearicons.eot);
+	src: url(../assets/fonts/Linearicons.eot);
 	/* For IE6-8 */
-	src: local("Linearicons"), local("Linearicons"), url(../fonts/Linearicons.woff) format("woff"), url(../fonts/Linearicons.ttf) format("truetype");
+	src: local("Linearicons"), local("Linearicons"), url(../assets/fonts/Linearicons.woff) format("woff"), url(../assets/fonts/Linearicons.ttf) format("truetype");
 }
 
 .linearicons,
@@ -12979,8 +12979,8 @@
  */
 @font-face {
 	font-family: "fl-bigmug-line";
-	src: url("../fonts/fl-bigmug-line.eot");
-	src: url("../fonts/fl-bigmug-line.eot#iefix") format("embedded-opentype"), url("../fonts/fl-bigmug-line.woff") format("woff"), url("../fonts/fl-bigmug-line.ttf") format("truetype"), url("../fonts/fl-bigmug-line.svg") format("svg");
+	src: url("../assets/fonts/fl-bigmug-line.eot");
+	src: url("../assets/fonts/fl-bigmug-line.eot#iefix") format("embedded-opentype"), url("../assets/fonts/fl-bigmug-line.woff") format("woff"), url("../assets/fonts/fl-bigmug-line.ttf") format("truetype"), url("../assets/fonts/fl-bigmug-line.svg") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
