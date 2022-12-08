@@ -1,7 +1,9 @@
 <?php 
-require ".././inc/bdd.inc.php";
+require_once "../inc/bdd.inc.php";
 require ".././model/Representant.php";
+require ".././controller/ConnexionController.php";
 $headerpath = "../vue/header.php"; //Enregistre dans une variable le header 'vue/header.php'
+
 
 if(isset($_POST["showAll"])){
 
@@ -9,8 +11,11 @@ if(isset($_POST["showAll"])){
 
 }
 
-if(isset($_POST["showOne"])){
+if(isset($_POST["showOne"])){ //Affiche le représentant sélectionné dans 'rep_index.php'
 
+    $rep = get_one_rep($_POST["rep_id"]); //Id récupéré dans 'rep_index.php' dans le bouton 'Afficher'
+
+    return require_once "../vue/rep/rep_show.php";
 
 }
 
@@ -48,6 +53,7 @@ if (isset($_POST["modify_validation"])){ //Modifie les infos relative à une per
     );
 
     update_rep($representant, $_POST["rep_id"]);
+    return require_once "../vue/rep/rep_index.php";
 
 }
 
@@ -57,15 +63,5 @@ if(isset($_POST["delete"])){
     return require_once "../vue/rep/rep_index.php";
 
 }
-
-if(isset($_POST["index"])){
-
-    return require_once "./Test.php";
-
-}
-
-
-
-
 
 ?>
