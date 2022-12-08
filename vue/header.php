@@ -40,14 +40,55 @@ $url = "${protocol}://${domain}${disp_port}${base_url}";
     <link rel="stylesheet" href="<?= $url ?>/../css/fonts.css">
     <link rel="stylesheet" href="<?= $url ?>/../css/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="<?= $url ?>/../css/jquery-ui.min.css">
+
     <!--[if lt IE 10]>
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="assets/img/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
   </head>
 
-  <header>
-    <form action="./RepresentantController.php" method="post">
-      <input type="submit" name="index" value="Accueil"> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
-    </form>
-  </header>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse">
+		
+        <button class="navbar-brand" type="submit" name="index" value="Accueil" onclick="location.href = '../controller/Test.php'">Accueil</button> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
+		
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <form action="../controller/RepresentantController.php" method="post">
+              <button type="submit" name="showAll">Représentants</button>
+            </form>
+          </li>
+
+          <li class="nav-item">
+            <form action="../controller/CavalierController.php" method="post">
+              <button type="submit" name="index" value="index">Cavaliers</button>
+            </form>
+          </li>
+
+          <?php 
+            if(isset($_SESSION) && $_SESSION['connecte'] == True){ //Si connecté, afficher boutton déconnexion?> 
+
+              <li class="nav-item">
+                <form action="../controller/ConnexionController.php" method="post">
+                  <button type="submit" name="deconnexion">Déconnexion</button>
+                </form>
+              </li>
+
+            <?php }
+
+            else{ //Sinon afficher boutton connexion?>
+
+            	<li class="nav-item">
+            		<form action="../controller/ConnexionController.php" method="post">
+              			<button type="submit" name="connexion">Connexion</button>
+                	</form>
+              	</li>
+				
+            <?php } ?>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</html>
