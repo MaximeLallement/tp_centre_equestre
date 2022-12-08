@@ -3,6 +3,7 @@ require "../inc/bdd.inc.php";
 require "../model/Cavalier.php";
 require "../model/Representant.php";
 require "../model/CavalierRepresentant.php";
+require "../model/Inscription.php";
 
 $headerpath = "../vue/header.php";
 
@@ -23,7 +24,7 @@ if(isset($_POST) && $_POST["action"] == "index"){
 if(isset($_POST) && $_POST["action"] == "show")
 {
     $data = get_one_cav($_POST["cav_id"]);
-
+    $ins = get_ins_one_cav($_POST["cav_id"]);
     if ( isset($data["id_representant"]) && $data["id_representant"] != 0)
     {
         $rep = get_one_cav($data["id_representant"]);
@@ -173,8 +174,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
             $error = "addcavrep";
             return require_once "../vue/cav/cav_form.php";
         }else {
-            $data = get_all_cav();
-            return require_once "../vue/cav/cav_index.php";
+            return require_once "../vue/ins/ins_form.php";
         }
 
     }else{
@@ -222,8 +222,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
             $error = "addrep";
             return require_once "../vue/cav/cav_form.php";
         }else{
-           $data = get_all_cav();
-           return require_once "../vue/cav/cav_index.php";
+           return require_once "../vue/ins/ins_form.php";
         }
     }
 }
