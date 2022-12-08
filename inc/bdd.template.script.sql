@@ -84,7 +84,10 @@ INSERT INTO `est_pensionnaire` (`id_pension`, `id_personne`) VALUES
 CREATE TABLE `inscription` (
   `id_inscription` int(7) NOT NULL,
   `montant_cotisation` int(4) NOT NULL,
-  `montant_ffe` int(3) NOT NULL
+  `montant_ffe` int(3) NOT NULL,
+  `annee` VARCHAR(255) NOT NULL,
+  `id_cav` int(3) NOT NULL,
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -224,6 +227,7 @@ ALTER TABLE `est_pensionnaire`
 -- Index pour la table `inscription`
 --
 ALTER TABLE `inscription`
+  ADD COLUMN `valid` TINYINT NOT NULL DEFAULT 1 AFTER `id_cav`;
   ADD PRIMARY KEY (`id_inscription`);
 
 --
@@ -314,8 +318,13 @@ ALTER TABLE `est_pensionnaire`
 --
 ALTER TABLE `pension`
   ADD CONSTRAINT `fk_id_cheval` FOREIGN KEY (`id_cheval`) REFERENCES `cheval` (`id_cheval`);
-COMMIT;
 
+--
+-- Contraintes pour la table `pension`
+--
+ALTER TABLE `inscription`
+  ADD CONSTRAINT `fk_id_cavalier` FOREIGN KEY (`id_cav`) REFERENCES `personne` (`id_personne`),
+COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

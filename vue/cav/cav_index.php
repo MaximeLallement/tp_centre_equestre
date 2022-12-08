@@ -24,7 +24,6 @@
         <?php
         //Loop sur les éléments de la requête SQL pour affichage
         foreach ($data as $cav) {
-
         ?>
             <tr >
                 <td><?= $cav["nom_personne"] ?></td>
@@ -41,7 +40,7 @@
                         </form>
                     </td>
                     <td>               
-                        <form action="" method="post">
+                        <form action="CavalierController.php" method="post">
                             <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
                             <input type="hidden" name="action" value="show">
                             <input type="submit" value="Afficher">
@@ -49,7 +48,7 @@
                     </td>
                     <td>
                             
-                        <form action="" method="post">
+                        <form action="CavalierController.php" method="post">
                             <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
                             <input type="hidden" name="action" value="delete">
                             <input type="submit" value="Supprimer">

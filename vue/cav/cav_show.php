@@ -51,7 +51,6 @@ require $headerpath;
                                 <td><?= $rep["mail"] ?></td>
                                 <td><?= $rep["tel"] ?></td>
                             </tr>
-                        <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -59,6 +58,7 @@ require $headerpath;
                     <img src="http://localhost/2a/tp_centre_equestre/media/<?= isset($rep) && $rep["photo"] !="" ? $rep["photo"] : "default.jpg"  ?>" alt="">
                 </div>
             </div>
+            <?php } ?>
             <div class="container-fluid">
                 <form action="" method="post" class="d-inline" >
                     <input type="hidden" name="cav_id" value="<?= $data["id_personne"]; ?>">
@@ -75,25 +75,26 @@ require $headerpath;
 
         </div>
         <div class="" id="fragment-2">
+            <p>License</p>
             <table style="width:100%;">
                 <thead>
-                    <th>Galop</th>
-                    <th>License</th>
-                    <th>Cotisation</th>
-                    <th>Membres depuis</th>
-                    <th>Pension ? </th>
+                    <th>N°</th>
+                    <th>Cotisation CLub</th>
+                    <th>Cotisation FFE</th>
+                    <th>Année</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><?= $data["galop"] ?></td>
-                        <td><?= $data["num_licence"] ?></td>
-                        <td>Oui</td>
-                        <td>xx Juin 20XX</td>
-                        <td>Complète / Demi / Non</td>
-                    </tr>
-
+                    <?php foreach ($ins as $inscription) { ?>
+                        <tr>
+                            <td><?= $inscription["id_inscription"] ?></td>
+                            <td><?= $inscription["montant_cotisation"] ?></td>
+                            <td><?= $inscription["montant_ffe"] ?></td>
+                            <td><?= $inscription["annee"] ?></td>
+                        </tr>
+                  <?php  } ?>
                 </tbody>
             </table>
+            
         </div>       
         <div class="" id="fragment-3">
             <table style="width:100%;">
