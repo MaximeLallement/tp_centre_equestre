@@ -2,7 +2,7 @@
 
 /* Class Pension */
 
-abstract class Pension{
+class Pension{
     const errmessage = "Une erreur s'est produite \n";
 
     /*Propriété */

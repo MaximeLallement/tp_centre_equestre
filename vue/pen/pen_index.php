@@ -70,5 +70,5 @@ require $headerpath;
     <script>
         $(document).ready(function () {
             $('#pen_list').DataTable();
-        });   
-    </script>
+        });
+    </script> 

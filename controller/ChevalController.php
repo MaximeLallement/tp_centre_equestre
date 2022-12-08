@@ -4,7 +4,7 @@ require "../model/Cheval.php";
 require "../model/Cavalier.php";
 require "../model/Representant.php";
 require "../model/Robe.php";
-//require "../model/Pension.php";
+require "../model/Pension.php";
 require "../model/CavalierRepresentant.php";
 
 $headerpath = "../vue/header.php";
@@ -26,6 +26,7 @@ if(isset($_POST) && $_POST["action"] == "index"){
 if(isset($_POST) && $_POST["action"] == "show")
 {
     $data = get_one_che($_POST["che_id"]);
+
 
     if ( isset($data["id_cav"]) && $data["id_cav"] != "")
     {
@@ -87,7 +88,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
         $infosaved["id_cav"] = $data["id_cav"] ;
         
         if(isset($data["id_cav"]) && $data["id_cav"] != ""){
-            
+
             $cav = get_one_cav($data["id_cav"]);
             $infosaved["nom_cav"] = $cav["nom_personne"] . " " . $cav["prenom_personne"];
         }

@@ -15,9 +15,11 @@ function create_pension(Pension $pension){
     $req->bindValue(':tarif', $pension->getTarif(), PDO::PARAM_INT);
     $req->bindValue(':date_de_debut', $pension->getDate_de_debut(), PDO::PARAM_STR);
     $req->bindValue(':duree', $pension->getDuree(), PDO::PARAM_INT);
-            
+           
+    var_dump($req->execute());
+    end;
     try {
-        $con->exec($sql);
+        $req->execute();
         return true;
     }
     catch (PDOException $e) {
@@ -64,10 +66,27 @@ function get_one_pen(int $id){
  * Modifie la pension dans la table
  * 
  */
-function update_pension()
+function update_pension(Pension $pension, int $id)
 {
-    global $con;
-    $sql = "UPDATE ".DB_TABLE_PENSION." SET `libelle_pension`='".$_POST['libelle_pensionU']."', `libelle_pension`='".$_POST['libelle_pensionU']."',";
+    global $con; 
+    $sql =  "UPDATE ".DB_TABLE_PENSION." SET    libelle_pension = :libelle_pension,
+                                                tarif = :tarif,
+                                                date_de_debut = :date_de_debut,
+                                                duree = :duree
+            WHERE id_pension = :id ;";
+    $req = $con->prepare($sql);
+    $req->bindValue(':libelle_pension', $pension->getLibelle(), PDO::PARAM_STR);
+    $req->bindValue(':tarif', $pension->getTarif(), PDO::PARAM_INT);
+    $req->bindValue(':date_de_debut', $pension->getDate_de_debut(), PDO::PARAM_STR);
+    $req->bindValue(':duree', $pension->getDuree(), PDO::PARAM_INT);
+    $req->bindValue(':id', $id, PDO::PARAM_INT);
+    try {
+        $req->execute();
+        return true;
+    }
+    catch (PDOException $e) {
+        return $e->getMessage();
+    }
 }
 
 
@@ -85,6 +104,7 @@ function soft_delete_pen_by_id(int $id)
     $req->bindValue(':id',$id,PDO::PARAM_INT);
     
     try {
+        die ($sql);
         $req->execute();
         return true;
    } 
@@ -107,11 +127,11 @@ function get_pen_che(int $id)
         INNER JOIN cheval c ON p.id_cheval = c.id_cheval
         WHERE c.id_cheval = :id ;";
     $req = $con->prepare($sql);
-    $req->bindValue(':id', $int, PDO::PARAM_INT);
+    $req->bindValue(':id', $id, PDO::PARAM_INT);
     
     try {
         $con->exec($sql);
-        return $sql->fetchAll (PDO::FETCH_ASSOC);
+        return $req->fetchAll (PDO::FETCH_ASSOC);
     }
     catch (PDOException $e) {
         return $e->getMessage();
