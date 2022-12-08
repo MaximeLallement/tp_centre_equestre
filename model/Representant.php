@@ -81,12 +81,6 @@ function update_rep(Representant $representant, int $id) //Modifie les valeurs d
 
     try {
         $req->execute() ;
-        echo "Modifications réussies !"; //Message de confirmation
-        echo "
-            <form action='.././controller/RepresentantController.php' method='post'>
-                <button type='submit' name='index'>OK</button>
-            </form>
-        ";
         return true; 
     } catch (PDOException $e) {
         return $e->getMessage();
@@ -95,8 +89,9 @@ function update_rep(Representant $representant, int $id) //Modifie les valeurs d
 
 function soft_delete_rep_by_id(int $id){
     global $con;
-    $sql = "UPDATE ".DB_TABLE_PERSONNE." SET actif = 0 WHERE id_personne = :id_personne";
+    $sql = "UPDATE ".DB_TABLE_PERSONNE." SET actif = :actif WHERE id_personne = :id_personne";
     $req = $con->prepare($sql);
+    $req->bindValue(':actif',0,PDO::PARAM_INT);
     $req->BindValue(':id_personne', $id, PDO::PARAM_INT);
 
     try {

@@ -8,16 +8,14 @@ require_once "../inc/bdd.inc.php";
  */
 function create_pension(Pension $pension){
     global $con;    
-    $sql = "INSERT INTO ".DB_TABLE_PENSION." (`libelle_pension`, `tarif`, `date_de_debut`, `duree`) 
-            VALUES (:libelle_pension, :tarif, :date_de_debut, :duree);";
+    $sql = "INSERT INTO ".DB_TABLE_PENSION." (`libelle_pension`, `tarif`, `date_de_debut`, `duree`, `id_cheval`) 
+            VALUES (:libelle_pension, :tarif, :date_de_debut, :duree, :id_cheval);";
     $req = $con->prepare($sql);
     $req->bindValue(':libelle_pension', $pension->getLibelle(), PDO::PARAM_STR);
     $req->bindValue(':tarif', $pension->getTarif(), PDO::PARAM_INT);
     $req->bindValue(':date_de_debut', $pension->getDate_de_debut(), PDO::PARAM_STR);
     $req->bindValue(':duree', $pension->getDuree(), PDO::PARAM_INT);
-           
-    var_dump($req->execute());
-    end;
+    $req->bindValue(':id_cheval', $pension->getId_Cheval(), PDO::PARAM_INT);
     try {
         $req->execute();
         return true;
@@ -73,12 +71,14 @@ function update_pension(Pension $pension, int $id)
                                                 tarif = :tarif,
                                                 date_de_debut = :date_de_debut,
                                                 duree = :duree
+                                                id_cheval = :id_cheval
             WHERE id_pension = :id ;";
     $req = $con->prepare($sql);
     $req->bindValue(':libelle_pension', $pension->getLibelle(), PDO::PARAM_STR);
     $req->bindValue(':tarif', $pension->getTarif(), PDO::PARAM_INT);
     $req->bindValue(':date_de_debut', $pension->getDate_de_debut(), PDO::PARAM_STR);
     $req->bindValue(':duree', $pension->getDuree(), PDO::PARAM_INT);
+    $req->bindValue(':id_cheval', $pension->getId_Cheval(), PDO::PARAM_INT);
     $req->bindValue(':id', $id, PDO::PARAM_INT);
     try {
         $req->execute();

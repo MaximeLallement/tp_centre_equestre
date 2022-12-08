@@ -1,18 +1,17 @@
 <?php
 
-require_once(".././inc/bdd.inc.php");
+require_once("../inc/bdd.inc.php");
 require_once(".././model/Representant.php");
 $pagename = "Représentant";
 require $headerpath; //Importe le header
 
 ?>
 <head>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+         
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
-  
     <script>
         $(document).ready(function () {
             $('#rep_list').DataTable(); //Applique la fontion DataTable() à l'élément dont l'id = 'rep_list'
@@ -35,54 +34,84 @@ require $headerpath; //Importe le header
     </thead> 
     <tbody>
         <?php foreach(get_all_rep() as $rep){ ?> <!-- Génère un tableau des représentants avec leurs infos personnelles -->
-            <tr>
-                <td><?php echo utf8_encode($rep["nom_personne"]) ?></td>
-                <td><?php echo utf8_encode($rep["prenom_personne"]) ?></td>
-                <td><?php echo $rep["num_licence"] ?></td>
+            <!-- Dialog box -->
+            <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
+            <div id="dialog<?= $rep["id_personne"]; ?>" title="Voulez-vous réellement MODIFIER cet utilisateur ?"></div>
+            <script>
+                $(function() {
+                    $("#dialog<?= $rep["id_personne"]; ?>").dialog({ 
+                        minWidth: 510,
+                        autoOpen: false,
+                        modal: true,
+                        buttons: {
+                            Oui: function() {
+                                document.getElementById('modify<?= $rep["id_personne"]; ?>').click(); //Redirection vers le form de modification quand dialog validé
+                            },
+                            Non: function() {
+                                $(this).dialog("close");
+                            }
+                        },
+                        post: true
+                    });
+                    $("#opener<?= $rep["id_personne"]; ?>").click(function() {
+                        $("#dialog<?= $rep["id_personne"]; ?>").dialog("open");
+                    })
+                });
+            </script>
+            
+            <div id="dialog_del<?= $rep["id_personne"]; ?>" title="Voulez-vous réellement SUPPRIMER cet utilisateur ?"></div>
+            <script>
+                $(function() {
+                    $("#dialog_del<?= $rep["id_personne"]; ?>").dialog({ 
+                        minWidth: 520,
+                        autoOpen: false,
+                        modal: true,
+                        buttons: {
+                            Oui: function() {
+                                document.getElementById('delete<?= $rep["id_personne"]; ?>').click(); //Exécution de la suppression quand dialog validé
+                            },
+                            Non: function() {
+                                $(this).dialog("close");
+                            }
+                        },
+                        post: true
+                    });
+                    $("#opener_del<?= $rep["id_personne"]; ?>").click(function() {
+                        $("#dialog_del<?= $rep["id_personne"]; ?>").dialog("open");
+                    })
+                });
+            </script>
+            <!-- Dialog box -->
 
+            <tr>
+                <td><?= $rep["nom_personne"] ?></td>
+                <td><?= $rep["prenom_personne"] ?></td>
+                <td><?= $rep["num_licence"] ?></td>
+
+                <!-- Modifier -->
                 <td>
                     <form action=".././controller/RepresentantController.php" method="post">
                         <input type="hidden" name="rep_id" value="<?= $rep["id_personne"]; ?>">
-                        <input type="submit" id="modify" name="modify" style="display: none"/>
+                        <input type="submit" id="modify<?= $rep["id_personne"]; ?>" name="modify" style="display: none">               
                     </form>
-                    <div id="dialog" title="Voulez-vous réellement MODIFIER cet utilisateur ?"></div>
-                    <button id="opener">Modifier</button>
-                    <script>
-                        $( "#dialog" ).dialog({ 
-                            autoOpen: false,
-                            modal: true,
-                            buttons: {
-                                Oui: function() {
-                                    document.getElementById('modify').click();
-                                },
-                                Non: function() {
-                                    $(this).dialog("close");
-                                }
-                            },
-                            post: true
-                        });
-                        $( "#opener" ).click(function() {
-                            $( "#dialog" ).dialog( "open" );
-                        });
-                    </script>
+                    <input type="button" id="opener<?= $rep["id_personne"]; ?>" value="Modifier">
                 </td>
 
+                <!-- Afficher -->
                 <td>
                     <form action=".././controller/RepresentantController.php" method="post">
                         <input type="hidden" name="rep_id" value="<?= $rep["id_personne"]; ?>"> <!-- Permet de récupérer l'id du représentant sélectionné -->
-                        <button type='submit' name="showOne"> <!-- Option Afficher -->
-                            Afficher
-                        </button>
+                        <input type='submit' name="showOne" value="Afficher"> <!-- Option Afficher -->
                     </form>
                 </td>
 
+                <!-- Supprimer -->
                 <td>
                     <form action=".././controller/RepresentantController.php" method="post">
                         <input type="hidden" name="rep_id" value="<?= $rep["id_personne"]; ?>"> <!-- Permet de récupérer l'id du représentant sélectionné -->
-                        <button type="submit" name="delete" onclick="return confirm('Voulez-vous réellement SUPPRIMER cet utilisateur ?')"> <!-- Option supprimer -->
-                            Supprimer
-                        </button>
-                    </form>
+                        <input type="submit" id="delete<?= $rep["id_personne"]; ?>" name="delete" style="display: none">
+                    </form>  
+                    <input id="opener_del<?= $rep["id_personne"]; ?>" type="submit" value="Supprimer"> <!-- Option supprimer -->
                 </td>
             </tr>
         <?php   }   ?>

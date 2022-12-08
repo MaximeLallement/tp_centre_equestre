@@ -1,5 +1,9 @@
 <?php
-require "header.php";
+
+    require_once '../inc/bdd.inc.php';
+    $pagename = 'Accueil';
+    require "header.php";
+
 ?>
 
 <body>
@@ -20,9 +24,8 @@ require "header.php";
         </div>
         <div class="col-6">
             <h5>Representant</h5>
-            <form action="rep/rep_index.php" method="post">
-                <input type="hidden" name="action" value="form">
-                <input type="hidden" name="subaction" value="new">
+            <form action="../controller/RepresentantController.php" method="post">
+                <input type="hidden" name="showAll">
                 <input type="submit" value="INDEX">
             </form>
         </div>
@@ -69,6 +72,8 @@ require "header.php";
             <h5>Gestion des cours</h5>
             <a href="cours/cours_management.php"><input type="submit" value="GESTION"></a>
         </div>
+
+
     </div>
 </div>
 

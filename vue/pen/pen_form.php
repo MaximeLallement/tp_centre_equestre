@@ -37,6 +37,10 @@ require $headerpath;
                 <label for="iTarifPension">Tarif*</label>
                 <input type="text" name="tarif" value="<?= isset($infosaved) ? $infosaved["tarif"] : "";  ?>" class="form-control" id="iTarifPension" placeholder="" required>
             </div>
+            <div class="form-group col">
+                <label for="IdCheval">Cheval sélectionné*</label>
+                <input type="text" name="id_cheval" value="<?= isset($infosaved) ? $infosaved["id_cheval"] : "";  ?>" class="form-control" id="id_cheval" placeholder="" required="">
+            </div>
         </div>
         <div class="row">
 

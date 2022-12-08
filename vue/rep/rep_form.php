@@ -5,6 +5,40 @@
 <!-- Formulaire pré-rempli qui récupère les info relatives à l'utilisateur sélectionné dans 'rep_index.php'
      Permet de modifier les infos en base
 -->
+
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+</head>
+
+<!-- Dialog box -->
+<!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
+<div id="dialog" title="Appliquer les modification ?"></div>
+<script>
+    $(function() {
+        $("#dialog").dialog({ 
+            minWidth: 250,
+            autoOpen: false,
+            modal: true,
+            buttons: {
+                Oui: function() {
+                    document.getElementById('modify').click(); //Modification du représentant quand dialog validé
+                },
+                Non: function() {
+                    $(this).dialog("close");
+                }
+            },
+            post: true
+        });
+        $("#opener").click(function() {
+            $("#dialog").dialog("open");
+        })
+    });
+</script>
+<!-- Dialog box -->
+
     <body>
         <div class="container">
             <h3 text-align="center">Modifier le profil de <b><?= $infosaved["rep_prenom"]." ".$infosaved["rep_nom"] ?></b></h3> <!-- Titre personnalisé -->
@@ -58,12 +92,11 @@
                         <input type="text" id="rep_ville" name="rep_ville" value="<?= isset($infosaved) ? $infosaved["rep_ville"] : "";  ?>" class="form-control">
                     </div>
                 </div>
-                <input type="submit" name="modify_validation" value="Modifier" onclick="return confirm('Voulez-vous modifier cet utilisateur ?')"/> <!-- Exécute la requête de modification si msg de confirmation validé-->
+                <input type="submit" id="modify" name="modify_validation" style="display: none;" /> <!-- Exécute la requête de modification si msg de confirmation validé-->
                 <input type="submit" name="showAll" value="Annuler" onclick="return confirm('Voulez-vous annuler la saisie ?')"/> <!-- Retourne sur la page 'rep_index.php' -->  
             </form>
+            <input type="button" id="opener" value="Modifier">
         </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </body>
 </html>
 
