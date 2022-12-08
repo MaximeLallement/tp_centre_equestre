@@ -26,12 +26,6 @@ require $headerpath;
                 <input type="text" name="nom_cheval" value="<?= isset($infosaved) ? $infosaved["nom_cheval"] : "";  ?>" class="form-control" id="iNomCheval" placeholder="" required>
             </div>
             <div class="form-group col">
-                <label for="iPhotoCavalier">Photo*</label>
-                <input type="file" name="photo_cheval" class="form-control" id="iPhotoCheval" style="display:none;" onchange="">
-                <img  id="imgCheval" src="<?= isset($infosaved) ? "http://localhost/2a/tp_centre_equestre/media/".$infosaved['photo_cheval'] : "http://placekitten.com/200" ?>" alt="" onclick="openFileDialog()">
-            </div>
-        </div>
-            <div class="form-group col">
                 <label for="iSire">N° SIRE</label>
                 <input type="text" pattern="[0-9]{9}" name="sire" value="<?= isset($infosaved) ? $infosaved["sire"] : "";  ?>" class="form-control" id="iSire" placeholder="9 chiffres" required>
             </div>
@@ -52,10 +46,18 @@ require $headerpath;
                     <option value=12 <?= (isset($infosaved["id_robe"]) && $infosaved["id_robe"] == "12") ? "selected" : "" ?>> Pie </option>
                 </select>
             </div>
+
+            <div class="form-group col">
+                <label for="iPhotoCavalier">Photo*</label>
+                <input type="file" name="photo_cheval" class="form-control" id="iPhotoCheval" style="display:none;" onchange="">
+                <img  id="imgCheval" src="<?= isset($infosaved['photo_cheval']) && $infosaved['photo_cheval'] != ''  ? "http://localhost/2a/tp_centre_equestre/media/".$infosaved['photo_cheval'] : "http://placekitten.com/200" ?>" alt="" onclick="openFileDialog()" >
+            </div>
+        </div>
+
             <!-- CHOIX DU PROPRIETAIRE -->
             <div class="form-group col">
                 <label for="nom_proprietaire">Nom du Proprietaire*</label>
-                <input type="text" name="nom_proprietaire" id="nom_proprietaire" value="<?= isset($infosaved) && $infosaved["id_cav"] != "" ? $infosaved["nom_cav"] : "";  ?>" onkeyup = "autocomplet()" class="form-control">
+                <input type="text" name="nom_cav" id="nom_proprietaire" value="<?= isset($infosaved["nom_cav"]) && $infosaved["nom_cav"] != "" ? $infosaved["nom_cav"] : "";  ?>" onkeyup = "autocomplet()" class="form-control">
                 <input type="hidden" name="id_cav" id="id_proprietaire" value="<?= isset($infosaved) && $infosaved["id_cav"] != "" ? $infosaved["id_cav"] : "";  ?>" class="form-control">
                 <ul id="list_cav"></ul>
             </div>
@@ -73,9 +75,8 @@ require $headerpath;
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="../../inc/script/js/jquery-ui.min.js"></script>
 <script>
-
-    
     function setInputValue(e)
     {
         //console.log(list);
@@ -116,7 +117,6 @@ require $headerpath;
         var r = new FileReader();
         r.onload = function(e){  
             $('#imgCheval').attr('src', e.target.result);        
-            console.log(e.target.result);
         };
             r.readAsDataURL(f);
         } else 

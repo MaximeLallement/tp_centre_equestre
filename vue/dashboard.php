@@ -1,7 +1,5 @@
 <?php
-
 require "header.php";
-
 ?>
 
 <body>
@@ -44,7 +42,7 @@ require "header.php";
                 </form>
         </div>
         <div class="col-6">
-        <h5>Cavalier</h5>
+        <h5>Chevaux</h5>
             <form action="../controller/ChevalController.php" method="post">
                 <input type="hidden" name="action" value="index">
                 <input type="submit" value="INDEX">

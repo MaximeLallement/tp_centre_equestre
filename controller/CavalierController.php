@@ -119,14 +119,17 @@ if(isset($_POST) && $_POST["action"] == "form"){
     require "../inc/photo.trait.php";
     
     isset($_POST["subaction"]) && $_POST["subaction"] == "update" ? $toUpdate = true : $toUpdate = false ;
+    if ( !isset($_POST["subaction"]) || $_POST["subaction"] != "update" && $_FILES['photo']['size'] <= 0 ) {
+        $photo = "default.jpg";
+    }
     if($_FILES['photo']['size'] > 0){
-        if(!upload_photo($toUpdate, $_FILES['photo'],$_POST['nom'])){ 
+        if(!upload_photo($toUpdate,'photo',$_POST['nom'])){ 
             $error = "error photo";
             return require_once "../vue/cav/cav_form.php";
         }
         $photo = $_FILES['photo']['name'];
     }else {
-        $data = get_one_cav($_POST["id_personne"]);
+        $data = get_one_cav((int)$_POST["id_personne"]);
         $photo = $data["photo"];
     }
 
