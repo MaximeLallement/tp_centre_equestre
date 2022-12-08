@@ -1,5 +1,9 @@
 <?php
-require "header.php";
+
+    require_once '../inc/bdd.inc.php';
+    $pagename = 'Accueil';
+    require "header.php";
+
 ?>
 
 <body>
@@ -20,9 +24,8 @@ require "header.php";
         </div>
         <div class="col-6">
             <h5>Representant</h5>
-            <form action="rep/rep_index.php" method="post">
-                <input type="hidden" name="action" value="form">
-                <input type="hidden" name="subaction" value="new">
+            <form action="../controller/RepresentantController.php" method="post">
+                <input type="hidden" name="showAll">
                 <input type="submit" value="INDEX">
             </form>
         </div>
@@ -65,6 +68,33 @@ require "header.php";
                 <input type="submit" value="AJOUT">
             </form>
         </div>
+        <div class="col-6">
+        <h5>Cavalier</h5>
+            <form action="../controller/ChevalController.php" method="post">
+                <input type="hidden" name="action" value="index">
+                <input type="submit" value="INDEX">
+            </form>
+            <form action="../controller/ChevalController.php" method="post">
+                <input type="hidden" name="action" value="form">
+                <input type="hidden" name="subaction" value="new">
+                <input type="submit" value="AJOUT">
+            </form>
+        </div>
+    </div>
+
+    
+    <!-- ALLER A L'INDEX PENSION -->
+    <form action="../controller/PensionController.php" method="post">
+        <input type="hidden" name="action" value="index">
+        <input type="submit" value="INDEX">
+    </form>   
+    
+    <!-- AJOUT D'UNE PENSION -->
+    <form action="../controller/PensionController.php" method="post">
+        <input type="hidden" name="action" value="form">
+        <input type="hidden" name="subaction" value="new">
+        <input type="submit" value="AJOUT">    
+    </form>
     </div>
 </div>
 
