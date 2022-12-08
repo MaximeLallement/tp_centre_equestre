@@ -1,43 +1,109 @@
 <?php
-
-require('../inc/bdd.inc.php');
-
-global $con;
-$sql = "SELECT nom_personne, prenom_personne, tel, mail, rue, complement FROM personne
-            WHERE DATEDIFF(NOW(), date_de_naissance) / 365 > 18"; //Sélectionne personnes ayant plus de 18 ans
-
-$req = $con->prepare($sql);
-$req->execute(array($sql));
-$result = $req->fetchAll();
-
-foreach($result as $row){ //Parcours de la liste des personnes ayant plus de 18 ans, et affichage de leurs propriétés
-        echo utf8_encode("
-            $row[nom_personne] <br> 
-            $row[prenom_personne] <br> 
-            $row[tel] <br>
-            $row[mail] <br> 
-            $row[rue] <br> 
-            $row[complement] <br><br>
-        ");
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$pagename = "Représentant : ".$rep["nom_personne"]." ".$rep["prenom_personne"];
+require $headerpath;
 
 ?>
+
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+</head>
+
+<!-- Dialog box -->
+<!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
+<div id="dialog" title="Voulez-vous réellement MODIFIER cet utilisateur ?"></div>
+<script>
+    $(function() {
+        $("#dialog").dialog({ 
+            minWidth: 510,
+            autoOpen: false,
+            modal: true,
+            buttons: {
+                Oui: function() {
+                    document.getElementById('modify').click(); //Redirection vers le form de modification quand dialog validé
+                },
+                Non: function() {
+                    $(this).dialog("close");
+                }
+            },
+            post: true
+        });
+        $("#opener").click(function() {
+            $("#dialog").dialog("open");
+        })
+    });
+</script>
+
+<div id="dialog_del" title="Voulez-vous réellement SUPPRIMER cet utilisateur ?"></div>
+<script>
+    $(function() {
+        $("#dialog_del").dialog({ 
+            minWidth: 520,
+            autoOpen: false,
+            modal: true,
+            buttons: {
+                Oui: function() {
+                    document.getElementById('delete').click(); //Exécution de la suppression quand dialog validé
+                },
+                Non: function() {
+                    $(this).dialog("close");
+                }
+            },
+            post: true
+        });
+        $("#opener_del").click(function() {
+            $("#dialog_del").dialog("open");
+        })
+    });
+</script>
+<!-- Dialog box -->
+
+
+<div class="container">
+    <div class="row">
+        <p>Information Générale</p>
+        <div class="col">
+            <table style="width:100%;">
+                <thead>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Date de Naissance</th>
+                    <th>E-Mail</th>
+                    <th>Telephone</th>
+                </thead>
+                <tbody>
+                    <?php if (isset($rep) ) { ?>
+                    <th>Information Représentant</th>
+                    <tr>  
+                        <td><?= $rep["nom_personne"] ?></td>
+                        <td><?= $rep["prenom_personne"] ?></td>
+                        <td><?= $rep["date_de_naissance"] ?></td>
+                        <td><?= $rep["mail"] ?></td>
+                        <td><?= $rep["tel"] ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <div class="container-fluid">
+            <!-- Option Modifier -->
+            <form action="" method="post" class="d-inline" >
+                <input type="hidden" name="rep_id" value="<?= $rep["id_personne"]; ?>">
+                <input type="submit" id="modify" name="modify" style="display: none;">
+            </form>
+            <input type="button" id="opener" value="Modifier ce Représentant" style="width:35%;">
+
+            <!-- Option Supprimer -->
+            <form action="" method="post" class="d-inline">
+                <input type="hidden" name="rep_id" value="<?= $rep["id_personne"]; ?>">
+                <input type="submit" id="delete" name="delete" style="display: none;">
+            </form>
+            <input type="submit" id="opener_del" value="Supprimer ce Représentant" style="width:35%;">
+        </div>
+    </div>
+        <div class="col-2">
+            <img src="http://localhost/2a/tp_centre_equestre/media/<?= isset($data) ? $data["photo"] : null  ?>" alt="">
+        </div>
+    </div>
+</div>
