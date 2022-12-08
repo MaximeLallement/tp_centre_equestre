@@ -4,15 +4,19 @@ require "../model/Cavalier.php";
 require "../model/Representant.php";
 require "../model/CavalierRepresentant.php";
 require "../model/Inscription.php";
+require "../model/Cours.php";
+require "../model/Participation.php";
 
 $headerpath = "../vue/header.php";
 
+isset($_SESSION["action"]) ? $_POST["action"] = $_SESSION["action"] : null ;
+isset($_SESSION["cav_id"]) ? $_POST["cav_id"] = $_SESSION["cav_id"] : null ;
 /**
  * Retourne la vue qui affiche l'ensemble des Cavaliers 
  */
 
 if(isset($_POST) && $_POST["action"] == "index"){
-    
+
     $data = get_all_cav();
 
     return require_once "../vue/cav/cav_index.php";
@@ -29,6 +33,9 @@ if(isset($_POST) && $_POST["action"] == "show")
     {
         $rep = get_one_cav($data["id_representant"]);
     }
+    $cou =  get_all_cou();
+    $part1 = get_all_weekly_part_by_id($_POST["cav_id"],1);
+    $part0 = get_all_weekly_part_by_id($_POST["cav_id"],0);
 
     return require_once "../vue/cav/cav_show.php";
 }

@@ -97,20 +97,90 @@ require $headerpath;
             
         </div>       
         <div class="" id="fragment-3">
+            <p>Cours Dispobible</p>
             <table style="width:100%;">
                 <thead>
-                    <th>Date</th>
-                    <th>Durée</th>
-                    <th>Libéllé</th>
-                    <th>Enseignant cavalerie</th>
+                    <th>ID</th>
+                    <th>Titre</th>
+                    <th>Début <small>hh:mm</small> </th>
+                    <th>Fin <small>hh:mm</small></th>
+                    <th></th>
                 </thead>
                 <tbody>
-                    <?php for ($i=0; $i < 5 ; $i++) {  ?>
+                    <?php foreach ($cou as $c) {  ?>
                     <tr>
-                        <td><?= date("y-m-d") ?></td>
-                        <td>4</td>
-                        <td>Cours de Saut</td>
-                        <td>Mr. Lafargue</td>
+                        <td><?= $c["id_cours"] ?></td>
+                        <td><?= $c["title"] ?></td>
+                        <td><?= substr($c["start_event"],-8,-3) ?></td>
+                        <td><?= substr($c["end_event"],-8,-3) ?></td>
+                        <td>
+                            <form action="ParticipationController.php" method="post">
+                                <input type="hidden" name="id_cours" value="<?= $c["id_cours"] ?>" >
+                                <input type="hidden" name="id_cav" value="<?= $data["id_personne"] ?>" >
+                                <input type="hidden" name="action" value="add" >
+                                <input type="submit" value="PARTICPER">
+                            </form>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            <p>Cours Cette Semaine</p>
+            <table style="width:100%;">
+                <thead>
+                    <th>ID</th>
+                    <th>Titre</th>
+                    <th>Début <small>hh:mm</small> </th>
+                    <th>Fin <small>hh:mm</small></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <?php foreach ($part1 as $p) {  ?>
+                    <tr>
+                        <td><?= $p["id_cour"] ?></td>
+                        <td><?= $p["title"] ?></td>
+                        <td><?= substr($c["start_event"],-8,-3) ?></td>
+                        <td><?= substr($c["end_event"],-8,-3) ?></td>
+                        <td>
+                            <form action="ParticipationController.php" method="post">
+                                <input type="hidden" name="id_cours" value="<?= $p["id_cour"] ?>" >
+                                <input type="hidden" name="id_week_cour" value="<?= $p["id_week_cour"] ?>" >
+                                <input type="hidden" name="id_cav" value="<?= $data["id_personne"] ?>" >
+                                <input type="hidden" name="actif" value="0" >
+                                <input type="hidden" name="action" value="update" >
+                                <input type="submit" value="S'ABSENTER">
+                            </form>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            <p>Cours ou je m'absente</p>
+            <table style="width:100%;">
+                <thead>
+                    <th>ID</th>
+                    <th>Titre</th>
+                    <th>Début <small>hh:mm</small> </th>
+                    <th>Fin <small>hh:mm</small></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <?php foreach ($part0 as $p) {  ?>
+                    <tr>
+                        <td><?= $p["id_cour"] ?></td>
+                        <td><?= $p["title"] ?></td>
+                        <td><?= substr($c["start_event"],-8,-3) ?></td>
+                        <td><?= substr($c["end_event"],-8,-3) ?></td>
+                        <td>
+                            <form action="ParticipationController.php" method="post">
+                                <input type="hidden" name="id_cours" value="<?= $p["id_cour"] ?>" >
+                                <input type="hidden" name="id_week_cour" value="<?= $p["id_week_cour"] ?>" >
+                                <input type="hidden" name="id_cav" value="<?= $data["id_personne"] ?>" >
+                                <input type="hidden" name="actif" value="1" >
+                                <input type="hidden" name="action" value="update" >
+                                <input type="submit" value="REVENIR">
+                            </form>
+                        </td>
                     </tr>
                     <?php } ?>
                 </tbody>

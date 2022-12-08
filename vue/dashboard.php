@@ -69,32 +69,11 @@
             </form>
         </div>
         <div class="col-6">
-        <h5>Cavalier</h5>
-            <form action="../controller/ChevalController.php" method="post">
-                <input type="hidden" name="action" value="index">
-                <input type="submit" value="INDEX">
-            </form>
-            <form action="../controller/ChevalController.php" method="post">
-                <input type="hidden" name="action" value="form">
-                <input type="hidden" name="subaction" value="new">
-                <input type="submit" value="AJOUT">
-            </form>
+            <h5>Gestion des cours</h5>
+            <a href="cours/cours_management.php"><input type="submit" value="GESTION"></a>
         </div>
-    </div>
 
-    
-    <!-- ALLER A L'INDEX PENSION -->
-    <form action="../controller/PensionController.php" method="post">
-        <input type="hidden" name="action" value="index">
-        <input type="submit" value="INDEX">
-    </form>   
-    
-    <!-- AJOUT D'UNE PENSION -->
-    <form action="../controller/PensionController.php" method="post">
-        <input type="hidden" name="action" value="form">
-        <input type="hidden" name="subaction" value="new">
-        <input type="submit" value="AJOUT">    
-    </form>
+
     </div>
 </div>
 

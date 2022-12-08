@@ -36,10 +36,8 @@ $( function() {
       if ( valid ) {
         alert(title.val())
         alert(date_end.val())
-
-
             $.ajax({
-                url: 'events.php', 
+                url: 'cours.php', 
                 data: 'title='+ title.val()+'&start_event='+ start_event.val() +'&end_event='+ end_event.val()+'&action=add'+'&date_end='+date_end.val(),  
                 type: "POST",
                 success: function(json) { 
@@ -106,14 +104,14 @@ $( function() {
         right:  'month,agendaWeek,agendaDay'  
     },  
   
-   events: "loadEvents.php",
+   events: "loadCours.php",
    
    eventRender: function(event, element, view) {  
     if (event.allDay === 'true') {  
      event.allDay = true;  
     } else {  
      event.allDay = false;  
-    }
+    }  
    },  
    selectable: true,  
    selectHelper: true,  
@@ -123,8 +121,7 @@ $( function() {
       $( "#start_event " ).val(start)
       $( "#end_event " ).val(end)
       $( "#dialog-form" ).dialog( "open" );
-   
-   },  
+   },
   
    editable: true,  
    eventDrop: function(event, delta) {  
@@ -132,7 +129,7 @@ $( function() {
         var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss"); 
         console.log(delta["_data"]);
         $.ajax({  
-            url: 'events.php',  
+            url: 'cours.php',  
             data: 'title='+ event.title+
                   '&start='+ start +
                   '&end='+ end +
@@ -149,11 +146,11 @@ $( function() {
         });  
    },  
    eventClick: function(event) {  
-    var decision = confirm("Do you really want to do that?");   
+    var decision = confirm("Voulez-vous vraiment supprimer ?");   
         if (decision) {  
             $.ajax({  
                 type:"POST",
-                url: "events.php",  
+                url: "cours.php",  
                 data: "&id=" + event.id +'&action=delete',  
                 success: function(json) {  
                     $('#calendar').fullCalendar('removeEvents', event.id);  
@@ -168,7 +165,7 @@ $( function() {
       var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
       console.log(startDelta["_data"]);
       $.ajax({
-        url:  'events.php',
+        url:  'cours.php',
         data: 'title='+ event.title+
               '&start='+ start +
               '&end='+ end +
