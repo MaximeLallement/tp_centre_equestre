@@ -36,6 +36,8 @@ define('DB_TABLE_PENSION','pension');
 define('DB_TABLE_CHEVAL','cheval');
 define('DB_TABLE_ROBE','robe');
 define('DB_TABLE_INSCRIPTION','inscription');
+define('DB_TABLE_COURS','cours');
+define('DB_TABLE_PARTICIPATION','participation');
 
 
 /* Include des class  */
@@ -46,6 +48,7 @@ require "class/CavalierRepresentant.class.php";
 require "class/cheval.class.php";
 require "class/pension.class.php";
 require "class/inscription.class.php";
+require "class/cours.class.php";
 
 
 

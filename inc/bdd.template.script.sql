@@ -204,6 +204,29 @@ CREATE TABLE `tarif` (
   `pap_mois` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `participation`
+--
+
+CREATE TABLE `tp_centre_equestre`.`participation` (
+  `id_cour` INT NOT NULL,
+  `id_cav` INT NOT NULL,
+  `actif` TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id_cour`, `id_cav`),
+  INDEX `fk_id_cav_idx` (`id_cav` ASC) VISIBLE,
+  CONSTRAINT `fk_id_cav_cours`
+    FOREIGN KEY (`id_cav`)
+    REFERENCES `tp_centre_equestre`.`personne` (`id_personne`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_id_cours`
+    FOREIGN KEY (`id_cour`)
+    REFERENCES `tp_centre_equestre`.`cours` (`id_cours`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
 --
 -- Index pour les tables déchargées
 --
@@ -325,6 +348,17 @@ ALTER TABLE `pension`
 ALTER TABLE `inscription`
   ADD CONSTRAINT `fk_id_cavalier` FOREIGN KEY (`id_cav`) REFERENCES `personne` (`id_personne`),
 COMMIT;
+
+ALTER TABLE `tp_centre_equestre`.`cours` 
+ADD COLUMN `title` VARCHAR(45) NOT NULL AFTER `start_event`,
+ADD COLUMN `actif` TINYINT NOT NULL DEFAULT 1 AFTER `title`,
+CHANGE COLUMN `libelle_cours` `id_week_cours` INT NOT NULL ,
+CHANGE COLUMN `date_cours` `end_event` DATETIME NOT NULL ,
+CHANGE COLUMN `duree_cours` `start_event` DATETIME NOT NULL ,
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`id_cours`, `id_week_cours`);
+;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
