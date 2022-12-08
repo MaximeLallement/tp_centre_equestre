@@ -10,7 +10,7 @@ require_once '../vue/header.php';
 <body>
 
     <div class="containter">
-        <form method="post" action=".././controller/ConnexionController.php">
+        <form method="post" action="../controller/ConnexionController.php">
             <div>
                 <input type="text" name="username" placeholder="nom d'utilisateur" required/>
             </div>

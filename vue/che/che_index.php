@@ -29,7 +29,7 @@
             <tr>
                 <td><?= $che["nom_cheval"] ?></td>
                 <td><?= $che["SIRE"] ?></td>
-                <td><?= $che["id_robe"] ?></td>
+                <td><?= $rob[$che["id_robe"]-1]["libelle_robe"] ?></td>
                 <td><?= isset($che["id_cav"]) && $che["id_cav"] != "" ? $che["id_cav"] : "" ?></td>
                 <td>
                         <form action="" method="post">

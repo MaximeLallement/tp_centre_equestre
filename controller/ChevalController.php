@@ -3,7 +3,8 @@ require "../inc/bdd.inc.php";
 require "../model/Cheval.php";
 require "../model/Cavalier.php";
 require "../model/Representant.php";
-//require "../model/Pension.php";
+require "../model/Robe.php";
+require "../model/Pension.php";
 require "../model/CavalierRepresentant.php";
 
 $headerpath = "../vue/header.php";
@@ -14,6 +15,7 @@ $headerpath = "../vue/header.php";
 if(isset($_POST) && $_POST["action"] == "index"){
     
     $data = get_all_che();
+    $rob = get_all_rob();
 
     return require_once "../vue/che/che_index.php";
 }
@@ -25,7 +27,8 @@ if(isset($_POST) && $_POST["action"] == "show")
 {
     $data = get_one_che($_POST["che_id"]);
 
-    if ( isset($data["id_cav"]) && $data["id_cav"] != 0)
+
+    if ( isset($data["id_cav"]) && $data["id_cav"] != "")
     {
         $cav = get_one_cav($data["id_cav"]);
     }
@@ -108,8 +111,8 @@ if(isset($_POST) && $_POST["action"] == "form"){
     if($_FILES['photo_cheval']['size'] > 0){
         if(!upload_photo($toUpdate, 'photo_cheval', $_POST['nom_cheval']))
         { 
-            $error = "error photo";
-            return require_once "../vue/cav/cav_form.php";
+            $error = "Il y a eu une erreur sur le traitement de la photo";
+            return require_once "../vue/che/che_form.php";
         }
         $photo = $_FILES['photo_cheval']['name'];
 
@@ -131,6 +134,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
             return require_once "../vue/che/che_form.php";
         }else {
             $data = get_all_che();
+            $rob = get_all_rob();
             return require_once "../vue/che/che_index.php";
         }
     }
@@ -140,6 +144,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
         return require_once "../vue/che/che_form.php";
     }else {
         $data = get_all_che();
+        $rob = get_all_rob();
         return require_once "../vue/che/che_index.php";
     }
 
