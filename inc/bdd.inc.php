@@ -11,7 +11,7 @@ if(!isset($_SESSION['connecte'])){
     
 }
 
-if(isset($_SESSION['connecte']) && $_SESSION['connecte'] == False){ ?>
+if(isset($_SESSION['connecte']) && $_SESSION['connecte'] == False && !isset($_POST["inscription"])){ ?>
     <script>window.location.replace('../vue/connexion.php')</script>
 <?php }
 
@@ -35,6 +35,7 @@ define('DB_TABLE_EVENT','event');
 define('DB_TABLE_PENSION','pension');
 define('DB_TABLE_CHEVAL','cheval');
 define('DB_TABLE_ROBE','robe');
+define('DB_TABLE_UTILISATEUR','utilisateur');
 define('DB_TABLE_INSCRIPTION','inscription');
 
 
@@ -46,6 +47,4 @@ require "class/CavalierRepresentant.class.php";
 require "class/cheval.class.php";
 require "class/pension.class.php";
 require "class/inscription.class.php";
-
-
 
