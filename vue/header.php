@@ -51,9 +51,9 @@ $url = "${protocol}://${domain}${disp_port}${base_url}";
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <div class="collapse navbar-collapse">
-		
-        <button class="navbar-brand" type="submit" name="index" value="Accueil" onclick="location.href = '../controller/Test.php'">Accueil</button> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
-		
+          <form action="../controller/AccueilController.php" method="post">	
+            <button class="navbar-brand" type="submit" name="index">Accueil</button> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
+          </form>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <form action="../controller/RepresentantController.php" method="post">
