@@ -77,6 +77,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
         $infosaved["tarif"]         = $data["tarif"] ;
         $infosaved["date_de_debut"] = $data["date_de_debut"] ;
         $infosaved["duree"]         = $data["duree"] ;
+        $infosaved["id_cheval"]     = $data["id_cheval"];
         
         $update = true;
 
@@ -87,7 +88,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
     $infosaved = $_POST;
     $error = null;
 
-    $pension = new Pension($_POST["tarif"], $_POST["duree"], $_POST["date_de_debut"], $_POST["libelle"]);
+    $pension = new Pension($_POST["tarif"], $_POST["duree"], $_POST["date_de_debut"], $_POST["libelle"], $_POST["id_cheval"]);
     
     if ( isset($_POST["subaction"] ) && $_POST["subaction"] == "update") {
         
@@ -115,7 +116,8 @@ if(isset($_POST) && $_POST["action"] == "form"){
         $pension = new Pension(     $_POST["libelle"],
                                     $_POST["tarif"],
                                     $_POST["date_de_debut"],
-                                    $_POST["duree"]
+                                    $_POST["duree"],
+                                    $_POST["id_cheval"]
     );
 
     if (isset($_POST["subaction"] ) && $_POST["subaction"] == "update") {

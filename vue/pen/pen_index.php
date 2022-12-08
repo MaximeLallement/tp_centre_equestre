@@ -15,6 +15,7 @@ require $headerpath;
             <th>Tarif</th>
             <th>Date de début</th>
             <th>Durée</th>
+            <th>Cheval</th>
             <th>Modifier</th>
             <th>Afficher</th>
             <th>Supprimer</th>
@@ -31,6 +32,7 @@ require $headerpath;
                 <td><?= $pen["tarif"] ?></td>
                 <td><?= $pen["date_de_debut"] ?></td>
                 <td><?= $pen["duree"] ?></td>
+                <td><?= $pen["id_cheval"] ?></td>
                 <td>
                     <form action="" method="post">
                         <input type="hidden" name="pen_id" value="<?= $pen["id_pension"]; ?>">
@@ -47,7 +49,6 @@ require $headerpath;
                     </form>
                 </td>
                 <td>
-                        
                     <form action="" method="post">
                         <input type="hidden" name="pen_id" value="<?= $pen["id_pension"]; ?>">
                         <input type="hidden" name="action" value="delete">

@@ -10,14 +10,16 @@ class Pension{
     private int $duree;
     private string $date_de_debut;
     private string $libelle;
+    private int $id_cheval;
     
     
     /*Constructor */
-    public function __construct($letarif, $laduree, $date, $lelibelle) {
+    public function __construct($letarif, $laduree, $date, $lelibelle, $id_c) {
         $this->tarif=$letarif;
         $this->duree=$laduree;
         $this->date_de_debut=$date;
         $this->libelle=$lelibelle;
+        $this->id_cheval=$id_c;
     }
     
     
@@ -38,6 +40,9 @@ class Pension{
         $this->libelle=$lelibelle;
     }
     
+    public function setId_Cheval($id_c) {
+        $this->id_cheval=$id_c;
+    }
     
     /*Getter */
     public function getTarif(){
@@ -56,6 +61,9 @@ class Pension{
         return $this->libelle;
     }
     
+    public function getId_Cheval() {
+        return $this->id_cheval;
+    }
     
     /*Fonction */
     public function get_all(){
