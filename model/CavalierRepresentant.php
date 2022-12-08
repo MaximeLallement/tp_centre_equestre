@@ -4,7 +4,7 @@
 function add_cavRep(CavalierRepresentant $cavalierRep){
     global $con;
     $sql = "INSERT INTO ".DB_TABLE_PERSONNE." (nom_personne,prenom_personne,date_de_naissance, mail,tel,photo,num_licence, galop,rue, complement, code_postal, ville ) 
-                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :tel, :photo, :numlic, :galop  )";
+                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :tel, :photo, :numlic, :galop, :rue , :complement, :codepostal, :ville )";
     $req = $con->prepare($sql);
     $req->bindValue(":nom",$cavalierRep->getNomPersonne(),PDO::PARAM_STR);
     $req->bindValue(":prenom",$cavalierRep->getPrenomPersonne(),PDO::PARAM_STR);
@@ -18,7 +18,6 @@ function add_cavRep(CavalierRepresentant $cavalierRep){
     $req->bindValue(":complement",$cavalierRep->getComplement(),PDO::PARAM_STR);
     $req->bindValue(":codepostal",$cavalierRep->getCodePostal(),PDO::PARAM_INT);
     $req->bindValue(":ville",$cavalierRep->getVille(),PDO::PARAM_STR);
-
 
     try {
         $req->execute() ;
