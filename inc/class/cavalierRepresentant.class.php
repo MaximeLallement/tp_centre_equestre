@@ -31,7 +31,7 @@ public function setRue( $r )
 {
     $this->car_rue = $r;
 }
-public function setComp( $n )
+public function setComplement( $n )
 {
     $this->car_comp = $n;
 }
@@ -52,7 +52,7 @@ public function getRue():string
 {
     return $this->car_rue;
 }
-public function getComp():string
+public function getComplement():string
 {
     return $this->car_comp;
 }
