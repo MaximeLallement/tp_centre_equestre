@@ -9,11 +9,11 @@ require $headerpath;
         }
     </style>
 <div class="container">
-    <?php if(isset($error)){  ?>
+    <?php if(isset($error) && $error != ""){  ?>
         <div class="row justify-content-center" >
             <div class="col-6" role="alert">
                 <div class="alert alert-danger" style="border:1px solid red;" role="alert">
-                    This is a danger alert—check it out! <?= $error ?>
+                    <?= $error ?>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@ require $headerpath;
                 <input type="email" name="mail" value="<?= isset($infosaved) ? $infosaved["mail"] : "";  ?>" class="form-control" id="iMailCavalier" placeholder="" required>
             </div>
             <div class="form-group col">
-                <label for="iTelCavalier">Telephone* <br><i>format : 0601020304</i></label>
+                <label for="iTelCavalier">Telephone*</label>
                 <input type="tel" pattern="[0-9]{10}" name="tel" value="<?= isset($infosaved) ? $infosaved["tel"] : "";  ?>" class="form-control" id="iTelCavalier" placeholder="" required>
             </div>
         </div>
@@ -49,9 +49,8 @@ require $headerpath;
 
             <div class="form-group col">
                 <label for="iPhotoCavalier">Photo*</label>
-                <input type="file" name="photo" class="form-control" id="iPhotoCavalier" style="display:none;" onchange="">
+                <input type="file" name="photo" class="form-control" id="iPhotoCavalier" style="display:none;">
                 <img  id="imgCavalier" src="<?= isset($infosaved) ? "http://localhost/2a/tp_centre_equestre/media/".$infosaved['photo'] : "http://placekitten.com/400" ?>" alt="" onclick="openFileDialog()">
-                
             </div>
             <div class="form-group col">
                 <label for="iLicCavalier">N° License FFE*</label>
@@ -61,12 +60,12 @@ require $headerpath;
                 <label for="iSelectGalop">Galop*</label>
                 <select name="galop" class="form-select" id="iSelectGalop" required>
                     <option value=1 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "1") ? "selected" : "" ?>> Galop 1</option>
-                    <option value=2 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "1") ? "selected" : "" ?>> Galop 2 </option>
-                    <option value=3 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "1") ? "selected" : "" ?>> Galop 3 </option>
-                    <option value=4 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "1")? "selected" : "" ?>> Galop 4 </option>
-                    <option value=5 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "1")? "selected" : "" ?>> Galop 5 </option>
-                    <option value=6 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "1") ? "selected" : "" ?>> Galop 6 </option>
-                    <option value=7 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "1") ? "selected" : "" ?>> Galop 7 </option>
+                    <option value=2 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "2") ? "selected" : "" ?>> Galop 2 </option>
+                    <option value=3 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "3") ? "selected" : "" ?>> Galop 3 </option>
+                    <option value=4 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "4")? "selected" : "" ?>> Galop 4 </option>
+                    <option value=5 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "5")? "selected" : "" ?>> Galop 5 </option>
+                    <option value=6 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "6") ? "selected" : "" ?>> Galop 6 </option>
+                    <option value=7 <?= (isset($infosaved["galop"]) && $infosaved["galop"] == "7") ? "selected" : "" ?>> Galop 7 </option>
                 </select>
             </div>
         </div>
@@ -79,10 +78,9 @@ require $headerpath;
         0 = le cavalier n'est pas son représentant
         -->
         <div class="form-group">
-
             <h5 class="col-12">Etes-vous votre représentant(e) légale</h5>
             <label for="choixCav" class="col-6"> Je suis mon représentant légale</label>
-            <input type="radio"  name="choixRepresentant" value="cav" id="choixCav" onclick="show(0)" checked >
+            <input type="radio"  name="choixRepresentant" value="cav" id="choixCav" onclick="show(0)">
             <label for="choixRep" class="col-6" > Je suis ne suis pas mon représentant légale</label>
             <input type="radio"name="choixRepresentant" value="rep" id="choixRep" onclick="show(1)" >
         </div>
@@ -103,8 +101,8 @@ require $headerpath;
             </div>
             <div class="row">    
                     <div class="form-group col-6">
-                        <label for="iDateCavalier">Date de Naissance du représentant</label>
-                        <input type="date" name="datenaissancerep" value="<?= isset($infosaved["datenaissancerep"]) ? $infosaved["datenaissancerep"] : "";  ?>" class="form-control" id="iDateCavalier" placeholder="">
+                        <label for="iDateRep">Date de Naissance du représentant</label>
+                        <input type="date" name="datenaissancerep" value="<?= isset($infosaved["datenaissancerep"]) ? $infosaved["datenaissancerep"] : "";  ?>" class="form-control" id="iDateRep" placeholder="">
                     </div>
             </div>
             <div class="row">    
@@ -143,20 +141,20 @@ require $headerpath;
             </div>
         </div>
         <?php if(isset($update) && $update == true ){ ?>
-        <input type="hidden" name="subaction" value="update">
+            <input type="hidden" name="subaction" value="update">
         <?php  } ?>
         <input type="hidden" name="action" value="form">
         <button type="submit" class="btn btn-primary">Submit</button>
     </form> 
+    <div id="datepicker"></div>
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="../inc/script/js/jquery-ui.min.js"></script>
 <script>
 
-
-
-     let blocRepInfo = document.getElementById("repInfo")
+    let blocRepInfo = document.getElementById("repInfo")
 
     function setRequired(bool){
         for (let i = 0; i < blocRepInfo.children.length; i++) 
@@ -190,6 +188,7 @@ require $headerpath;
     }
 
     <?php  if (isset($infosaved["nomrep"]) && $infosaved["nomrep"] != "") { ?>
+        $('#choixRep').prop("checked", true)
         show(1) 
     <?php } ?>
 
@@ -200,11 +199,6 @@ require $headerpath;
     {
         iFile.click()
     }
-    /*
-    function reInsertPhoto($e)
-    {
-        document.getElementById("imgCavalier").src = iFile.value
-    }*/
 
     $(document).ready(function(){
     $(iFile).on('change', function(evt){
