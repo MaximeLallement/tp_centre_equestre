@@ -46,6 +46,7 @@ require $headerpath;
                     <option value=12 <?= (isset($infosaved["id_robe"]) && $infosaved["id_robe"] == "12") ? "selected" : "" ?>> Pie </option>
                 </select>
             </div>
+
             <div class="form-group col">
                 <label for="iPhotoCavalier">Photo*</label>
                 <input type="file" name="photo_cheval" class="form-control" id="iPhotoCheval" style="display:none;" onchange="">
@@ -76,7 +77,6 @@ require $headerpath;
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../../inc/script/js/jquery-ui.min.js"></script>
 <script>
-
     function setInputValue(e)
     {
         //console.log(list);
