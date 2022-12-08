@@ -2,7 +2,7 @@
 
 /* Class Pension */
 
-abstract class Pension{
+class Pension{
     const errmessage = "Une erreur s'est produite \n";
 
     /*Propriété */
@@ -10,14 +10,16 @@ abstract class Pension{
     private int $duree;
     private string $date_de_debut;
     private string $libelle;
+    private int $id_cheval;
     
     
     /*Constructor */
-    public function __construct($letarif, $laduree, $date, $lelibelle) {
+    public function __construct($letarif, $laduree, $date, $lelibelle, $id_c) {
         $this->tarif=$letarif;
         $this->duree=$laduree;
         $this->date_de_debut=$date;
         $this->libelle=$lelibelle;
+        $this->id_cheval=$id_c;
     }
     
     
@@ -38,6 +40,9 @@ abstract class Pension{
         $this->libelle=$lelibelle;
     }
     
+    public function setId_Cheval($id_c) {
+        $this->id_cheval=$id_c;
+    }
     
     /*Getter */
     public function getTarif(){
@@ -56,6 +61,9 @@ abstract class Pension{
         return $this->libelle;
     }
     
+    public function getId_Cheval() {
+        return $this->id_cheval;
+    }
     
     /*Fonction */
     public function get_all(){
@@ -63,7 +71,7 @@ abstract class Pension{
         
         $req="SELECT * FROM ".DB_TABLE_PENSION;
         try{
-            $sql=$conn->query($req);
+            $sql=$con->query($req);
             return $sql->fetchAll (PDO::FETCH_ASSOC);
         }
         catch(PDOException $e){

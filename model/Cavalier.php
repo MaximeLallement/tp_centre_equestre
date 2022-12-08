@@ -29,7 +29,7 @@ function get_one_cav(int $id){
     try {
         $req->execute();
         return $req->fetch();
-   } catch (PDOException $e) {
+    } catch (PDOException $e) {
        return $e->getMessage();
    }
 }
