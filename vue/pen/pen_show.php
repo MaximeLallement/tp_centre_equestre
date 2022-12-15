@@ -10,17 +10,17 @@ require $headerpath;
             <table style="width:100%;">
                 <thead>
                     <th>Libelle</th>
-                    <th>Tarif</th>
+                    <th>Tarif mensuel</th>
                     <th>Date de début</th>
-                    <th>Durée</th>
+                    <th>Date de fin</th>
                     <th>Cheval</th>
                 </thead>
                 <tbody>
                     <tr>
                         <td><?= $data["libelle_pension"] ?></td>
-                        <td><?= $data["tarif"] ?></td>
+                        <td><?= $data["tarif"] ?>€</td>
                         <td><?= $data["date_de_debut"] ?></td>
-                        <td><?= $data["duree"] ?></td>
+                        <td><?= $ddf["date_de_fin"] ?></td>
                         <td><?= $data["id_cheval"] ?></td>
                     </tr>
                 </tbody>

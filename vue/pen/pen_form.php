@@ -29,12 +29,12 @@ require $headerpath;
                 <select name="libelle" class="form-select" id="iLibellePension" required>
                     <option value="" <?= (isset($infosaved["libelle"]) && $infosaved["libelle"] == "") ? "selected" : "" ?>></option>
                     <option value="Pension" <?= (isset($infosaved["libelle"]) && $infosaved["libelle"] == "Pension") ? "selected" : "" ?>>Pension</option>
-                    <option value="Demi-Pension" <?= (isset($infosaved["libelle"]) && $infosaved["libelle"] == "Demi-pension") ? "selected" : "" ?>>Demi-pension</option>
+                    <option value="Demi-pension" <?= (isset($infosaved["libelle"]) && $infosaved["libelle"] == "Demi-pension") ? "selected" : "" ?>>Demi-pension</option>
                 </select>
                 <!--<input type="text" name="libelle" value="<?= isset($infosaved) ? $infosaved["libelle"] : "";  ?>" class="form-control" id="iLibellePension" placeholder="" required>-->
             </div>
             <div class="form-group col">
-                <label for="iTarifPension">Tarif*</label>
+                <label for="iTarifPension">Tarif mensuel*</label>
                 <input type="text" name="tarif" value="<?= isset($infosaved) ? $infosaved["tarif"] : "";  ?>" class="form-control" id="iTarifPension" placeholder="" required>
             </div>
             <div class="form-group col">

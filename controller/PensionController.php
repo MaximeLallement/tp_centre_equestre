@@ -22,7 +22,8 @@ if(isset($_POST) && $_POST["action"] == "index"){
 if(isset($_POST) && $_POST["action"] == "show")
 {
     $data = get_one_pen($_POST["pen_id"]);
-
+    $ddf = get_date_de_fin($data["id_pension"]);
+            
     if ( isset($data["id_pension"]) && $data["id_pension"] != 0)
     {
         $pen = get_one_pen($data["id_pension"]);
