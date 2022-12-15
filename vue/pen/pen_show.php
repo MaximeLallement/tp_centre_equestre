@@ -1,5 +1,5 @@
 <?php
-$page_name = "Affichage";
+$pagename = "Affichage";
 require $headerpath;
 
 ?>

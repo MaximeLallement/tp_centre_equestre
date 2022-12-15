@@ -1,6 +1,7 @@
 <?php
 require "../inc/bdd.inc.php";
 require "../model/Pension.php";
+require "../model/Cheval.php";
 
 $headerpath = "../vue/header.php";
 
@@ -79,6 +80,12 @@ if(isset($_POST) && $_POST["action"] == "form"){
         $infosaved["duree"]         = $data["duree"] ;
         $infosaved["id_cheval"]     = $data["id_cheval"];
         
+        if(isset($data["id_cheval"]) && $data["id_cheval"] != ""){
+
+            $che = get_one_che($data["id_cheval"]);
+            $infosaved["nom_cheval"] = $che["nom_cheval"];
+        }
+        
         $update = true;
 
         return require_once "../vue/pen/pen_form.php";
@@ -98,7 +105,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
             echo $error;
             return require_once "../vue/pen/pen_form.php";
         }else {
-            var_dump(update_pension($pension,$_POST["id_pension"]));
+            //var_dump(update_pension($pension,$_POST["id_pension"]));
             $data = get_all_pension();
             return require_once "../vue/pen/pen_index.php";
         }
@@ -127,7 +134,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
             return require_once "../vue/pen/pen_form.php";
         }else{
            $data = get_all_pension();
-           var_dump(update_pension($pension,$_POST["id_pension"]));
+           //var_dump(update_pension($pension,$_POST["id_pension"]));
            return require_once "../vue/pen/pen_index.php";
         }
     }
