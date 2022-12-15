@@ -1,5 +1,5 @@
 <?php
-$page_name = "Pensions";
+$pagename = "Pensions";
 require $headerpath;
 
 
@@ -11,11 +11,11 @@ require $headerpath;
 <table id="pen_list">
     <thead>
         <tr>
+            <th>Cheval</th>
+            <th>Date de début</th>
+            <th>Date de fin</th>
             <th>Libelle</th>
             <th>Tarif</th>
-            <th>Date de début</th>
-            <th>Durée</th>
-            <th>Cheval</th>
             <th>Modifier</th>
             <th>Afficher</th>
             <th>Supprimer</th>
@@ -26,13 +26,17 @@ require $headerpath;
         <?php
         //Loop sur les éléments de la requête SQL pour affichage
         foreach ($data as $pen) {
+            $che = get_one_che($pen["id_cheval"]);
+            $ddf = get_date_de_fin($pen["id_pension"]);
+           
+         
         ?>
             <tr>
+                <td><?= $che["nom_cheval"] ?></td>
+                <td><?= $pen["date_de_debut"] ?></td>
+                <td><?= $ddf["date_de_fin"] ?></td>
                 <td><?= $pen["libelle_pension"] ?></td>
                 <td><?= $pen["tarif"] ?></td>
-                <td><?= $pen["date_de_debut"] ?></td>
-                <td><?= $pen["duree"] ?></td>
-                <td><?= $pen["id_cheval"] ?></td>
                 <td>
                     <form action="" method="post">
                         <input type="hidden" name="pen_id" value="<?= $pen["id_pension"]; ?>">
