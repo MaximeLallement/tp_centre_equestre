@@ -98,7 +98,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
             echo $error;
             return require_once "../vue/pen/pen_form.php";
         }else {
-            var_dump(update_pension($pension,$_POST["id_pension"]));
+            update_pension($pension,$_POST["id_pension"]);
             $data = get_all_pension();
             return require_once "../vue/pen/pen_index.php";
         }

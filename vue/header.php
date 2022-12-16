@@ -27,7 +27,7 @@ $url = "${protocol}://${domain}${disp_port}${base_url}";
 
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
-  <head>
+<head>
     <title><?= isset($pagename) ? $pagename : "{{PAGE_NAME}}" ?></title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -51,9 +51,10 @@ $url = "${protocol}://${domain}${disp_port}${base_url}";
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <div class="collapse navbar-collapse">
-          <form action="../controller/AccueilController.php" method="post">	
-            <button class="navbar-brand" type="submit" name="index">Accueil</button> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
-          </form>
+
+        <form action="../controller/AccueilController.php" method="post">
+          <button class="navbar-brand" type="submit" name="index">Accueil</button> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
+        </form>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <form action="../controller/RepresentantController.php" method="post">
@@ -63,7 +64,7 @@ $url = "${protocol}://${domain}${disp_port}${base_url}";
 
           <li class="nav-item">
             <form action="../controller/CavalierController.php" method="post">
-              <button type="submit" name="index" value="index">Cavaliers</button>
+              <button type="submit" name="action" value="index">Cavaliers</button>
             </form>
           </li>
 
@@ -87,6 +88,12 @@ $url = "${protocol}://${domain}${disp_port}${base_url}";
               	</li>
 				
             <?php } ?>
+
+            <li class="nav-item">
+              <form action="../controller/CompteController.php" method="post">
+                <button type="submit" name="inscription">Inscription</button>
+              </form>
+          </li>
         </ul>
       </div>
     </div>

@@ -94,7 +94,7 @@ require $headerpath; //Importe le header
                         <input type="hidden" name="rep_id" value="<?= $rep["id_personne"]; ?>">
                         <input type="submit" id="modify<?= $rep["id_personne"]; ?>" name="modify" style="display: none">               
                     </form>
-                    <input type="button" id="opener<?= $rep["id_personne"]; ?>" value="Modifier">
+                    <input type="button" id="opener<?= $rep["id_personne"]; ?>" value="Modifier"> <!-- Option Modifier -->
                 </td>
 
                 <!-- Afficher -->

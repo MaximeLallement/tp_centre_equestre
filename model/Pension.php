@@ -104,7 +104,6 @@ function soft_delete_pen_by_id(int $id)
     $req->bindValue(':id',$id,PDO::PARAM_INT);
     
     try {
-        die ($sql);
         $req->execute();
         return true;
    } 

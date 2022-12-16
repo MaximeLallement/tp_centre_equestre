@@ -31,7 +31,7 @@ function add_rep(Representant $representant)
 {
     global $con;
     $sql = "INSERT INTO ".DB_TABLE_PERSONNE." (nom_personne,prenom_personne,date_de_naissance, mail,tel, rue,complement, code_postal, ville ) 
-                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :rue , :complement, :codepostal , :ville )";
+                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :tel, :rue , :complement, :codepostal , :ville )";
     $req = $con->prepare($sql);
     $req->bindValue(":nom",$representant->getNomPersonne(),PDO::PARAM_STR);
     $req->bindValue(":prenom",$representant->getPrenomPersonne(),PDO::PARAM_STR);
