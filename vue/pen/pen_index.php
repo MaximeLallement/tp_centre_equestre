@@ -94,18 +94,12 @@ require $headerpath;
             <tr>
                 <td><?= $che["nom_cheval"] ?></td>
                 <td><?= $pen["date_de_debut"] ?></td>
-<<<<<<< HEAD
-                <td><?= $pen["duree"] ?></td>
-                <td><?= $pen["id_cheval"] ?></td>
-                
-                <!-- Modifier -->
-                <td>    
-=======
                 <td><?= $ddf["date_de_fin"] ?></td>
                 <td><?= $pen["libelle_pension"] ?></td>
                 <td><?= $pen["tarif"] ?>€</td>
+
+                <!-- Modifier -->
                 <td>
->>>>>>> d1dbc698b070e96c6aa2a34eb22777c7ee3961c8
                     <form action="" method="post">
                         <input type="hidden" name="pen_id" value="<?= $pen["id_pension"]; ?>">
                         <input type="hidden" name="action" value="form">
