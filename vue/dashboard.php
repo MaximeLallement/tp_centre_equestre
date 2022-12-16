@@ -70,7 +70,7 @@
         </div>
         <div class="col-6">
             <h5>Gestion des cours</h5>
-            <a href="cours/cours_management.php"><input type="submit" value="GESTION"></a>
+            <a href="../vue/cours/cours_management.php"><input type="submit" value="GESTION"></a>
         </div>
 
 

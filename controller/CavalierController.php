@@ -6,6 +6,7 @@ require "../model/CavalierRepresentant.php";
 require "../model/Inscription.php";
 require "../model/Cours.php";
 require "../model/Participation.php";
+require "../model/Compte.php";
 
 $headerpath = "../vue/header.php";
 
@@ -165,6 +166,11 @@ if(isset($_POST) && $_POST["action"] == "form"){
                                                     $_POST["pays"]
         );
 
+        //Ajout d'un identifiant (mail) + mdp dans la table 'utilisateur' après la création du CavalierReprésentant
+        $username = $_POST["mail"];
+        $mdp = md5(randomPassword());
+        add_compte_u($username, $mdp);
+
         if ( isset($_POST["subaction"] ) && $_POST["subaction"] == "update") {
             if(!update_cavRep($cavalierRep,$_POST["id_personne"])){
                 $error = "updcav";
@@ -205,6 +211,12 @@ if(isset($_POST) && $_POST["action"] == "form"){
                                             $_POST["ville"],
                                             $_POST["pays"]
     );
+
+        //Ajout d'un identifiant (mail) + mdp dans la table 'utilisateur' après la création du Cavalier
+        $username = $_POST["mailrep"];
+        $mdp = md5(randomPassword());
+        add_compte_u($username, $mdp);
+
 
     if (isset($_POST["subaction"] ) && $_POST["subaction"] == "update") {
         if(!update_cav($cavalier,$_POST["id_personne"])){
