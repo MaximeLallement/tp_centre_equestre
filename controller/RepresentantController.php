@@ -7,6 +7,7 @@ $headerpath = "../vue/header.php"; //Enregistre dans une variable le header 'vue
 
 if(isset($_POST["showAll"])){
 
+    $data = get_all_rep();
     return require_once "../vue/rep/rep_index.php";
 
 }
@@ -60,6 +61,7 @@ if (isset($_POST["modify_validation"])){ //Modifie les infos relative à une per
 if(isset($_POST["delete"])){
 
     soft_delete_rep_by_id($_POST["rep_id"]);
+    $data = get_all_rep();
     return require_once "../vue/rep/rep_index.php";
 
 }

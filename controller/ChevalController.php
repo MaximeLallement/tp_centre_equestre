@@ -45,6 +45,7 @@ if(isset($_POST) && $_POST["action"] == "delete"){
 
     soft_delete_che_by_id($_POST["che_id"]);
     $data = get_all_che();
+    $rob = get_all_rob();
     
     return require_once "../vue/che/che_index.php";
 
@@ -71,6 +72,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
      */
     if(isset($_POST["subaction"] ) && $_POST["subaction"] == "new"){
         
+        $new = true; //Permet de vérifier si le formulaire est celui d'ajout et non de modification
         return require_once "../vue/che/che_form.php";
     }
     /**

@@ -33,7 +33,7 @@ require $headerpath; //Importe le header
         </tr>
     </thead> 
     <tbody>
-        <?php foreach(get_all_rep() as $rep){ ?> <!-- Génère un tableau des représentants avec leurs infos personnelles -->
+        <?php foreach($data as $rep){ ?> <!-- Génère un tableau des représentants avec leurs infos personnelles -->
             <!-- Dialog box -->
             <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
             <div id="dialog<?= $rep["id_personne"]; ?>" title="Voulez-vous réellement MODIFIER cet utilisateur ?"></div>
