@@ -6,10 +6,7 @@ require $headerpath;
 ?>
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="../../lib/jquery-ui.js"></script>
-    <script src="../../lib/external/jquery/jquery.js"></script>
     <script> $(function (){
        $("libelle").selectmenu(); 
     });
@@ -22,10 +19,12 @@ require $headerpath;
 
 <!-- Dialog box -->
 <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
-<div id="dialog" title="Appliquer les modification ?"></div>
+
+<!-- Valider modifications -->
+<div id="dialog_modify" title="Appliquer les modification ?"></div>
 <script>
     $(function() {
-        $("#dialog").dialog({ 
+        $("#dialog_modify").dialog({ 
             minWidth: 250,
             autoOpen: false,
             modal: true,
@@ -39,8 +38,32 @@ require $headerpath;
             },
             post: true
         });
-        $("#opener").click(function() {
-            $("#dialog").dialog("open");
+        $("#opener_modify").click(function() {
+            $("#dialog_modify").dialog("open");
+        })
+    });
+</script>
+
+<!-- Annuler modifications -->
+<div id="dialog_cancel" title="Annuler les modifications ?"></div>
+<script>
+    $(function() {
+        $("#dialog_cancel").dialog({ 
+            minWidth: 250,
+            autoOpen: false,
+            modal: true,
+            buttons: {
+                Oui: function() {
+                    document.getElementById('cancel').click(); //Modification du représentant quand dialog validé
+                },
+                Non: function() {
+                    $(this).dialog("close");
+                }
+            },
+            post: true
+        });
+        $("#opener_cancel").click(function() {
+            $("#dialog_cancel").dialog("open");
         })
     });
 </script>
@@ -102,16 +125,18 @@ require $headerpath;
         <?php  } ?>
 
         <input type="hidden" name="action" value="form">
-        <button type="submit" class="btn btn-primary">Submit</button>
         <input type="submit" id="modify" style="display: none;" />
     </form> 
-    <input type="button" id="opener" value="Modifier">
+
+    <form action="" method="POST">
+        <input type="submit" id="cancel" name="action" value="index" style="display: none;" />
+    </form>
+    <div>
+        <input type="button" id="opener_cancel" value="Annuler" class="btn btn-primary">
+        <input type="button" id="opener_modify" value="Modifier" class="btn btn-primary">
+    </div>
 
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="../../lib/jquery-ui.js"></script>
-<script src="../../lib/external/jquery/jquery.js"></script>
 <script> 
 $(function (){
    $("libelle").selectmenu(); 

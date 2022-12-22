@@ -2,6 +2,80 @@
 $pagename = "Formulaire pour Cavalier";
 require $headerpath;
 ?>
+
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+</head>
+
+<!-- Dialog box -->
+<!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
+
+<!-- Valider modifications -->
+<?php 
+if(isset($new)){?>
+    <div id="dialog_modify" title="Ajouter ce cheval ?"></div>
+<?php }
+else{ ?>
+    <div id="dialog_modify" title="Appliquer les modifications ?"></div>
+<?php } ?>
+<script>
+    $(function() {
+        $("#dialog_modify").dialog({ 
+            minWidth: 320,
+            autoOpen: false,
+            modal: true,
+            buttons: {
+                Oui: function() {
+                    document.getElementById('modify').click(); //Modification du représentant quand dialog validé
+                },
+                Non: function() {
+                    $(this).dialog("close");
+                }
+            },
+            post: true
+        });
+        $("#opener_modify").click(function() {
+            $("#dialog_modify").dialog("open");
+        })
+    });
+</script>
+
+<!-- Annuler modifications -->
+<?php 
+if(isset($new)){?>
+    <div id="dialog_cancel" title="Annuler l'ajout du cheval ?"></div>
+<?php } 
+else{ ?>
+    <div id="dialog_cancel" title="Annuler les modifications ?"></div>
+<?php } ?>
+
+<script>
+    $(function() {
+        $("#dialog_cancel").dialog({ 
+            minWidth: 250,
+            autoOpen: false,
+            modal: true,
+            buttons: {
+                Oui: function() {
+                    document.getElementById('cancel').click(); //Modification du représentant quand dialog validé
+                },
+                Non: function() {
+                    $(this).dialog("close");
+                }
+            },
+            post: true
+        });
+        $("#opener_cancel").click(function() {
+            $("#dialog_cancel").dialog("open");
+        })
+    });
+</script>
+<!-- Dialog box -->
+
+
 <body>
     <style>
         .collapse.in{
@@ -66,16 +140,19 @@ require $headerpath;
                 <input type="hidden" name="subaction" value="update">
             <?php  } ?>
             <input type="hidden" name="action" value="form">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+            <input type="submit" id="modify" style="display: none">
+    </form>
 
-    </form> 
-
+    <form action="" method="POST">
+        <input type="submit" id="cancel" name="action" value="index" style="display: none;" />
+    </form>
+    <div>
+        <input type="button" id="opener_cancel" value="Annuler" class="btn btn-primary">
+        <input type="button" id="opener_modify" value="Modifier" class="btn btn-primary">
+    </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="../../inc/script/js/jquery-ui.min.js"></script>
+
 <script>
     function setInputValue(e)
     {
