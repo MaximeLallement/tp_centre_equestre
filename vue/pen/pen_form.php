@@ -6,7 +6,11 @@ require $headerpath;
 ?>
 
 <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../../lib/jquery-ui.js"></script>
+    <script src="../../lib/external/jquery/jquery.js"></script>
     <script> $(function (){
        $("libelle").selectmenu(); 
     });
@@ -19,7 +23,6 @@ require $headerpath;
 
 <!-- Dialog box -->
 <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
-
 <!-- Valider modifications -->
 <div id="dialog_modify" title="Appliquer les modification ?"></div>
 <script>
@@ -38,6 +41,7 @@ require $headerpath;
             },
             post: true
         });
+
         $("#opener_modify").click(function() {
             $("#dialog_modify").dialog("open");
         })
@@ -125,8 +129,10 @@ require $headerpath;
         <?php  } ?>
 
         <input type="hidden" name="action" value="form">
+        <button type="submit" class="btn btn-primary">Submit</button>
         <input type="submit" id="modify" style="display: none;" />
     </form> 
+    <input type="button" id="opener" value="Modifier">
 
     <form action="" method="POST">
         <input type="submit" id="cancel" name="action" value="index" style="display: none;" />
@@ -137,6 +143,7 @@ require $headerpath;
     </div>
 
 </div>
+
 <script> 
 $(function (){
    $("libelle").selectmenu(); 
