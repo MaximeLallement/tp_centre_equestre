@@ -15,10 +15,12 @@
 
 <!-- Dialog box -->
 <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
-<div id="dialog" title="Appliquer les modification ?"></div>
+
+<!-- Valider modifications -->
+<div id="dialog_modify" title="Appliquer les modification ?"></div>
 <script>
     $(function() {
-        $("#dialog").dialog({ 
+        $("#dialog_modify").dialog({ 
             minWidth: 250,
             autoOpen: false,
             modal: true,
@@ -32,8 +34,32 @@
             },
             post: true
         });
-        $("#opener").click(function() {
-            $("#dialog").dialog("open");
+        $("#opener_modify").click(function() {
+            $("#dialog_modify").dialog("open");
+        })
+    });
+</script>
+
+<!-- Annuler modifications -->
+<div id="dialog_cancel" title="Annuler les modifications ?"></div>
+<script>
+    $(function() {
+        $("#dialog_cancel").dialog({ 
+            minWidth: 250,
+            autoOpen: false,
+            modal: true,
+            buttons: {
+                Oui: function() {
+                    document.getElementById('cancel').click(); //Modification du représentant quand dialog validé
+                },
+                Non: function() {
+                    $(this).dialog("close");
+                }
+            },
+            post: true
+        });
+        $("#opener_cancel").click(function() {
+            $("#dialog_cancel").dialog("open");
         })
     });
 </script>
@@ -93,9 +119,13 @@
                     </div>
                 </div>
                 <input type="submit" id="modify" name="modify_validation" style="display: none;" /> <!-- Exécute la requête de modification si msg de confirmation validé-->
-                <input type="submit" name="showAll" value="Annuler" onclick="return confirm('Voulez-vous annuler la saisie ?')"/> <!-- Retourne sur la page 'rep_index.php' -->  
+                <input type="submit" id="cancel" name="showAll" style="display: none"/> <!-- Retourne sur la page 'rep_index.php' -->  
             </form>
-            <input type="button" id="opener" value="Modifier">
+            <div>
+                <input type="button" id="opener_cancel" value="Annuler" class="btn btn-primary">
+                <input type="button" id="opener_modify" value="Modifier" class="btn btn-primary">
+            </div>
+            
         </div>
     </body>
 </html>

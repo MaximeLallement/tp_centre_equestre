@@ -6,6 +6,7 @@ require $headerpath;
 ?>
 
 <head>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="../../lib/jquery-ui.js"></script>
@@ -22,10 +23,11 @@ require $headerpath;
 
 <!-- Dialog box -->
 <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
-<div id="dialog" title="Appliquer les modification ?"></div>
+<!-- Valider modifications -->
+<div id="dialog_modify" title="Appliquer les modification ?"></div>
 <script>
     $(function() {
-        $("#dialog").dialog({ 
+        $("#dialog_modify").dialog({ 
             minWidth: 250,
             autoOpen: false,
             modal: true,
@@ -39,8 +41,33 @@ require $headerpath;
             },
             post: true
         });
-        $("#opener").click(function() {
-            $("#dialog").dialog("open");
+
+        $("#opener_modify").click(function() {
+            $("#dialog_modify").dialog("open");
+        })
+    });
+</script>
+
+<!-- Annuler modifications -->
+<div id="dialog_cancel" title="Annuler les modifications ?"></div>
+<script>
+    $(function() {
+        $("#dialog_cancel").dialog({ 
+            minWidth: 250,
+            autoOpen: false,
+            modal: true,
+            buttons: {
+                Oui: function() {
+                    document.getElementById('cancel').click(); //Modification du représentant quand dialog validé
+                },
+                Non: function() {
+                    $(this).dialog("close");
+                }
+            },
+            post: true
+        });
+        $("#opener_cancel").click(function() {
+            $("#dialog_cancel").dialog("open");
         })
     });
 </script>
@@ -67,20 +94,22 @@ require $headerpath;
         <div class="row justify-content-md-center">
             <div class="form-group col">
                 <label for="iLibellePension">Libelle*</label>
-                <select name="libelle" id="iLibellePension" required>
-                    <option value="<?= isset($infosaved["id_pension"]) ? $infosaved["id_pension"] : "" ;?>"></option>
-                    <option value="Pension">Pension</option>
-                    <option value="Demi-pension">Demi-pension</option>
+                <select name="libelle" class="form-select" id="iLibellePension" required>
+                    <option value="" <?= (isset($infosaved["libelle"]) && $infosaved["libelle"] == "") ? "selected" : "" ?>></option>
+                    <option value="Pension" <?= (isset($infosaved["libelle"]) && $infosaved["libelle"] == "Pension") ? "selected" : "" ?>>Pension</option>
+                    <option value="Demi-pension" <?= (isset($infosaved["libelle"]) && $infosaved["libelle"] == "Demi-pension") ? "selected" : "" ?>>Demi-pension</option>
                 </select>
                 <!--<input type="text" name="libelle" value="<?= isset($infosaved) ? $infosaved["libelle"] : "";  ?>" class="form-control" id="iLibellePension" placeholder="" required>-->
             </div>
             <div class="form-group col">
-                <label for="iTarifPension">Tarif*</label>
+                <label for="iTarifPension">Tarif mensuel*</label>
                 <input type="text" name="tarif" value="<?= isset($infosaved) ? $infosaved["tarif"] : "";  ?>" class="form-control" id="iTarifPension" placeholder="" required>
             </div>
             <div class="form-group col">
                 <label for="IdCheval">Cheval sélectionné*</label>
-                <input type="text" name="id_cheval" value="<?= isset($infosaved) ? $infosaved["id_cheval"] : "";  ?>" class="form-control" id="id_cheval" placeholder="" required="">
+                <input type="text" name="nom_cheval" id="nom_cheval" value="<?= isset($infosaved["nom_cheval"]) && $infosaved["nom_cheval"] != "" ? $infosaved["nom_cheval"] : "";  ?>" onkeyup = "autocomplet_che()" class="form-control">
+                <input type="hidden" name="id_cheval" id="id_cheval" value="<?= isset($infosaved) && $infosaved["id_cheval"] != "" ? $infosaved["id_cheval"] : "";  ?>" class="form-control">
+                <ul id="list_cheval"></ul>
             </div>
         </div>
         <div class="row">
@@ -105,5 +134,44 @@ require $headerpath;
     </form> 
     <input type="button" id="opener" value="Modifier">
 
+    <form action="" method="POST">
+        <input type="submit" id="cancel" name="action" value="index" style="display: none;" />
+    </form>
+    <div>
+        <input type="button" id="opener_cancel" value="Annuler" class="btn btn-primary">
+        <input type="button" id="opener_modify" value="Modifier" class="btn btn-primary">
+    </div>
+
 </div>
+
+<script> 
+$(function (){
+   $("libelle").selectmenu(); 
+});
+
+function setInputValue(e){
+    //console.log(list);
+    $("#id_cheval").val(e.getAttribute('value'));
+    $("#nom_cheval").val(e.innerHTML );
+    $("#list_cheval").hide();
+}
+
+function autocomplet_che(){
+    var min_length = 2;
+    var keyword = $("#nom_cheval").val();
+
+    if (keyword.length >= min_length) {
+        $.ajax({
+            method: "POST",
+            url: "../inc/autocomplete_che.php",
+            data : {keyword :keyword},
+            success:function(data){
+                $('#list_cheval').show();
+                $('#list_cheval').html(data);
+            }
+        });
+    }
+}
+
+</script>
 </body>

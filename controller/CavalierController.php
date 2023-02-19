@@ -47,7 +47,7 @@ if(isset($_POST) && $_POST["action"] == "show")
 if(isset($_POST) && $_POST["action"] == "delete"){
 
     soft_delete_cav_by_id($_POST["cav_id"]);
-    
+    $data = get_all_cav();
     return require_once "../vue/cav/cav_index.php";
 
 }
@@ -73,6 +73,7 @@ if(isset($_POST) && $_POST["action"] == "form"){
      */
     if(isset($_POST["subaction"] ) && $_POST["subaction"] == "new"){
         
+        $new = true; //Permet de vérifier si le formulaire est celui d'ajout et non de modification
         return require_once "../vue/cav/cav_form.php";
     }
     /**
