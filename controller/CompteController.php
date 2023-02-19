@@ -11,13 +11,15 @@ if(isset($_POST["inscription"])){
 if(isset($_POST["create_account"])){
     //Ajout d'un compte dans la table utilisateur de type user (type='u')
     if($_POST["mdp"] == $_POST["mdp_confirm"]){
-        add_compte();
+        add_compte_u(); 
         return require_once "../vue/dashboard.php";
     }
 
     else{ ?>
-        <script>console.log("MDP pas similaire");</script>
-    <?php }
+        <script>alert("MDP pas similaire");</script>
+    <?php  
+      return require_once "../vue/inscription.php";
+    }
 }
 
 

@@ -53,6 +53,7 @@ if(isset($_POST['connexion_admin_validation'])){
             <?php //require '../vue/connexion.php';
         }
     }
+}
 
     if(isset($_POST['connexion_utilisateur_validation'])){
 
@@ -85,4 +86,4 @@ if(isset($_POST['connexion_admin_validation'])){
         }
     }
 
-}?>
+?>

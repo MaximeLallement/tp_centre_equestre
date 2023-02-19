@@ -37,7 +37,7 @@ require $headerpath;
                 <input type="date" name="datenaissance" value="<?= isset($infosaved) ? $infosaved["datenaissance"] : "";  ?>" class="form-control" id="iDateCavalier" placeholder="" required>
             </div>
             <div class="form-group col">
-                <label for="iMailCavalier">Address email*</label>
+                <label for="iMailCavalier">Adresse email*</label>
                 <input type="email" name="mail" value="<?= isset($infosaved) ? $infosaved["mail"] : "";  ?>" class="form-control" id="iMailCavalier" placeholder="" required>
             </div>
             <div class="form-group col">
@@ -80,7 +80,7 @@ require $headerpath;
         <div class="form-group">
             <h5 class="col-12">Etes-vous votre représentant(e) légale</h5>
             <label for="choixCav" class="col-6"> Je suis mon représentant légale</label>
-            <input type="radio"  name="choixRepresentant" value="cav" id="choixCav" onclick="show(0)">
+            <input type="radio"  name="choixRepresentant" value="cav" id="choixCav" onclick="show(0)" checked>
             <label for="choixRep" class="col-6" > Je suis ne suis pas mon représentant légale</label>
             <input type="radio"name="choixRepresentant" value="rep" id="choixRep" onclick="show(1)" >
         </div>
@@ -107,8 +107,8 @@ require $headerpath;
             </div>
             <div class="row">    
                     <div class="form-group col-6">
-                        <label for="iMailCavalier">Address email du représentant</label>
-                        <input type="email" name="mailrep"value="<?= isset($infosaved["mailrep"]) ? $infosaved["mailrep"] : "";  ?>"  class="form-control" id="iMailCavalier" placeholder="">
+                        <label for="iMailCavalier">Adresse email du représentant</label>
+                        <input type="email" name="mailrep" value="<?= isset($infosaved["mailrep"]) ? $infosaved["mailrep"] : "";  ?>"  class="form-control" id="iMailCavalier" placeholder="">
                     </div>
                     <div class="form-group col-6">
                         <label for="iTelCavalier">Telephone du représenttant <br><i>format : 0601020304</i></label>
