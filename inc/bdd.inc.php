@@ -1,4 +1,6 @@
 <?php
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
 if(!isset($_SESSION)){ 
 
     session_start();
@@ -11,9 +13,10 @@ if(!isset($_SESSION['connecte'])){
     
 }
 
-if(isset($_SESSION['connecte']) && $_SESSION['connecte'] == False && !isset($_POST["inscription"])){ ?>
+if(isset($_SESSION['connecte']) && $_SESSION['connecte'] == False && !isset($_POST["inscription"])){ 
+    if($actual_link !== "http://localhost/tp_centre_equestre/") {?>
     <script>window.location.replace('../vue/connexion.php')</script>
-<?php }
+<?php }}
 
 
 try {

@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /** RÉCUPÉRATION DES VARIABLES */
 // récupération du répertoir
 $base_dir = __DIR__;
@@ -16,17 +17,20 @@ $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $por
  *  String manipulation
  */
 // inversement des slash 
-$doc_root = str_replace('/','\\', $doc_root);
+$doc_root = str_replace('/', '\\', $doc_root);
 // épuration de l'url
 $base_url = str_replace($doc_root, '', $base_dir);
 
 /* Mise en place de l'url dynamic */
-$url = "${protocol}://${domain}${disp_port}${base_url}";
-
+$url = "$protocol://$domain$disp_port$base_url";
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$home_link = "http://localhost/tp_centre_equestre/";
+$home_link_index = "http://localhost/tp_centre_equestre/index.php";
 ?>
 
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
+
 <head>
     <title><?= isset($pagename) ? $pagename : "{{PAGE_NAME}}" ?></title>
     <meta name="format-detection" content="telephone=no">
@@ -46,56 +50,109 @@ $url = "${protocol}://${domain}${disp_port}${base_url}";
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="assets/img/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse">
+<?php if ($actual_link !== $home_link && $actual_link !== $home_link_index) { ?>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
 
-        <form action="../controller/AccueilController.php" method="post">
-          <button class="navbar-brand" type="submit" name="index">Accueil</button> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
-        </form>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <form action="../controller/RepresentantController.php" method="post">
-              <button type="submit" name="showAll">Représentants</button>
-            </form>
-          </li>
-
-          <li class="nav-item">
-            <form action="../controller/CavalierController.php" method="post">
-              <button type="submit" name="action" value="index">Cavaliers</button>
-            </form>
-          </li>
-
-          <?php 
-            if(isset($_SESSION) && $_SESSION['connecte'] == True){ //Si connecté, afficher boutton déconnexion?> 
-
-              <li class="nav-item">
-                <form action="../controller/ConnexionController.php" method="post">
-                  <button type="submit" name="deconnexion">Déconnexion</button>
+                <form action="../../tp_centre_equestre/" method="post">
+                    <button class="navbar-brand" type="submit" name="index">Accueil</button>
                 </form>
-              </li>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <form action="../controller/AccueilController.php" method="post">
+                            <button type="submit" name="dashboard">Dashboard</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form action="../controller/RepresentantController.php" method="post">
+                            <button type="submit" name="showAll">Représentants</button>
+                        </form>
+                    </li>
 
-            <?php }
+                    <li class="nav-item">
+                        <form action="../controller/CavalierController.php" method="post">
+                            <button type="submit" name="action" value="index">Cavaliers</button>
+                        </form>
+                    </li>
 
-            else{ //Sinon afficher boutton connexion?>
+                    <?php
+                    if (isset($_SESSION) && $_SESSION['connecte'] == True) { //Si connecté, afficher boutton déconnexion
+                    ?>
 
-            	<li class="nav-item">
-            		<form action="../controller/ConnexionController.php" method="post">
-              			<button type="submit" name="connexion">Connexion</button>
-                	</form>
-              	</li>
-				
-            <?php } ?>
+                        <li class="nav-item">
+                            <form action="../controller/ConnexionController.php" method="post">
+                                <button type="submit" name="deconnexion">Déconnexion</button>
+                            </form>
+                        </li>
 
-            <li class="nav-item">
-              <form action="../controller/CompteController.php" method="post">
-                <button type="submit" name="inscription">Inscription</button>
-              </form>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+                    <?php } else { //Sinon afficher boutton connexion
+                    ?>
+
+                        <li class="nav-item">
+                            <form action="../controller/ConnexionController.php" method="post">
+                                <button type="submit" name="connexion">Connexion</button>
+                            </form>
+                        </li>
+
+                    <?php } ?>
+
+                    <li class="nav-item">
+                        <form action="../controller/CompteController.php" method="post">
+                            <button type="submit" name="inscription">Inscription</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<?php } else { ?>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+
+                <form action="/tp_centre_equestre" method="post">
+                    <button class="navbar-brand" type="submit" name="index">Accueil</button> <!-- Renvoie vers la page d'accueil (pour le moment 'Test.php') -->
+                </form>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <form action="./controller/AccueilController.php" method="post">
+                            <button type="submit" name="dashboard">Dashboard</button>
+                        </form>
+                    </li>
+                    <?php
+                    if (isset($_SESSION) && $_SESSION['connecte'] == True) { //Si connecté, afficher boutton déconnexion
+                    ?>
+                    
+                        <li class="nav-item">
+                            <form action="./controller/ConnexionController.php" method="post">
+                                <button type="submit" name="deconnexion">Déconnexion</button>
+                            </form>
+                        </li>
+
+                    <?php } else { //Sinon afficher boutton connexion
+                    ?>
+
+                        <li class="nav-item">
+                            <form action="controller/ConnexionController.php" method="post">
+                                <button type="submit" name="connexion">Connexion</button>
+                            </form>
+                        </li>
+
+                    <?php } ?>
+
+                    <li class="nav-item">
+                        <form action="controller/CompteController.php" method="post">
+                            <button type="submit" name="inscription">Inscription</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<?php } ?>
+
 </html>
