@@ -21,27 +21,6 @@ if(isset($_POST["action"]) && $_POST["action"] == "index"){
 }
 
 /**
- * Retourne la vue qui affiche un cavalier et son représentant s'il en a un
- */
-isset($_SESSION["action"]) ? $_POST["action"] = $_SESSION["action"] : null ;
-isset($_SESSION["cav_id"]) ? $_POST["cav_id"] = $_SESSION["cav_id"] : null ;
-
-if(isset($_POST["action"]) && $_POST["action"] == "show")
-{
-    $data = get_one_cav($_POST["cav_id"]);
-    $ins = get_ins_one_cav($_POST["cav_id"]);
-    if ( isset($data["id_representant"]) && $data["id_representant"] != 0)
-    {
-        $rep = get_one_cav($data["id_representant"]);
-    }
-    $cou =  get_all_cou();
-    $part1 = get_all_weekly_part_by_id($_POST["cav_id"],1);
-    $part0 = get_all_part_by_id($_POST["cav_id"],0);
-
-    return require_once "../vue/cav/cav_show.php";
-}
-
-/**
  * Retourne la vue qui affiche l'ensemble des Cavaliers après suppression ( SoftDelte ) d'un Cavalier
  */
 if(isset($_POST["action"]) && $_POST["action"] == "delete"){
@@ -245,4 +224,25 @@ if(isset($_POST["action"]) && $_POST["action"] == "form"){
            return require_once "../vue/ins/ins_form.php";
         }
     }
+}
+
+/**
+ * Retourne la vue qui affiche un cavalier et son représentant s'il en a un
+ */
+isset($_SESSION["action"]) ? $_POST["action"] = $_SESSION["action"] : null ;
+isset($_SESSION["cav_id"]) ? $_POST["cav_id"] = $_SESSION["cav_id"] : null ;
+
+if(isset($_POST["action"]) && $_POST["action"] == "show")
+{
+    $data = get_one_cav($_POST["cav_id"]);
+    $ins = get_ins_one_cav($_POST["cav_id"]);
+    if ( isset($data["id_representant"]) && $data["id_representant"] != 0)
+    {
+        $rep = get_one_cav($data["id_representant"]);
+    }
+    $cou =  get_all_cou();
+    $part1 = get_all_weekly_part_by_id($_POST["cav_id"],1);
+    $part0 = get_all_part_by_id($_POST["cav_id"],0);
+
+    return require_once "../vue/cav/cav_show.php";
 }
