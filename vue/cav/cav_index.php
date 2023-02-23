@@ -1,6 +1,6 @@
 <?php
- $pagename = "Cavalier";
- require $headerpath;
+$pagename = "Cavalier";
+require $headerpath;
 ?>
 
 <head>

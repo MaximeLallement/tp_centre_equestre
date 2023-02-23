@@ -1,6 +1,9 @@
 <?php 
   $pagename = "Centre Equestre de XXXX";
-  include dirname(__FILE__)."/vue/header.php" ?>
+  include "./inc/bdd.inc.php"; 
+  include dirname(__FILE__)."/vue/header.php";
+
+  ?>
   <body>
     <div class="preloader">
       <div class="wrapper-triangle">
