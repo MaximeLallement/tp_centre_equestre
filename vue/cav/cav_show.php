@@ -102,6 +102,8 @@ require $headerpath;
                 <thead>
                     <th>ID</th>
                     <th>Titre</th>
+                    <th>Jour</th>
+                    <th>Date</th>
                     <th>Début <small>hh:mm</small> </th>
                     <th>Fin <small>hh:mm</small></th>
                     <th></th>
@@ -111,36 +113,55 @@ require $headerpath;
                     <tr>
                         <td><?= $c["id_cours"] ?></td>
                         <td><?= $c["title"] ?></td>
+                        <td><?= date_format(date_create($c["start_event"]),"l")?></td>
+                        <td><?= substr($c["start_event"],5,6) ?></td>
                         <td><?= substr($c["start_event"],-8,-3) ?></td>
                         <td><?= substr($c["end_event"],-8,-3) ?></td>
                         <td>
-                            <form action="ParticipationController.php" method="post">
-                                <input type="hidden" name="id_cours" value="<?= $c["id_cours"] ?>" >
-                                <input type="hidden" name="id_cav" value="<?= $data["id_personne"] ?>" >
-                                <input type="hidden" name="action" value="add" >
-                                <input type="submit" value="PARTICPER">
-                            </form>
+                            <?php $participation_by_cou = get_participation_by_cou_id($c["id_cours"],$data["id_personne"]);
+                                if ( $participation_by_cou[0]["NbrRow"]  == "0" ) {  ?>
+                                <form action="ParticipationController.php" method="post">
+                                    <input type="hidden" name="id_cours" value="<?= $c["id_cours"] ?>" >
+                                    <input type="hidden" name="id_cav" value="<?= $data["id_personne"] ?>" >
+                                    <input type="hidden" name="action" value="add" >
+                                    <input type="submit" value="PARTICPER">
+                                </form>
+                                <?php }else { ?>
+                                    <form action="ParticipationController.php" method="post">
+                                        <input type="hidden" name="id_cours" value="<?= $c["id_cours"] ?>" >
+                                        <input type="hidden" name="id_cav" value="<?= $data["id_personne"] ?>" >
+                                        <input type="hidden" name="action" value="delete" >
+                                        <input type="submit" value="SE DÉSINSCRIRE">
+                                    </form>
+                            <?php } ?>
                         </td>
                     </tr>
                     <?php } ?>
                 </tbody>
             </table>
+            
             <p>Cours Cette Semaine</p>
+            <button onclick="changeWeek(-1)">Semaine précedente</button>
+            <button onclick="changeWeek(1)">Semaine suivante</button>
             <table style="width:100%;">
                 <thead>
                     <th>ID</th>
                     <th>Titre</th>
+                    <th>Jour</th>
+                    <th>Date</th>
                     <th>Début <small>hh:mm</small> </th>
                     <th>Fin <small>hh:mm</small></th>
                     <th></th>
                 </thead>
-                <tbody>
+                <tbody id="cou_week">
                     <?php foreach ($part1 as $p) {  ?>
                     <tr>
                         <td><?= $p["id_cour"] ?></td>
                         <td><?= $p["title"] ?></td>
-                        <td><?= substr($c["start_event"],-8,-3) ?></td>
-                        <td><?= substr($c["end_event"],-8,-3) ?></td>
+                        <td><?= date_format(date_create($p["start_event"]),"l")?></td>
+                        <td><?= substr($p["start_event"],5,6) ?></td>
+                        <td><?= substr($p["start_event"],-8,-3) ?></td>
+                        <td><?= substr($p["end_event"],-8,-3) ?></td>
                         <td>
                             <form action="ParticipationController.php" method="post">
                                 <input type="hidden" name="id_cours" value="<?= $p["id_cour"] ?>" >
@@ -160,8 +181,10 @@ require $headerpath;
                 <thead>
                     <th>ID</th>
                     <th>Titre</th>
+                    <th>Jour</th>
+                    <th>Date</th>
                     <th>Début <small>hh:mm</small> </th>
-                    <th>Fin <small>hh:mm</small></th>
+                    <th>Fin <small>hh:mm</small> </th>
                     <th></th>
                 </thead>
                 <tbody>
@@ -169,8 +192,10 @@ require $headerpath;
                     <tr>
                         <td><?= $p["id_cour"] ?></td>
                         <td><?= $p["title"] ?></td>
-                        <td><?= substr($c["start_event"],-8,-3) ?></td>
-                        <td><?= substr($c["end_event"],-8,-3) ?></td>
+                        <td><?= date_format(date_create($p["start_event"]),"l")?></td>
+                        <td><?= substr($p["start_event"],5,6) ?></td>
+                        <td><?= substr($p["start_event"],-8,-3) ?></td>
+                        <td><?= substr($p["end_event"],-8,-3) ?></td>
                         <td>
                             <form action="ParticipationController.php" method="post">
                                 <input type="hidden" name="id_cours" value="<?= $p["id_cour"] ?>" >
@@ -188,10 +213,27 @@ require $headerpath;
         </div>
     </div>
 </div>
+                        
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../inc/script/js/jquery-ui.min.js"></script>
 <script>
     $( "#cav-tabs" ).tabs();
 
+
+    let week_increment = 0;
+    //$_POST["id_cav"],1,$_POST["week_increment"]
+    function changeWeek(a){
+        week_increment += a
+
+        $.ajax({
+            method: "POST",
+            url: "../inc/changeWeek.php",
+            data : {id_cav :<?= $data["id_personne"] ?>,
+                    week_increment :week_increment},
+            success:function(data){
+                $("#cou_week").html(data);
+            }
+        })
+    }
 </script>

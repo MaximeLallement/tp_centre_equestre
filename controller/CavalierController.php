@@ -35,7 +35,7 @@ if(isset($_POST) && $_POST["action"] == "show")
     }
     $cou =  get_all_cou();
     $part1 = get_all_weekly_part_by_id($_POST["cav_id"],1);
-    $part0 = get_all_weekly_part_by_id($_POST["cav_id"],0);
+    $part0 = get_all_part_by_id($_POST["cav_id"],0);
 
     return require_once "../vue/cav/cav_show.php";
 }
