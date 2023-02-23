@@ -11,7 +11,7 @@ $headerpath = "../vue/header.php";
  * Retourne la vue qui affiche l'ensemble des Inscriptions 
  */
 
-if(isset($_POST) && $_POST["action"] == "index"){
+if(isset($_POST["action"]) && $_POST["action"] == "index"){
     
     $data = get_all_ins();
 
@@ -22,7 +22,7 @@ if(isset($_POST) && $_POST["action"] == "index"){
 /**
  * Retourne la vue qui affiche l'ensemble des Cavaliers après suppression ( SoftDelte ) d'un Cavalier
  */
-if(isset($_POST) && $_POST["action"] == "delete"){
+if(isset($_POST["action"]) && $_POST["action"] == "delete"){
 
     soft_delete_ins_by_id($_POST["ins_id"]);
     
@@ -44,7 +44,7 @@ if(isset($_POST) && $_POST["action"] == "delete"){
  * 
  * 
  */
-if(isset($_POST) && $_POST["action"] == "form"){
+if(isset($_POST["action"]) && $_POST["action"] == "form"){
 
     /**
      * Affiche la vue de formulaire pour un nouveau cavalier

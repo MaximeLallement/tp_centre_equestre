@@ -12,7 +12,7 @@ $headerpath = "../vue/header.php";
 /**
  * Retourne la vue qui affiche l'ensemble des Cavaliers 
  */
-if(isset($_POST) && $_POST["action"] == "index"){
+if(isset($_POST["action"]) && $_POST["action"] == "index"){
     
     $data = get_all_che();
     $rob = get_all_rob();
@@ -23,7 +23,7 @@ if(isset($_POST) && $_POST["action"] == "index"){
 /**
  * Retourne la vue qui affiche un cavalier et son représentant s'il en a un
  */
-if(isset($_POST) && $_POST["action"] == "show")
+if(isset($_POST["action"]) && $_POST["action"] == "show")
 {
     $data = get_one_che($_POST["che_id"]);
 
@@ -41,7 +41,7 @@ if(isset($_POST) && $_POST["action"] == "show")
 /**
  * Retourne la vue qui affiche l'ensemble des Cavaliers après suppression ( SoftDelte ) d'un Cavalier
  */
-if(isset($_POST) && $_POST["action"] == "delete"){
+if(isset($_POST["action"]) && $_POST["action"] == "delete"){
 
     soft_delete_che_by_id($_POST["che_id"]);
     $data = get_all_che();
@@ -65,7 +65,7 @@ if(isset($_POST) && $_POST["action"] == "delete"){
  * 
  * 
  */
-if(isset($_POST) && $_POST["action"] == "form"){
+if(isset($_POST["action"]) && $_POST["action"] == "form"){
 
     /**
      * Affiche la vue de formulaire pour un nouveau cheval

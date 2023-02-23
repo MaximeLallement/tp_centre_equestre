@@ -9,7 +9,7 @@ require "../model/Participation.php";
 $headerpath = "../vue/header.php";
 
 
-if(isset($_POST) && $_POST["action"] == "add"){
+if(isset($_POST["action"]) && $_POST["action"] == "add"){
 
     add_part($_POST["id_cav"],$_POST["id_cours"]);
     $_SESSION["action"] = "show";
@@ -18,7 +18,7 @@ if(isset($_POST) && $_POST["action"] == "add"){
 
 }
 
-if(isset($_POST) && $_POST["action"] == "update"){
+if(isset($_POST["action"]) && $_POST["action"] == "update"){
 
     upd_del_one_by_id($_POST["id_cours"],$_POST["id_week_cour"],$_POST['id_cav'],$_POST["actif"]);
     $_SESSION["action"] = "show";
@@ -27,7 +27,7 @@ if(isset($_POST) && $_POST["action"] == "update"){
 
 }
 
-if(isset($_POST) && $_POST["action"] == "delete"){
+if(isset($_POST["action"]) && $_POST["action"] == "delete"){
 
     del_many_by_id($_POST["id_cours"],$_POST['id_cav']);
     $_SESSION["action"] = "show";

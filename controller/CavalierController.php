@@ -10,23 +10,23 @@ require "../model/Compte.php";
 
 $headerpath = "../vue/header.php";
 
-isset($_SESSION["action"]) ? $_POST["action"] = $_SESSION["action"] : null ;
-isset($_SESSION["cav_id"]) ? $_POST["cav_id"] = $_SESSION["cav_id"] : null ;
+
 /**
  * Retourne la vue qui affiche l'ensemble des Cavaliers 
  */
 
-if(isset($_POST) && $_POST["action"] == "index"){
-
+if(isset($_POST["action"]) && $_POST["action"] == "index"){
     $data = get_all_cav();
-
     return require_once "../vue/cav/cav_index.php";
 }
 
 /**
  * Retourne la vue qui affiche un cavalier et son représentant s'il en a un
  */
-if(isset($_POST) && $_POST["action"] == "show")
+isset($_SESSION["action"]) ? $_POST["action"] = $_SESSION["action"] : null ;
+isset($_SESSION["cav_id"]) ? $_POST["cav_id"] = $_SESSION["cav_id"] : null ;
+
+if(isset($_POST["action"]) && $_POST["action"] == "show")
 {
     $data = get_one_cav($_POST["cav_id"]);
     $ins = get_ins_one_cav($_POST["cav_id"]);
@@ -44,7 +44,7 @@ if(isset($_POST) && $_POST["action"] == "show")
 /**
  * Retourne la vue qui affiche l'ensemble des Cavaliers après suppression ( SoftDelte ) d'un Cavalier
  */
-if(isset($_POST) && $_POST["action"] == "delete"){
+if(isset($_POST["action"]) && $_POST["action"] == "delete"){
 
     soft_delete_cav_by_id($_POST["cav_id"]);
     $data = get_all_cav();
@@ -66,7 +66,7 @@ if(isset($_POST) && $_POST["action"] == "delete"){
  * 
  * 
  */
-if(isset($_POST) && $_POST["action"] == "form"){
+if(isset($_POST["action"]) && $_POST["action"] == "form"){
 
     /**
      * Affiche la vue de formulaire pour un nouveau cavalier
