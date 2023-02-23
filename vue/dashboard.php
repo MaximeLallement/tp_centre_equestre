@@ -73,7 +73,6 @@
             <a href="../vue/cours/cours_management.php"><input type="submit" value="GESTION"></a>
         </div>
 
-
     </div>
 </div>
 
