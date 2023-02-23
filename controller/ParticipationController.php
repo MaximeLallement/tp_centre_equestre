@@ -26,3 +26,12 @@ if(isset($_POST) && $_POST["action"] == "update"){
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 }
+
+if(isset($_POST) && $_POST["action"] == "delete"){
+
+    del_many_by_id($_POST["id_cours"],$_POST['id_cav']);
+    $_SESSION["action"] = "show";
+    $_SESSION["cav_id"] = $_POST['id_cav'];
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+}
