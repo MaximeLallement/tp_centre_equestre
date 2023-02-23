@@ -8,7 +8,7 @@ $headerpath = "../vue/header.php";
 /**
  * Retourne la vue qui affiche l'ensemble des Pensions 
  */
-if(isset($_POST) && $_POST["action"] == "index"){
+if(isset($_POST["action"]) && $_POST["action"] == "index"){
     
     $data=get_all_pension();
 
@@ -19,7 +19,7 @@ if(isset($_POST) && $_POST["action"] == "index"){
 /**
  * Retourne la vue qui affiche une Pension
  */
-if(isset($_POST) && $_POST["action"] == "show")
+if(isset($_POST["action"]) && $_POST["action"] == "show")
 {
     $data = get_one_pen($_POST["pen_id"]);
     $ddf = get_date_de_fin($data["id_pension"]);
@@ -35,7 +35,7 @@ if(isset($_POST) && $_POST["action"] == "show")
 /**
  * Retourne la vue qui affiche l'ensemble des Pensions après suppression ( SoftDelte ) d'une Pension
  */
-if(isset($_POST) && $_POST["action"] == "delete"){
+if(isset($_POST["action"]) && $_POST["action"] == "delete"){
 
     soft_delete_pen_by_id($_POST["pen_id"]);
     
@@ -58,7 +58,7 @@ if(isset($_POST) && $_POST["action"] == "delete"){
  * 
  * 
  */
-if(isset($_POST) && $_POST["action"] == "form"){
+if(isset($_POST["action"]) && $_POST["action"] == "form"){
 
     /**
      * Affiche la vue de formulaire pour une nouvelle pension
