@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
@@ -39,7 +38,7 @@ CREATE TABLE `cheval` (
   PRIMARY KEY (`id_cheval`),
   CONSTRAINT fk_id_rob FOREIGN KEY(`id_robe`) REFERENCES `robe`(`id_robe`),
   CONSTRAINT fk_id_cav FOREIGN KEY(`id_cav`) REFERENCES `personne`(`id_personne`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `cheval`
@@ -48,8 +47,8 @@ CREATE TABLE `cheval` (
 INSERT INTO `cheval` (`id_cheval`,`SIRE`,`nom_cheval`,`id_robe`,`id_cav`,`photo_cheval`) VALUES
 (1,'000000001','Flamme des tenebres',1,5,'default.jpg'),
 (2,'000000002','Aurore pure',2,2,'default.jpg'),
-(3,'000000003','Horizon fluiviale',3,,'default.jpg'),
-(4,'000000004','Rosee printanière',4,,'default.jpg'),
+(3,'000000003','Horizon fluiviale',3,"",'default.jpg'),
+(4,'000000004','Rosee printaniere',4,"",'default.jpg'),
 (5,'000000005','Liberte matinal',5,4,'default.jpg'),
 (6,'000000006','Chemin pourpre',6,5,'default.jpg');
 
@@ -62,7 +61,7 @@ INSERT INTO `cheval` (`id_cheval`,`SIRE`,`nom_cheval`,`id_robe`,`id_cav`,`photo_
 CREATE TABLE `est_pensionnaire` (
   `id_pension` int(11) NOT NULL,
   `id_personne` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `est_pensionnaire`
@@ -86,9 +85,9 @@ CREATE TABLE `inscription` (
   `montant_cotisation` int(4) NOT NULL,
   `montant_ffe` int(3) NOT NULL,
   `annee` VARCHAR(255) NOT NULL,
-  `id_cav` int(3) NOT NULL,
+  `id_cav` int(3) NOT NULL
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -104,7 +103,7 @@ CREATE TABLE `pension` (
   `duree` int(2) NOT NULL,
   `id_cheval` int(11) NOT NULL,
   `actif` int(11) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `pension`
@@ -145,7 +144,7 @@ CREATE TABLE `personne` (
   `complement` varchar(85) DEFAULT NULL,
   `code_postal` int(11) DEFAULT NULL,
   `ville` varchar(85) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `personne`
@@ -172,7 +171,7 @@ INSERT INTO `personne` (`id_personne`, `nom_personne`, `prenom_personne`, `date_
 CREATE TABLE `robe` (
   `id_robe` int(11) NOT NULL,
   `libelle_robe` varchar(65) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `robe`
@@ -202,7 +201,7 @@ CREATE TABLE `tarif` (
   `id_tarif` int(11) NOT NULL,
   `libelle_tarif` varchar(65) NOT NULL,
   `pap_mois` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -210,8 +209,9 @@ CREATE TABLE `tarif` (
 -- Structure de la table `participation`
 --
 
-CREATE TABLE `tp_centre_equestre`.`participation` (
+CREATE TABLE `participation` (
   `id_cour` INT NOT NULL,
+  `id_week_cour` INT NOT NULL,
   `id_cav` INT NOT NULL,
   `actif` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_cour`, `id_cav`),
@@ -225,7 +225,62 @@ CREATE TABLE `tp_centre_equestre`.`participation` (
     FOREIGN KEY (`id_cour`)
     REFERENCES `tp_centre_equestre`.`cours` (`id_cours`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_id_week_cour`
+    FOREIGN KEY (`id_week_cour`)
+    REFERENCES `cours` (`id_week_cours`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+    );
+
+
+CREATE TABLE `cours`(
+  `id_cours`INT NOT NULL,
+  `id_week_cours` INT NOT NULL ,
+  `title` VARCHAR(45) NOT NULL ,
+  `actif` TINYINT NOT NULL DEFAULT 1 ,
+  `end_event` DATETIME NOT NULL ,
+  `start_event` DATETIME NOT NULL ,
+  PRIMARY KEY (`id_cours`, `id_week_cours`)
+);
+
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `id_utilisateur` int NOT NULL AUTO_INCREMENT,
+  `nom_utilisateur` varchar(35) NOT NULL,
+  `mdp` varchar(50) NOT NULL,
+  `type` varchar(35) NOT NULL,
+  PRIMARY KEY (`id_utilisateur`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id_utilisateur`, `nom_utilisateur`, `mdp`, `type`) VALUES
+(1, 'robert.legrand@mail.com', '21232f297a57a5a743894a0e4a801fc3', 'u'),
+(2, 'catherineL.compta', '81dc9bdb52d04dc20036dbd8313ed055', 'a'),
+(3, 'testcompte', '81dc9bdb52d04dc20036dbd8313ed055', 'u'),
+(4, 's', '7b774effe4a349c6dd82ad4f4f21d34c', 'u'),
+(5, 'valid', '8277e0910d750195b448797616e091ad', 'u'),
+(6, 'cav@mail.fr', 'yMtMrzC0JOz5Ox', 'u'),
+(7, 'cav@mail.fr', 'ztEnYAJYXUyjDl', 'u'),
+(8, '', '17cdeb32624223be1ca96fffeeadb035', 'u'),
+(9, 'rep@mail.fr', 'e4f94c7038e88ce826e0b6cca8d34ce8', 'u'),
+(10, '', '3dbff4f8b8364f38fdf8f604d94d9995', 'u'),
+(11, 'rep@mail.fr', 'c5d5ab497c849f70d77a0e28ac3b36e8', 'u'),
+(12, '', '4bfaf5afbfcb51faf462041da2c1287a', 'u'),
+(13, 'rep@mail.fr', 'da6fe1e28af6c2e26551e41e40fa74e6', 'u'),
+(14, '', '3648f0a67c4310df71f8cb295c00a8aa', 'u'),
+(15, '', 'a3b4851085e4eef5ee52098ba291cc9d', 'u'),
+(16, '', '8344d2da7381702349c33d444d2b6f74', 'u'),
+(17, '', 'd59bc2486e5ae1b46c5d02accedccaf4', 'u'),
+(18, '', 'a9464978bb4693fa6fbb012bc681b1e3', 'u'),
+(19, 'rep@mail.fr', 'd12276cc191a4a924660381828642369', 'u'),
+(20, 'cav@mail.fr', '3b037394d2125125dad6ff7b9b13d6f0', 'u'),
+(21, 'rep@mail.fr', 'bd362e75b25f04ec85cb58e62d5a4635', 'u'),
+(22, 'cav@mail.fr', 'ca053a13bdd479a4ad7b0f8e7369e4ac', 'u'),
+(23, 'cav@mail.fr', '88fd8471b31f5c099bc85128dac8b52e', 'u'),
+(24, 'cav@mail.fr', 'b1344a93fd130fcc139be559c37c6c43', 'u');
 
 --
 -- Index pour les tables déchargées
@@ -235,7 +290,6 @@ CREATE TABLE `tp_centre_equestre`.`participation` (
 -- Index pour la table `cheval`
 --
 ALTER TABLE `cheval`
-  ADD PRIMARY KEY (`id_cheval`),
   ADD KEY `fk_id_rob` (`id_robe`),
   ADD KEY `fk_id_cav` (`id_cav`);
 
@@ -250,7 +304,7 @@ ALTER TABLE `est_pensionnaire`
 -- Index pour la table `inscription`
 --
 ALTER TABLE `inscription`
-  ADD COLUMN `valid` TINYINT NOT NULL DEFAULT 1 AFTER `id_cav`;
+  ADD COLUMN `valid` TINYINT NOT NULL DEFAULT 1 AFTER `id_cav`,
   ADD PRIMARY KEY (`id_inscription`);
 
 --
@@ -346,18 +400,8 @@ ALTER TABLE `pension`
 -- Contraintes pour la table `pension`
 --
 ALTER TABLE `inscription`
-  ADD CONSTRAINT `fk_id_cavalier` FOREIGN KEY (`id_cav`) REFERENCES `personne` (`id_personne`),
-COMMIT;
+  ADD CONSTRAINT `fk_id_cavalier` FOREIGN KEY (`id_cav`) REFERENCES `personne` (`id_personne`);
 
-ALTER TABLE `tp_centre_equestre`.`cours` 
-ADD COLUMN `title` VARCHAR(45) NOT NULL AFTER `start_event`,
-ADD COLUMN `actif` TINYINT NOT NULL DEFAULT 1 AFTER `title`,
-CHANGE COLUMN `libelle_cours` `id_week_cours` INT NOT NULL ,
-CHANGE COLUMN `date_cours` `end_event` DATETIME NOT NULL ,
-CHANGE COLUMN `duree_cours` `start_event` DATETIME NOT NULL ,
-DROP PRIMARY KEY,
-ADD PRIMARY KEY (`id_cours`, `id_week_cours`);
-;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

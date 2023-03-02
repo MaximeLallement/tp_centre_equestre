@@ -25,7 +25,8 @@ if(isset($_POST["action"]) && $_POST["action"] == "index"){
 if(isset($_POST["action"]) && $_POST["action"] == "delete"){
 
     soft_delete_ins_by_id($_POST["ins_id"]);
-    
+
+    $data = get_all_ins();
     return require_once "../vue/ins/ins_index.php";
 
 }
@@ -103,7 +104,7 @@ if(isset($_POST["action"]) && $_POST["action"] == "form"){
             $error = "addins";
             return require_once "../vue/ins/ins_form.php";
         }else {
-            $data = get_all_cav();
-            return require_once "../vue/cav/cav_index.php";
+            $data = get_all_ins();
+            return require_once "../vue/ins/ins_index.php";
         }
 }

@@ -20,7 +20,7 @@
     
 </body>
 </html>
-<p>Liste Cavalier</p>
+<p>Liste des Chevaux</p>
 <table id="che_list">
     <thead>
         <tr>
@@ -40,30 +40,6 @@
             foreach ($data as $che) {
             ?>
                 <!-- Dialog box -->
-                <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
-                <div id="dialog<?= $che["id_cheval"]; ?>" title="Voulez-vous réellement MODIFIER ce cheval ?"></div>
-                <script>
-                    $(function() {
-                        $("#dialog<?= $che["id_cheval"]; ?>").dialog({ 
-                            minWidth: 510,
-                            autoOpen: false,
-                            modal: true,
-                            buttons: {
-                                Oui: function() {
-                                    document.getElementById('modify<?= $che["id_cheval"]; ?>').click(); //Redirection vers le form de modification quand dialog validé
-                                },
-                                Non: function() {
-                                    $(this).dialog("close");
-                                }
-                            },
-                            post: true
-                        });
-                        $("#opener<?= $che["id_cheval"]; ?>").click(function() {
-                            $("#dialog<?= $che["id_cheval"]; ?>").dialog("open");
-                        })
-                    });
-                </script>
-
                 <div id="dialog_del<?= $che["id_cheval"]; ?>" title="Voulez-vous réellement SUPPRIMER ce cheval ?"></div>
                 <script>
                     $(function() {
@@ -100,9 +76,9 @@
                             <input type="hidden" name="che_id" value="<?= $che["id_cheval"]; ?>">
                             <input type="hidden" name="action" value="form">
                             <input type="hidden" name="subaction" value="modify">
-                            <input type="submit" id="modify<?= $che["id_cheval"]; ?>" style="display: none">          
+                            <input type="submit" id="opener<?= $che["id_cheval"]; ?>" value="Modifier">          
                         </form>
-                        <input type="submit" id="opener<?= $che["id_cheval"]; ?>" value="Modifier">
+                        
                     </td>
 
                     <!-- Afficher -->

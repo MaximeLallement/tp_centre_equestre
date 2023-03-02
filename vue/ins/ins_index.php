@@ -7,7 +7,7 @@
     
 </body>
 </html>
-<p>Liste Cavalier</p>
+<p>Liste des Inscriptions</p>
 <table id="ins_list">
     <thead>
         <tr>
@@ -17,7 +17,7 @@
             <th>Année</th>
             <th>Cavalier</th>
             <th>Modifier</th>
-            <th>Supprimer/th>
+            <th>Supprimer</th>
         </tr>
     </thead>
     <tbody>
