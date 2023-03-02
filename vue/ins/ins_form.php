@@ -41,13 +41,7 @@ require $headerpath;
                 <input type="hidden" name="subaction" value="update">
             <?php  } ?>
             <input type="hidden" name="action" value="form">
-            <?php if($_POST["subaction"] == "new"){ ?>
-                <input type="submit" value="Créer" class="btn btn-primary">
-            <?php } ?>
-            <?php if($_POST["subaction"] == "modify"){ ?>
-                <input type="submit" value="Modifier" class="btn btn-primary">
-            <?php } ?>
-
+            <input type="submit" value="Appliquer" class="btn btn-primary">
     </form> 
 
 </div>

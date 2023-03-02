@@ -38,8 +38,8 @@ function get_one_cav(int $id){
 function add_cav(Cavalier $cavalier)
 {
     global $con;
-    $sql = "INSERT INTO ".DB_TABLE_PERSONNE." (nom_personne,prenom_personne,date_de_naissance, mail,tel,photo,num_licence, galop) 
-                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :tel, :photo, :numlic, :galop )";
+    $sql = "INSERT INTO ".DB_TABLE_PERSONNE." (nom_personne, prenom_personne, date_de_naissance, mail, tel, photo, actif, num_licence, galop) 
+                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :tel, :photo, :actif, :numlic, :galop )";
     $req = $con->prepare($sql);
     $req->bindValue(":nom",$cavalier->getNomPersonne(),PDO::PARAM_STR);
     $req->bindValue(":prenom",$cavalier->getPrenomPersonne(),PDO::PARAM_STR);
@@ -47,6 +47,7 @@ function add_cav(Cavalier $cavalier)
     $req->bindValue(":mail",$cavalier->getMail(),PDO::PARAM_STR);
     $req->bindValue(":tel",$cavalier->getTel(),PDO::PARAM_STR);
     $req->bindValue(":photo",$cavalier->getPhoto(),PDO::PARAM_STR);
+    $req->bindValue(":actif",1,PDO::PARAM_INT);
     $req->bindValue(":numlic",$cavalier->getNlic(),PDO::PARAM_STR);
     $req->bindValue(":galop",$cavalier->getGalop(),PDO::PARAM_INT);
 
