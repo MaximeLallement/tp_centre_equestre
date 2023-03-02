@@ -226,7 +226,12 @@ else{ ?>
     </form>
     <div>
         <input type="button" id="opener_cancel" value="Annuler" class="btn btn-primary">
-        <input type="button" id="opener_modify" value="Envoyer" class="btn btn-primary">
+        <?php if($_POST["subaction"] == "new"){ ?>
+            <input type="button" id="opener_modify" value="Créer" class="btn btn-primary">
+        <?php } ?>
+        <?php if($_POST["subaction"] == "modify"){ ?>
+            <input type="button" id="opener_modify" value="Modifier" class="btn btn-primary">
+        <?php } ?>
     </div>
     <div id="datepicker"></div>
 

@@ -1,5 +1,7 @@
 <?php
 require "../header.php";
+// $pagename = 'Gestion des Cours';
+// require $headerpath;
 
 ?>
 <link rel="stylesheet" href="../../css/fullcalendar.min.css">

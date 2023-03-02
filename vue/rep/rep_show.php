@@ -13,29 +13,6 @@ require $headerpath;
 
 <!-- Dialog box -->
 <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
-<div id="dialog" title="Voulez-vous réellement MODIFIER cet utilisateur ?"></div>
-<script>
-    $(function() {
-        $("#dialog").dialog({ 
-            minWidth: 510,
-            autoOpen: false,
-            modal: true,
-            buttons: {
-                Oui: function() {
-                    document.getElementById('modify').click(); //Redirection vers le form de modification quand dialog validé
-                },
-                Non: function() {
-                    $(this).dialog("close");
-                }
-            },
-            post: true
-        });
-        $("#opener").click(function() {
-            $("#dialog").dialog("open");
-        })
-    });
-</script>
-
 <div id="dialog_del" title="Voulez-vous réellement SUPPRIMER cet utilisateur ?"></div>
 <script>
     $(function() {
@@ -90,9 +67,10 @@ require $headerpath;
             <!-- Option Modifier -->
             <form action="" method="post" class="d-inline" >
                 <input type="hidden" name="rep_id" value="<?= $rep["id_personne"]; ?>">
-                <input type="submit" id="modify" name="modify" style="display: none;">
+                <input type="hidden" name="modify">
+                <input type="submit" value="Modifier ce Représentant" style="width:35%;">
             </form>
-            <input type="button" id="opener" value="Modifier ce Représentant" style="width:35%;">
+            
 
             <!-- Option Supprimer -->
             <form action="" method="post" class="d-inline">
