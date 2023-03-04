@@ -176,7 +176,7 @@ else{ ?>
             <div class="row">    
                     <div class="form-group col-6">
                         <label for="iDateRep">Date de Naissance du représentant</label>
-                        <input type="date" name="datenaissancerep" value="<?= isset($infosaved["datenaissancerep"]) ? $infosaved["datenaissancerep"] : "";  ?>" class="form-control" id="iDateRep" placeholder="">
+                        <input type="date" id='datenaissancerep' name="datenaissancerep" value="<?= isset($infosaved["datenaissancerep"]) ? $infosaved["datenaissancerep"] : "";  ?>" class="form-control" id="iDateRep" placeholder="">
                     </div>
             </div>
             <div class="row">    
@@ -305,5 +305,20 @@ else{ ?>
 });
 
 
+</script>
+
+<!-- Contrôle sur l'âge minimum requis pour le représentant -->
+<script>
+    const birthdateInput = document.getElementById("datenaissancerep");
+    const maxDate = new Date();
+    maxDate.setFullYear(maxDate.getFullYear() - 18);
+    birthdateInput.addEventListener("input", () => {
+        const inputDate = new Date(birthdateInput.value);
+        if (inputDate > maxDate) {
+            birthdateInput.setCustomValidity("Age minimum requis = 18 ans");
+        } else {
+            birthdateInput.setCustomValidity("");
+        }
+    });
 </script>
 </body>
