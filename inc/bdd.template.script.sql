@@ -57,7 +57,7 @@ INSERT INTO `cheval` (`id_cheval`,`SIRE`,`nom_cheval`,`id_robe`,`id_cav`,`photo_
 --
 -- Structure de la table `est_pensionnaire`
 --
-
+c
 CREATE TABLE `est_pensionnaire` (
   `id_pension` int(11) NOT NULL,
   `id_personne` int(11) NOT NULL
@@ -72,7 +72,9 @@ INSERT INTO `est_pensionnaire` (`id_pension`, `id_personne`) VALUES
 (4, 10),
 (7, 5),
 (7, 9),
-(14, 10);
+(14, 10),
+(27, 9);
+
 
 -- --------------------------------------------------------
 
@@ -109,19 +111,7 @@ CREATE TABLE `pension` (
 -- Déchargement des données de la table `pension`
 --
 
-INSERT INTO `pension` (`id_pension`, `libelle_pension`, `tarif`, `date_de_debut`, `duree`, `id_cheval`, `actif`) VALUES
-(1, 'sa', 1200, '2022-10-11', 0, 1, 1),
-(2, 'azef', 10, '2022-10-20', 0, 4, 1),
-(3, 'rxr', 17, '1997-05-31', 4, 2, 0),
-(4, 'azofin', 31, '2022-08-05', 15, 5, 1),
-(6, 'aaaaaaaaaa', 15, '2022-07-08', 7, 2, 1),
-(7, 'aaaaaaaaaa', 15, '2022-07-08', 7, 6, 0),
-(8, 'aaaaaaaaaa', 15, '2022-07-08', 7, 3, 1),
-(10, 'simnon', 9, '2022-10-08', 3, 4, 1),
-(11, '', 0, '0000-00-00', 0, 5, 1),
-(12, 'simnon', 9, '2022-10-08', 3, 1, 0),
-(13, 'a', 1, '2022-10-01', 1, 6, 1),
-(14, '', 0, '0000-00-00', 0, 3, 0);
+
 
 -- --------------------------------------------------------
 
@@ -352,7 +342,7 @@ ALTER TABLE `inscription`
 -- AUTO_INCREMENT pour la table `pension`
 --
 ALTER TABLE `pension`
-  MODIFY `id_pension` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_pension` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT pour la table `personne`

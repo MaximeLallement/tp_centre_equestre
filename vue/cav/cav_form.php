@@ -220,9 +220,9 @@ else{ ?>
         <input type="hidden" name="action" value="form">
         <input type="submit" id="modify" style="display: none">
     </form>
-
+    
     <form action="" method="POST">
-        <input type="submit" id="cancel" name="action" value="index" style="display: none">
+        <input type="submit" id="cancel" name="action" value="index" style="display: none;" />
     </form>
     <div>
         <input type="button" id="opener_cancel" value="Annuler" class="btn btn-primary">
@@ -233,7 +233,6 @@ else{ ?>
             <input type="button" id="opener_modify" value="Modifier" class="btn btn-primary">
         <?php } ?>
     </div>
-    <div id="datepicker"></div>
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
