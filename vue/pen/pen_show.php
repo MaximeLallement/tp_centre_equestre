@@ -13,29 +13,6 @@ require $headerpath;
 
 <!-- Dialog box -->
 <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
-<div id="dialog" title="Voulez-vous réellement MODIFIER cette pension ?"></div>
-<script>
-    $(function() {
-        $("#dialog").dialog({ 
-            minWidth: 510,
-            autoOpen: false,
-            modal: true,
-            buttons: {
-                Oui: function() {
-                    document.getElementById('modify').click(); //Redirection vers le form de modification quand dialog validé
-                },
-                Non: function() {
-                    $(this).dialog("close");
-                }
-            },
-            post: true
-        });
-        $("#opener").click(function() {
-            $("#dialog").dialog("open");
-        })
-    });
-</script>
-
 <div id="dialog_del" title="Voulez-vous réellement SUPPRIMER cette pension ?"></div>
 <script>
     $(function() {
@@ -89,9 +66,9 @@ require $headerpath;
                 <input type="hidden" name="pen_id" value="<?= $data["id_pension"]; ?>">
                 <input type="hidden" name="action" value="form">
                 <input type="hidden" name="subaction" value="modify">
-                <input type="submit" id="modify" style="display: none;">
+                <input type="submit" value="Modifier cette Pension" style="width:35%" >
             </form>
-            <input type="button" id="opener" value="Modifier cette Pension" style="width:35%" >
+            
 
             <!-- Option Supprimer -->
             <form action="" method="post" class="d-inline">

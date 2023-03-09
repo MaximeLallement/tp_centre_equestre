@@ -23,7 +23,7 @@ try {
     /*  Connexion  */
     $hostname = "localhost";
     $username = "root";
-    $password = "Hashka852456";
+    $password = "";
     $dbname = "tp_centre_equestre";
 
     $con = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);

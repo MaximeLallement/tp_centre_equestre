@@ -24,7 +24,7 @@ require $headerpath;
 <!-- Dialog box -->
 <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
 <!-- Valider modifications -->
-<div id="dialog_modify" title="Appliquer les modification ?"></div>
+<div id="dialog_modify" title="Créer la pension ?"></div>
 <script>
     $(function() {
         $("#dialog_modify").dialog({ 

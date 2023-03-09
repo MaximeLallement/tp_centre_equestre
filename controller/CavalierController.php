@@ -117,9 +117,13 @@ if(isset($_POST["action"]) && $_POST["action"] == "form"){
             return require_once "../vue/cav/cav_form.php";
         }
         $photo = $_FILES['photo']['name'];
+        // var_dump($photo . "1");
+        // die();
     }else {
         $data = get_one_cav((int)$_POST["id_personne"]);
         $photo = $data["photo"];
+        // var_dump($photo);
+        // die();
     }
 
     // Validation de la composition du numéro de license

@@ -26,23 +26,22 @@ require $headerpath;
             <!-- Input Cottisation  * 2 -->
             <div class="form-group col">
                 <label for="iCotisationIns">Cotisation Club*</label>
-                <input type="number" name="ins_cotisation" id="iCotisationIns" value="<?= isset($infosaved["ins_cotisation"]) ? $infosaved["ins_cotisation"] : "";  ?>">
+                <input type="number" name="ins_cotisation" id="iCotisationIns" value="<?= isset($infosaved["ins_cotisation"]) ? $infosaved["ins_cotisation"] : "";  ?>" required>
             </div>
             <div class="form-group col">
                 <label for="iFfeIns">Cotisation FFE*</label>
-                <input type="number" name="ins_ffe" id="iFfeIns" value="<?= isset($infosaved["ins_ffe"]) ? $infosaved["ins_ffe"] : "";  ?>">
+                <input type="number" name="ins_ffe" id="iFfeIns" value="<?= isset($infosaved["ins_ffe"]) ? $infosaved["ins_ffe"] : "";  ?>" required>
             </div>
             <!-- Input Année -->
             <div class="form-group col">
                 <label for="iAnneeIns">Année de l'inscription*</label>
-                <input type="date" name="ins_annee" id="iAnneeIns" value="<?= isset($infosaved["ins_annee"]) ? $infosaved["ins_annee"] : "";  ?>">
+                <input type="date" name="ins_annee" id="iAnneeIns" value="<?= isset($infosaved["ins_annee"]) ? $infosaved["ins_annee"] : "";  ?>" required>
             </div>
             <?php if(isset($update) && $update == true ){ ?>
                 <input type="hidden" name="subaction" value="update">
             <?php  } ?>
             <input type="hidden" name="action" value="form">
-            <button type="submit" class="btn btn-primary">Submit</button>
-
+            <input type="submit" value="Appliquer" class="btn btn-primary">
     </form> 
 
 </div>

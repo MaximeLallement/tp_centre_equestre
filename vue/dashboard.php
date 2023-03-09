@@ -70,7 +70,12 @@
         </div>
         <div class="col-6">
             <h5>Gestion des cours</h5>
+            <!-- <form action="../controller/CoursController.php" method="post">
+                <input type="hidden" name="action" value="cours">
+                <input type="submit" value="GESTION">
+            </form>         -->
             <a href="../vue/cours/cours_management.php"><input type="submit" value="GESTION"></a>
+
         </div>
 
     </div>
