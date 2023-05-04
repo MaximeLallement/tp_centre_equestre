@@ -1,6 +1,6 @@
 <?php
- $pagename = "Cavalier";
- require $headerpath;
+$pagename = "Cavalier";
+require $headerpath;
 ?>
 
 <head>
@@ -38,8 +38,10 @@
     <tbody>
         <?php
         //Loop sur les éléments de la requête SQL pour affichage
-        foreach ($data as $cav) {
+        if(isset($data) && $data !== null){
+            foreach ($data as $cav) {
         ?>
+
             <!-- Dialog box -->
             <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
             
@@ -54,17 +56,14 @@
                             Oui: function() {
                                 document.getElementById('modify<?= $cav["id_personne"]; ?>').click(); //Redirection vers le form de modification quand dialog validé
                             },
-                            Non: function() {
-                                $(this).dialog("close");
-                            }
-                        },
-                        post: true
+                            post: true
+                        });
+                        $("#opener_del<?= $cav["id_personne"]; ?>").click(function() {
+                            $("#dialog_del<?= $cav["id_personne"]; ?>").dialog("open");
+                        })
                     });
-                    $("#opener<?= $cav["id_personne"]; ?>").click(function() {
-                        $("#dialog<?= $cav["id_personne"]; ?>").dialog("open");
-                    })
-                });
-            </script>
+                </script>
+                <!-- Dialog box -->
 
             <div id="dialog_del<?= $cav["id_personne"]; ?>" title="Voulez-vous réellement SUPPRIMER cet utilisateur ?"></div>
             <script>
@@ -96,15 +95,13 @@
                 <td><?= $cav["prenom_personne"] ?></td>
                 <td><?= $cav["num_licence"] ?></td>
                 <td><?= $cav["date_de_naissance"] ?></td>
-
-                <td>
+                    <td>
                         <form action="../controller/CavalierController.php" method="post">
                             <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
                             <input type="hidden" name="action" value="form">
                             <input type="hidden" name="subaction" value="modify">
-                            <input type="submit" id="modify<?= $cav["id_personne"]; ?>" name="modify" style="display: none">
+                            <input type="submit" value="Modifier">
                         </form>
-                        <input type="button" id="opener<?= $cav["id_personne"]; ?>" value="Modifier">
                     </td>
                     <td>               
                         <form action="../controller/CavalierController.php" method="post">
@@ -114,7 +111,7 @@
                         </form>
                     </td>
                     <td>
-                            
+
                         <form action="CavalierController.php" method="post">
                             <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">
                             <input type="hidden" name="action" value="delete">
@@ -122,8 +119,9 @@
                         </form>
                         <input id="opener_del<?= $cav["id_personne"]; ?>" type="submit" value="Supprimer">
                     </td>
-            </tr>
+                </tr>
         <?php
+            }
         }
         ?>
     </tbody>

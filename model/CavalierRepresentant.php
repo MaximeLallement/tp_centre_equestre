@@ -3,8 +3,8 @@
 
 function add_cavRep(CavalierRepresentant $cavalierRep){
     global $con;
-    $sql = "INSERT INTO ".DB_TABLE_PERSONNE." (nom_personne,prenom_personne,date_de_naissance, mail,tel,photo,num_licence, galop,rue, complement, code_postal, ville ) 
-                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :tel, :photo, :numlic, :galop, :rue , :complement, :codepostal, :ville )";
+    $sql = "INSERT INTO ".DB_TABLE_PERSONNE." (nom_personne,prenom_personne,date_de_naissance, mail,tel,photo, actif, num_licence, galop,rue, complement, code_postal, ville ) 
+                                    VALUES ( :nom, :prenom, :datenaissance, :mail, :tel, :photo, :actif, :numlic, :galop, :rue , :complement, :codepostal, :ville )";
     $req = $con->prepare($sql);
     $req->bindValue(":nom",$cavalierRep->getNomPersonne(),PDO::PARAM_STR);
     $req->bindValue(":prenom",$cavalierRep->getPrenomPersonne(),PDO::PARAM_STR);
@@ -12,6 +12,7 @@ function add_cavRep(CavalierRepresentant $cavalierRep){
     $req->bindValue(":mail",$cavalierRep->getMail(),PDO::PARAM_STR);
     $req->bindValue(":tel",$cavalierRep->getTel(),PDO::PARAM_STR);
     $req->bindValue(":photo",$cavalierRep->getPhoto(),PDO::PARAM_STR);
+    $req->bindValue(":actif",1,PDO::PARAM_INT);
     $req->bindValue(":numlic",$cavalierRep->getNlic(),PDO::PARAM_STR);
     $req->bindValue(":galop",$cavalierRep->getGalop(),PDO::PARAM_INT);
     $req->bindValue(":rue",$cavalierRep->getRue(),PDO::PARAM_STR);

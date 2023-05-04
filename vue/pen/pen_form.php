@@ -24,7 +24,7 @@ require $headerpath;
 <!-- Dialog box -->
 <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
 <!-- Valider modifications -->
-<div id="dialog_modify" title="Appliquer les modification ?"></div>
+<div id="dialog_modify" title="Créer la pension ?"></div>
 <script>
     $(function() {
         $("#dialog_modify").dialog({ 
@@ -129,17 +129,20 @@ require $headerpath;
         <?php  } ?>
 
         <input type="hidden" name="action" value="form">
-        <button type="submit" class="btn btn-primary">Submit</button>
         <input type="submit" id="modify" style="display: none;" />
     </form> 
-    <input type="button" id="opener" value="Modifier">
-
     <form action="" method="POST">
         <input type="submit" id="cancel" name="action" value="index" style="display: none;" />
     </form>
     <div>
         <input type="button" id="opener_cancel" value="Annuler" class="btn btn-primary">
-        <input type="button" id="opener_modify" value="Modifier" class="btn btn-primary">
+        <?php if($_POST["subaction"] == "new"){ ?>
+            <input type="button" id="opener_modify" value="Créer" class="btn btn-primary">
+        <?php } ?>
+        <?php if($_POST["subaction"] == "modify"){ ?>
+            <input type="button" id="opener_modify" value="Modifier" class="btn btn-primary">
+        <?php } ?>
+        
     </div>
 
 </div>

@@ -20,7 +20,7 @@
     
 </body>
 </html>
-<p>Liste Cavalier</p>
+<p>Liste des Chevaux</p>
 <table id="che_list">
     <thead>
         <tr>
@@ -35,95 +35,73 @@
     </thead>
     <tbody>
         <?php
+        if(isset($data) && $data !== null){
         //Loop sur les éléments de la requête SQL pour affichage
-        foreach ($data as $che) {
-        ?>
-            <!-- Dialog box -->
-            <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
-            <div id="dialog<?= $che["id_cheval"]; ?>" title="Voulez-vous réellement MODIFIER ce cheval ?"></div>
-            <script>
-                $(function() {
-                    $("#dialog<?= $che["id_cheval"]; ?>").dialog({ 
-                        minWidth: 510,
-                        autoOpen: false,
-                        modal: true,
-                        buttons: {
-                            Oui: function() {
-                                document.getElementById('modify<?= $che["id_cheval"]; ?>').click(); //Redirection vers le form de modification quand dialog validé
+            foreach ($data as $che) {
+            ?>
+                <!-- Dialog box -->
+                <div id="dialog_del<?= $che["id_cheval"]; ?>" title="Voulez-vous réellement SUPPRIMER ce cheval ?"></div>
+                <script>
+                    $(function() {
+                        $("#dialog_del<?= $che["id_cheval"]; ?>").dialog({ 
+                            minWidth: 520,
+                            autoOpen: false,
+                            modal: true,
+                            buttons: {
+                                Oui: function() {
+                                    document.getElementById('delete<?= $che["id_cheval"]; ?>').click(); //Exécution de la suppression quand dialog validé
+                                },
+                                Non: function() {
+                                    $(this).dialog("close");
+                                }
                             },
-                            Non: function() {
-                                $(this).dialog("close");
-                            }
-                        },
-                        post: true
+                            post: true
+                        });
+                        $("#opener_del<?= $che["id_cheval"]; ?>").click(function() {
+                            $("#dialog_del<?= $che["id_cheval"]; ?>").dialog("open");
+                        })
                     });
-                    $("#opener<?= $che["id_cheval"]; ?>").click(function() {
-                        $("#dialog<?= $che["id_cheval"]; ?>").dialog("open");
-                    })
-                });
-            </script>
+                </script>
+                <!-- Dialog box -->
 
-            <div id="dialog_del<?= $che["id_cheval"]; ?>" title="Voulez-vous réellement SUPPRIMER ce cheval ?"></div>
-            <script>
-                $(function() {
-                    $("#dialog_del<?= $che["id_cheval"]; ?>").dialog({ 
-                        minWidth: 520,
-                        autoOpen: false,
-                        modal: true,
-                        buttons: {
-                            Oui: function() {
-                                document.getElementById('delete<?= $che["id_cheval"]; ?>').click(); //Exécution de la suppression quand dialog validé
-                            },
-                            Non: function() {
-                                $(this).dialog("close");
-                            }
-                        },
-                        post: true
-                    });
-                    $("#opener_del<?= $che["id_cheval"]; ?>").click(function() {
-                        $("#dialog_del<?= $che["id_cheval"]; ?>").dialog("open");
-                    })
-                });
-            </script>
-            <!-- Dialog box -->
+                <tr>
+                    <td><?= $che["nom_cheval"] ?></td>
+                    <td><?= $che["SIRE"] ?></td>
+                    <td><?= $rob[$che["id_robe"]-1]["libelle_robe"] ?></td>
+                    <td><?= isset($che["id_cav"]) && $che["id_cav"] != "" ? $che["id_cav"] : "" ?></td>
 
-            <tr>
-                <td><?= $che["nom_cheval"] ?></td>
-                <td><?= $che["SIRE"] ?></td>
-                <td><?= $rob[$che["id_robe"]-1]["libelle_robe"] ?></td>
-                <td><?= isset($che["id_cav"]) && $che["id_cav"] != "" ? $che["id_cav"] : "" ?></td>
+                    <!-- Modifier -->
+                    <td>
+                        <form action="" method="post">
+                            <input type="hidden" name="che_id" value="<?= $che["id_cheval"]; ?>">
+                            <input type="hidden" name="action" value="form">
+                            <input type="hidden" name="subaction" value="modify">
+                            <input type="submit" id="opener<?= $che["id_cheval"]; ?>" value="Modifier">          
+                        </form>
+                        
+                    </td>
 
-                <!-- Modifier -->
-                <td>
-                    <form action="" method="post">
-                        <input type="hidden" name="che_id" value="<?= $che["id_cheval"]; ?>">
-                        <input type="hidden" name="action" value="form">
-                        <input type="hidden" name="subaction" value="modify">
-                        <input type="submit" id="modify<?= $che["id_cheval"]; ?>" style="display: none">          
-                    </form>
-                    <input type="submit" id="opener<?= $che["id_cheval"]; ?>" value="Modifier">
-                </td>
+                    <!-- Afficher -->
+                    <td>               
+                        <form action="" method="post">
+                            <input type="hidden" name="che_id" value="<?= $che["id_cheval"]; ?>">
+                            <input type="hidden" name="action" value="show">
+                            <input type="submit" value="Afficher">
+                        </form>
+                    </td>
 
-                <!-- Afficher -->
-                <td>               
-                    <form action="" method="post">
-                        <input type="hidden" name="che_id" value="<?= $che["id_cheval"]; ?>">
-                        <input type="hidden" name="action" value="show">
-                        <input type="submit" value="Afficher">
-                    </form>
-                </td>
-
-                <!-- Supprimer -->
-                <td>     
-                    <form action="" method="post">
-                        <input type="hidden" name="che_id" value="<?= $che["id_cheval"]; ?>">
-                        <input type="hidden" name="action" value="delete">
-                        <input type="submit" id="delete<?= $che["id_cheval"]; ?>" style="display: none">       
-                    </form>
-                    <input type="submit" id="opener_del<?= $che["id_cheval"]; ?>" value="Supprimer">
-                </td>
-            </tr>
+                    <!-- Supprimer -->
+                    <td>     
+                        <form action="" method="post">
+                            <input type="hidden" name="che_id" value="<?= $che["id_cheval"]; ?>">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="submit" id="delete<?= $che["id_cheval"]; ?>" style="display: none">       
+                        </form>
+                        <input type="submit" id="opener_del<?= $che["id_cheval"]; ?>" value="Supprimer">
+                    </td>
+                </tr>
         <?php
+            }
         }
         ?>
     </tbody>
