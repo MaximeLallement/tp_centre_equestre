@@ -41,22 +41,20 @@ require $headerpath;
         if(isset($data) && $data !== null){
             foreach ($data as $cav) {
         ?>
-                <!-- Dialog box -->
-                <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
-                <div id="dialog_del<?= $cav["id_personne"]; ?>" title="Voulez-vous réellement SUPPRIMER cet utilisateur ?"></div>
-                <script>
-                    $(function() {
-                        $("#dialog_del<?= $cav["id_personne"]; ?>").dialog({ 
-                            minWidth: 520,
-                            autoOpen: false,
-                            modal: true,
-                            buttons: {
-                                Oui: function() {
-                                    document.getElementById('delete<?= $cav["id_personne"]; ?>').click(); //Exécution de la suppression quand dialog validé
-                                },
-                                Non: function() {
-                                    $(this).dialog("close");
-                                }
+
+            <!-- Dialog box -->
+            <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
+            
+            <div id="dialog<?= $cav["id_personne"]; ?>" title="Voulez-vous réellement MODIFIER cet utilisateur ?"></div>
+            <script>
+                $(function() {
+                    $("#dialog<?= $cav["id_personne"]; ?>").dialog({ 
+                        minWidth: 510,
+                        autoOpen: false,
+                        modal: true,
+                        buttons: {
+                            Oui: function() {
+                                document.getElementById('modify<?= $cav["id_personne"]; ?>').click(); //Redirection vers le form de modification quand dialog validé
                             },
                             post: true
                         });
@@ -67,12 +65,36 @@ require $headerpath;
                 </script>
                 <!-- Dialog box -->
 
-                <tr >
-                    <td><?= $cav["nom_personne"] ?></td>
-                    <td><?= $cav["prenom_personne"] ?></td>
-                    <td><?= $cav["num_licence"] ?></td>
-                    <td><?= $cav["date_de_naissance"] ?></td>
+            <div id="dialog_del<?= $cav["id_personne"]; ?>" title="Voulez-vous réellement SUPPRIMER cet utilisateur ?"></div>
+            <script>
+                $(function() {
+                    $("#dialog_del<?= $cav["id_personne"]; ?>").dialog({ 
+                        minWidth: 520,
+                        autoOpen: false,
+                        modal: true,
+                        buttons: {
+                            Oui: function() {
+                                document.getElementById('delete<?= $cav["id_personne"]; ?>').click(); //Exécution de la suppression quand dialog validé
+                            },
+                            Non: function() {
+                                $(this).dialog("close");
+                            }
+                        },
+                        post: true
+                    });
+                    $("#opener_del<?= $cav["id_personne"]; ?>").click(function() {
+                        $("#dialog_del<?= $cav["id_personne"]; ?>").dialog("open");
+                    })
+                });
+            </script>
+            
+            <!-- Dialog box -->
 
+            <tr >
+                <td><?= $cav["nom_personne"] ?></td>
+                <td><?= $cav["prenom_personne"] ?></td>
+                <td><?= $cav["num_licence"] ?></td>
+                <td><?= $cav["date_de_naissance"] ?></td>
                     <td>
                         <form action="../controller/CavalierController.php" method="post">
                             <input type="hidden" name="cav_id" value="<?= $cav["id_personne"]; ?>">

@@ -400,7 +400,19 @@ ALTER TABLE `pension`
 -- Contraintes pour la table `pension`
 --
 ALTER TABLE `inscription`
-  ADD CONSTRAINT `fk_id_cavalier` FOREIGN KEY (`id_cav`) REFERENCES `personne` (`id_personne`);
+
+  ADD CONSTRAINT `fk_id_cavalier` FOREIGN KEY (`id_cav`) REFERENCES `personne` (`id_personne`),
+COMMIT;
+
+ALTER TABLE `tp_centre_equestre`.`cours` 
+ADD COLUMN `title` VARCHAR(45) NOT NULL AFTER `start_event`,
+ADD COLUMN `actif` TINYINT NOT NULL DEFAULT 1 AFTER `title`,
+CHANGE COLUMN `libelle_cours` `id_week_cours` INT NOT NULL ,
+CHANGE COLUMN `date_cours` `end_event` DATETIME NOT NULL,
+CHANGE COLUMN `duree_cours` `start_event` DATETIME NOT NULL ,
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`id_cours`, `id_week_cours`);
+;
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

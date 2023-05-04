@@ -37,18 +37,20 @@ function get_all_weekly_part_by_id(int $id,int $actif,int $week_increment = 0)
 
 
 function add_part(int $id_cav,int $id_cours){
+    
     global $con;
-
     
     //Selectionne le nombre de cours selon l'id cours
     //J'insère une ligne par cour pour chaque participation de l'utilisateur
     //Check si la participation existe déja
+    
     $sql = "SELECT * FROM ".DB_TABLE_PARTICIPATION." WHERE id_cav = :id_cav AND id_cour = :id_cour ";
     $req = $con->prepare($sql);
     $req->bindValue(':id_cour',$id_cours,PDO::PARAM_INT);
     $req->bindValue(':id_cav',$id_cav,PDO::PARAM_INT);
     $req->execute();
     $result = $req->fetchAll(PDO::FETCH_ASSOC);
+    
     if ($result)  {
         return false;
     }
@@ -58,6 +60,7 @@ function add_part(int $id_cav,int $id_cours){
     $req->bindValue(':id_cours',$id_cours,PDO::PARAM_INT);
 
     $req->execute();
+    
     $result = $req->fetch();
     $weekid = 0;
     for ($i=0; $i < $result[0]; $i++) { 
@@ -71,7 +74,8 @@ function add_part(int $id_cav,int $id_cours){
             $req->execute();
             $weekid++;
     }
-
+    return true;
+    
 }
 
 function upd_del_one_by_id(int $id_cours,int $id_week,int $id_cav,int $actif){
@@ -135,7 +139,7 @@ function get_all_part_by_id(int $id,int $actif)
                 WHERE P.actif = :actif 
                 AND P.id_week_cour = C.id_week_cours
                 AND P.id_cav = :id_cav;";
-                    
+
     $req = $con->prepare($sql);
     $req->bindValue(':actif',$actif,PDO::PARAM_INT);
     $req->bindValue(':id_cav',$id,PDO::PARAM_INT);

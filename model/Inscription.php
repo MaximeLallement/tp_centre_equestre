@@ -101,7 +101,7 @@ function update_ins(Inscription $inscription, int $id)
     $req->bindValue(":id",$id,PDO::PARAM_INT);
     try {
         $req->execute() ;
-        return true;  
+        return true;
     } catch (PDOException $e) {
         return $e->getMessage();
     }

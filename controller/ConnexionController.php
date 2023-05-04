@@ -2,7 +2,6 @@
 require_once '.././inc/bdd.inc.php';
 $headerpath = "../vue/header.php";
 
-
 if(isset($_POST['connexion'])){
 
     return require_once '../vue/connexion.php';
@@ -49,7 +48,7 @@ if(isset($_POST['connexion_admin_validation'])){
 
         else{
             ?>
-            <script>alert("Mot de passe ou mail invalide")</script>
+            <!--<script>alert("Mot de passe ou mail invalide")</script>-->
             <?php //require '../vue/connexion.php';
         }
     }
@@ -61,7 +60,7 @@ if(isset($_POST['connexion_admin_validation'])){
             $username = $_POST['username'];
             $mdp = $_POST['mdp'];
         
-            $sql = "SELECT * FROM utilisateur WHERE nom_utilisateur = :username AND mdp = md5(:mdp) AND type = 'u'";
+            $sql = "SELECT * FROM utilisateur WHERE nom_utilisateur = :username AND mdp = :mdp AND type = 'u'";
             $req = $con->prepare($sql);
             $req->bindValue(':username', $username, PDO::PARAM_STR);
             $req->bindValue(':mdp', $mdp, PDO::PARAM_STR);
@@ -77,10 +76,10 @@ if(isset($_POST['connexion_admin_validation'])){
                 header("Location: ../../tp_centre_equestre/vue/dashboard.php");
                 exit();
             }
-    
+            
             else{
                 ?>
-                <script>alert("Mot de passe ou mail invalide")</script>
+                <!--<script>alert("Mot de passe ou mail invalide")</script>-->
                 <?php //require '../vue/connexion.php';
             }
         }

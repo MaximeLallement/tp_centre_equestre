@@ -13,6 +13,7 @@ if(!isset($_SESSION['connecte'])){
     
 }
 
+
 if(isset($_SESSION['connecte']) && $_SESSION['connecte'] == False && !isset($_POST["inscription"])){ 
     if($actual_link !== "http://localhost/tp_centre_equestre/") {?>
     <script>window.location.replace('../vue/connexion.php')</script>
@@ -42,10 +43,12 @@ define('DB_TABLE_UTILISATEUR','utilisateur');
 define('DB_TABLE_INSCRIPTION','inscription');
 define('DB_TABLE_COURS','cours');
 define('DB_TABLE_PARTICIPATION','participation');
+define('DB_TABLE_EPREUVE','epreuve');
 
 
 /* Include des class  */
 require "class/Personne.class.php";
+require "class/epreuve.class.php";
 require "class/Cavalier.class.php";
 require "class/Representant.class.php";
 require "class/CavalierRepresentant.class.php";

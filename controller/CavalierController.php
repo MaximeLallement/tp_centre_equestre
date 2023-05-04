@@ -110,20 +110,17 @@ if(isset($_POST["action"]) && $_POST["action"] == "form"){
     isset($_POST["subaction"]) && $_POST["subaction"] == "update" ? $toUpdate = true : $toUpdate = false ;
     if ( !isset($_POST["subaction"]) || $_POST["subaction"] != "update" && $_FILES['photo']['size'] <= 0 ) {
         $photo = "default.jpg";
-    }
-    if($_FILES['photo']['size'] > 0){
-        if(!upload_photo($toUpdate,'photo',$_POST['nom'])){ 
-            $error = "error photo";
-            return require_once "../vue/cav/cav_form.php";
+    }else{
+        if($_FILES['photo']['size'] > 0){
+            if(!upload_photo($toUpdate,'photo',$_POST['nom'])){ 
+                $error = "error photo"; 
+                return require_once "../vue/cav/cav_form.php";
+            }
+            $photo = $_FILES['photo']['name'];
+        }else {
+            $data = get_one_cav((int)$_POST["id_personne"]);
+            $photo = $data["photo"];
         }
-        $photo = $_FILES['photo']['name'];
-        // var_dump($photo . "1");
-        // die();
-    }else {
-        $data = get_one_cav((int)$_POST["id_personne"]);
-        $photo = $data["photo"];
-        // var_dump($photo);
-        // die();
     }
 
     // Validation de la composition du numéro de license
@@ -171,6 +168,7 @@ if(isset($_POST["action"]) && $_POST["action"] == "form"){
             $error = "addcavrep";
             return require_once "../vue/cav/cav_form.php";
         }else {
+            //var_dump(add_cavRep($cavalierRep));
             return require_once "../vue/ins/ins_form.php";
         }
 
@@ -217,7 +215,7 @@ if(isset($_POST["action"]) && $_POST["action"] == "form"){
            return require_once "../vue/cav/cav_index.php";
         }
     }
-        
+
         if(!add_cav($cavalier)){
             $error = "addcav";
             return require_once "../vue/cav/cav_form.php";
@@ -248,5 +246,10 @@ if(isset($_POST["action"]) && $_POST["action"] == "show")
     $part1 = get_all_weekly_part_by_id($_POST["cav_id"],1);
     $part0 = get_all_part_by_id($_POST["cav_id"],0);
 
+    unset($_SESSION["action"]);
+    unset($_SESSION["cav_id"]);
+
     return require_once "../vue/cav/cav_show.php";
 }
+
+echo $_POST['action'];
