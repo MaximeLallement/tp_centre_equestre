@@ -182,6 +182,7 @@ require $headerpath;
                             <?php $participation_by_cou = get_participation_by_cou_id($c["id_cours"],$data["id_personne"]);
                                 if ( $participation_by_cou[0]["NbrRow"]  == "0" ) {  ?>
                                 <form action="ParticipationController.php" method="post">
+                                    <input type="hidden" name="cav_id" value="<?= $data["id_personne"] ?>" >
                                     <input type="hidden" name="id_cours" value="<?= $c["id_cours"] ?>" >
                                     <input type="hidden" name="id_cav" value="<?= $data["id_personne"] ?>" >
                                     <input type="hidden" name="action" value="add" >
@@ -189,6 +190,7 @@ require $headerpath;
                                 </form>
                                 <?php }else { ?>
                                     <form action="ParticipationController.php" method="post">
+                                         <input type="hidden" name="cav_id" value="<?= $data["id_personne"] ?>" >
                                         <input type="hidden" name="id_cours" value="<?= $c["id_cours"] ?>" >
                                         <input type="hidden" name="id_cav" value="<?= $data["id_personne"] ?>" >
                                         <input type="hidden" name="action" value="delete" >
@@ -225,6 +227,7 @@ require $headerpath;
                         <td><?= substr($p["end_event"],-8,-3) ?></td>
                         <td>
                             <form action="ParticipationController.php" method="post">
+                                <input type="hidden" name="cav_id" value="<?= $data["id_personne"] ?>" >
                                 <input type="hidden" name="id_cours" value="<?= $p["id_cour"] ?>" >
                                 <input type="hidden" name="id_week_cour" value="<?= $p["id_week_cour"] ?>" >
                                 <input type="hidden" name="id_cav" value="<?= $data["id_personne"] ?>" >
@@ -259,6 +262,7 @@ require $headerpath;
                         <td><?= substr($p["end_event"],-8,-3) ?></td>
                         <td>
                             <form action="ParticipationController.php" method="post">
+                                <input type="hidden" name="cav_id" value="<?= $data["id_personne"] ?>" >
                                 <input type="hidden" name="id_cours" value="<?= $p["id_cour"] ?>" >
                                 <input type="hidden" name="id_week_cour" value="<?= $p["id_week_cour"] ?>" >
                                 <input type="hidden" name="id_cav" value="<?= $data["id_personne"] ?>" >

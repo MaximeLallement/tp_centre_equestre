@@ -196,8 +196,8 @@ $( function() {
   }   
 </style>  
 
-<div id="dialog-form" title="Create new user">
-  <p class="validateTips">All form fields are required.</p>
+<div id="dialog-form" title="Ajoute un nouveau cour">
+  <p class="validateTips">Tous le champs sont requis</p>
  
   <form>
     <fieldset>
@@ -205,9 +205,9 @@ $( function() {
       <input type="text" name="title" id="title" value="" class="text ui-widget-content ui-corner-all"></br>
       <label for="date_end">Date de Fin</label>
       <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}" name="date_end" id="date_end" value="" class="text ui-widget-content ui-corner-all">
-      <label for="start_event">Début de l'event</label>
+      <label for="start_event">Début du cour</label>
       <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}" name="start_event" id="start_event" value="" class="text ui-widget-content ui-corner-all">
-      <label for="end_event">Fin de l'event</label>
+      <label for="end_event">Fin du cour</label>
       <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}" name="end_event" id="end_event" value="" class="text ui-widget-content ui-corner-all">
       <!-- Allow form submission with keyboard without duplicating the dialog button -->
       <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">

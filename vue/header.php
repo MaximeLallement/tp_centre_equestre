@@ -1,4 +1,5 @@
 <?php 
+//isset($_SESSION) ? var_dump($_SESSION) : null;
 /** RÉCUPÉRATION DES VARIABLES */
 // récupération du répertoir
 $base_dir = __DIR__;

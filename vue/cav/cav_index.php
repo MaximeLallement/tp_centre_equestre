@@ -42,7 +42,7 @@
         ?>
             <!-- Dialog box -->
             <!-- Permet l'ouverture d'une boite de dialogue pour confirmer l'exécution d'une action -->
-            <!--
+            
             <div id="dialog<?= $cav["id_personne"]; ?>" title="Voulez-vous réellement MODIFIER cet utilisateur ?"></div>
             <script>
                 $(function() {
@@ -88,7 +88,7 @@
                     })
                 });
             </script>
-            -->
+            
             <!-- Dialog box -->
 
             <tr >

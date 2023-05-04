@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
@@ -353,7 +352,7 @@ ALTER TABLE `tp_centre_equestre`.`cours`
 ADD COLUMN `title` VARCHAR(45) NOT NULL AFTER `start_event`,
 ADD COLUMN `actif` TINYINT NOT NULL DEFAULT 1 AFTER `title`,
 CHANGE COLUMN `libelle_cours` `id_week_cours` INT NOT NULL ,
-CHANGE COLUMN `date_cours` `end_event` DATETIME NOT NULL ,
+CHANGE COLUMN `date_cours` `end_event` DATETIME NOT NULL,
 CHANGE COLUMN `duree_cours` `start_event` DATETIME NOT NULL ,
 DROP PRIMARY KEY,
 ADD PRIMARY KEY (`id_cours`, `id_week_cours`);
